@@ -7,7 +7,12 @@ A clean pandoc LaTeX template to convert your markdown files to PDF or LaTeX.
 ## Installation
 
 1. Install pandoc from <http://pandoc.org/>. You also need to install [LaTeX](https://en.wikibooks.org/wiki/LaTeX/Installation#Distributions).
-2. Move the template `eisvogel.latex` to your pandoc templates folder at `~/.pandoc/templates/`.
+2. Move the template `eisvogel.latex` to your pandoc templates folder. The location of the templates folder depends on your operating system:
+	- Unix, Linux, macOS: `~/.pandoc/templates/`
+	- Windows XP: `C:\Documents And Settings\USERNAME\Application Data\pandoc`
+	- Windows Vista or later: `C:\Users\USERNAME\AppData\Roaming\pandoc`
+	
+	If there are no folders called `templates` or `pandoc` you need to create them and put the template `eisvogel.latex` inside.
 
 ## Usage
 
@@ -15,12 +20,12 @@ A clean pandoc LaTeX template to convert your markdown files to PDF or LaTeX.
 2. Execute the following command
     
     ```bash
-    pandoc Myfile.md -o Myfile.pdf --from markdown --template eisvogel --listings --latexmathml
+    pandoc example.md -o example.pdf --from markdown --template eisvogel --listings --latexmathml
     ```
     
-    where `MyFile.md` is the markdown file you want to convert to PDF.
+    where `example.md` is the markdown file you want to convert to PDF.
 
-In order to have nice headers and footers you need to supply metadata to your Document. You can do that with a [YAML metadata block](http://pandoc.org/MANUAL.html#extension-yaml_metadata_block) at the top of your markdown document (see the [example markdown file](example/example.md)). Your markdown document may look like the following:
+In order to have nice headers and footers you need to supply metadata to your document. You can do that with a [YAML metadata block](http://pandoc.org/MANUAL.html#extension-yaml_metadata_block) at the top of your markdown document (see the [example markdown file](example/example.md)). Your markdown document may look like the following:
 
 ```markdown
 ---
