@@ -314,12 +314,6 @@ $endif$
 %\definecolor{listing-javadoc-comment}{HTML}{006CA9}
 
 %
-% TikZ graphics
-%
-%\usepackage{tikz}
-%\usepackage{tikzpagenodes}
-
-%
 % TOC depth and 
 % section numbering depth
 %
@@ -392,11 +386,6 @@ $endif$
 %\usepackage{framed}
 
 %
-% float environment with option H
-%
-%\usepackage{float}
-
-%
 % tables
 %
 \usepackage{booktabs} % needed for midrule
@@ -417,7 +406,7 @@ $endif$
 %
 %
 
-\lstdefinestyle{custom_listing_style}{
+\lstdefinestyle{eisvogel_listing_style}{
   language=java,
   numbers=left,
   backgroundcolor=\color{listing-background},
@@ -455,7 +444,7 @@ $endif$
   {€}{{\EUR}}1 {£}{{\pounds}}1 {«}{{\guillemotleft}}1
   {»}{{\guillemotright}}1 {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?`}}1
 }
-\lstset{style=custom_listing_style}
+\lstset{style=eisvogel_listing_style}
 
 \lstdefinelanguage{XML}
 {
@@ -470,12 +459,6 @@ $endif$
   stringstyle=\color{listing-string},
   identifierstyle=\color{listing-identifier}
 }
-
-%
-% accessibility
-%
-%\usepackage{cmap}
-%\pdfinterwordspaceon
 
 %
 % header and footer
