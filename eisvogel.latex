@@ -407,6 +407,7 @@ $endif$
 %
 %
 
+$if(listings)$
 \lstdefinestyle{eisvogel_listing_style}{
   language=java,
   numbers=left,
@@ -460,6 +461,7 @@ $endif$
   stringstyle=\color{listing-string},
   identifierstyle=\color{listing-identifier}
 }
+$endif$
 
 %
 % header and footer
