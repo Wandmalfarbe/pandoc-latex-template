@@ -284,7 +284,9 @@ $endif$
 %
 % language
 %
+$if(lang)$$else$
 \usepackage[ngerman]{babel}
+$endif$
 
 %
 % colors
