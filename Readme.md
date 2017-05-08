@@ -41,3 +41,45 @@ tags: [Markdown, Example]
 
 Here is the actual document text...
 ```
+
+## Examples
+
+1. For PDFs with [numbered sections](options-affecting-specific-writers) use the `--number-sections` or `-N` option.
+	
+	```bash
+	pandoc example.md -o example.pdf --template eisvogel --number-sections --listings
+	```
+2. You can get syntax highlighting of delimited code blocks by using the LaTeX package listings. This example will produce the same syntax highlighting as in the example PDF.
+	
+	```bash
+	pandoc example.md -o example.pdf --template eisvogel --listings
+	```
+3. The following examples show [syntax highlighting of delimited code blocks](http://pandoc.org/MANUAL.html#syntax-highlighting) without using listings. To see a list of all the supported highlight styles, type `pandoc --list-highlight-styles`.
+	
+	```bash
+	pandoc example.md -o example.pdf --template eisvogel --highlight-style pygments
+	```
+	```bash
+	pandoc example.md -o example.pdf --template eisvogel --highlight-style kate
+	```
+	```bash
+	pandoc example.md -o example.pdf --template eisvogel --highlight-style espresso
+	```
+	```bash
+	pandoc example.md -o example.pdf --template eisvogel --highlight-style tango
+	```
+4. Produce a standalone LaTeX document for compiling with any LaTeX editor:
+	
+	```bash
+	pandoc example.md -o example.tex --template eisvogel --listings
+	```
+5. [Change the main document language](http://pandoc.org/MANUAL.html#language-variables) to British English. The default language of this template is German. The `lang` variable identifies the main language of the document, using a code according to [BCP 47](https://tools.ietf.org/html/bcp47) (e.g. en or en-GB)
+	
+	```bash
+	pandoc example.md -o example.pdf --template eisvogel -V lang=en-GB
+	```
+5. [Change the main document language](http://pandoc.org/MANUAL.html#language-variables) to American English.
+	
+	```bash
+	pandoc example.md -o example.pdf --template eisvogel -V lang=en-US
+	```
