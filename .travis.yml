@@ -1,0 +1,10 @@
+sudo: required
+dist: trusty
+language: r
+pandoc_version: 1.19.2.1
+install:
+  - tlmgr install babel-german ly1 mweights sourcecodepro sourcesanspro 
+before_script:
+  - cd example
+script:
+  - pandoc example.md -o example.pdf --from markdown --template "../eisvogel.latex" --listings

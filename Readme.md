@@ -1,5 +1,6 @@
 # Eisvogel
 
+[![Build Status](https://travis-ci.org/Wandmalfarbe/pandoc-latex-template.svg?branch=master)](https://travis-ci.org/Wandmalfarbe/pandoc-latex-template)
 [![Download the preview PDF](https://img.shields.io/badge/download-example_PDF-green.svg)](example/example.pdf)
 
 A clean **pandoc LaTeX template** to convert your markdown files to PDF or LaTeX. It is designed for lecture notes and exercises with a focus on computer science.
