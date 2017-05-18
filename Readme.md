@@ -7,7 +7,7 @@ A clean **pandoc LaTeX template** to convert your markdown files to PDF or LaTeX
 
 ## Preview
 
-[![A preview of a PDF rendered with the Eisvogel template.](example/example.png)](example/example.pdf)
+[![A preview of a PDF rendered with the Eisvogel template.](examples/basic-example/basic-example.png)](examples/basic-example/basic-example.pdf)
 
 ## Installation
 
@@ -30,7 +30,7 @@ A clean **pandoc LaTeX template** to convert your markdown files to PDF or LaTeX
     
     where `example.md` is the markdown file you want to convert to PDF.
 
-In order to have nice headers and footers you need to supply metadata to your document. You can do that with a [YAML metadata block](http://pandoc.org/MANUAL.html#extension-yaml_metadata_block) at the top of your markdown document (see the [example markdown file](example/example.md)). Your markdown document may look like the following:
+In order to have nice headers and footers you need to supply metadata to your document. You can do that with a [YAML metadata block](http://pandoc.org/MANUAL.html#extension-yaml_metadata_block) at the top of your markdown document (see the [example markdown file](examples/basic-example/basic-example.md)). Your markdown document may look like the following:
 
 ```markdown
 ---
