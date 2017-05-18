@@ -346,7 +346,7 @@ $endif$
 % paper size and 
 % margins
 %
-\usepackage[a4paper,margin=2.5cm, left=3cm,includehead=true,includefoot=true,centering]{geometry}
+\usepackage[$if(papersize)$$papersize$paper,$else$a4paper,$endif$margin=2.5cm,includehead=true,includefoot=true,centering]{geometry}
 
 %
 % captions
