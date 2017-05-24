@@ -7,7 +7,9 @@ A clean **pandoc LaTeX template** to convert your markdown files to PDF or LaTeX
 
 ## Preview
 
-[![A preview of a PDF rendered with the Eisvogel template.](examples/basic-example/basic-example.png)](examples/basic-example/basic-example.pdf)
+A custom title page      |  A basic example page
+:-------------------------:|:-------------------------:
+[![A custom title page](examples/custom-titlepage/custom-titlepage.png)](examples/custom-titlepage/custom-titlepage.png)  |  [![A basic example page](examples/basic-example/basic-example.png)](examples/basic-example/basic-example.png)
 
 ## Installation
 
@@ -101,3 +103,7 @@ The following example changes the language to American English:
 ```bash
 pandoc example.md -o example.pdf --template eisvogel -V lang=en-US
 ```
+
+## License
+
+This project is open source licensed under the BSD 3-Clause License. Please see the [LICENSE file](LICENSE) for more information.
