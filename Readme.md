@@ -9,7 +9,7 @@ A clean **pandoc LaTeX template** to convert your markdown files to PDF or LaTeX
 
 A custom title page      |  A basic example page
 :-------------------------:|:-------------------------:
-[![A custom title page](examples/custom-titlepage/custom-titlepage.png)](examples/custom-titlepage/custom-titlepage.png)  |  [![A basic example page](examples/basic-example/basic-example.png)](examples/basic-example/basic-example.png)
+[![A custom title page](examples/custom-titlepage/custom-titlepage.png)](examples/custom-titlepage/custom-titlepage.pdf)  |  [![A basic example page](examples/basic-example/basic-example.png)](examples/basic-example/basic-example.pdf)
 
 ## Installation
 
