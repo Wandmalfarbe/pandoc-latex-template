@@ -318,6 +318,14 @@ $endif$
 %\definecolor{listing-javadoc-comment}{HTML}{006CA9}
 
 %
+% for the background color of the title page
+%
+$if(titlepage)$
+\usepackage{pagecolor}
+\usepackage{afterpage}
+$endif$
+
+%
 % TOC depth and 
 % section numbering depth
 %
@@ -496,7 +504,8 @@ $if(titlepage)$
 \begin{titlepage}
 \newgeometry{left=6cm}
 $if(titlepage-color)$
-\pagecolor[HTML]{$titlepage-color$}
+\definecolor{titlepage-color}{HTML}{$titlepage-color$}
+\newpagecolor{titlepage-color}\afterpage{\restorepagecolor}
 $endif$
 \newcommand{\colorRule}[3][black]{\textcolor[HTML]{#1}{\rule{#2}{#3}}}
 \begin{flushleft}
@@ -524,7 +533,6 @@ $endif$
 \end{flushleft}
 \end{titlepage}
 \restoregeometry
-\nopagecolor
 $endif$
 
 %%
