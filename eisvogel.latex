@@ -515,7 +515,7 @@ $if(subtitle)$
 $endif$
 \vskip 2em
 \noindent
-{\Large \textsf{\uppercase{$for(author)$$author$$sep$ \and $endfor$}}
+{\Large \textsf{\uppercase{$for(author)$$author$$sep$, $endfor$}}
 \vfill
 }
 
