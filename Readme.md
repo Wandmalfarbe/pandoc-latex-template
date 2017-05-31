@@ -92,16 +92,16 @@ pandoc example.md -o example.tex --template eisvogel
 
 ### Changing the Document Language
 
-The default language of this template is German. The `lang` variable identifies the main language of the document, using a code according to [BCP 47](https://tools.ietf.org/html/bcp47) (e.g. `en` or `en-GB`). For an incomplete list of the supported language code see [the documentation for the hyph-utf8 package (Section 2)](http://tug.ctan.org/language/hyph-utf8/doc/generic/hyph-utf8/hyphenation.pdf). The following example changes the language to British English:
+The default language of this template is American English. The `lang` variable identifies the main language of the document, using a code according to [BCP 47](https://tools.ietf.org/html/bcp47) (e.g. `en` or `en-GB`). For an incomplete list of the supported language code see [the documentation for the hyph-utf8 package (Section 2)](http://tug.ctan.org/language/hyph-utf8/doc/generic/hyph-utf8/hyphenation.pdf). The following example changes the language to British English:
 	
 ```bash
 pandoc example.md -o example.pdf --template eisvogel -V lang=en-GB
 ```
 	
-The following example changes the language to American English:
+The following example changes the language to German:
 	
 ```bash
-pandoc example.md -o example.pdf --template eisvogel -V lang=en-US
+pandoc example.md -o example.pdf --template eisvogel -V lang=de
 ```
 
 ## License
