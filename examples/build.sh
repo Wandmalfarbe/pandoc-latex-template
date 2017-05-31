@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 pandoc "basic-example/basic-example.md"         -o "basic-example/basic-example.pdf"         --from markdown --template "../eisvogel.latex" --listings
 pdftoppm -r 150 -png "basic-example/basic-example.pdf" > "basic-example/basic-example.png"
@@ -16,8 +17,9 @@ pdftoppm -r 150 -png "german/german.pdf" > "german/german.png"
 
 # No lang option (-V lang=jp) here because it's
 # unspported in XeLaTex (in polyglossia).
-pandoc "japanese/japanese.md" -o "japanese/japanese.pdf" --from markdown --template "../eisvogel.latex" --listings --latex-engine=xelatex -V lang=en-us -V CJKmainfont="HiraginoSans-W4"
-pdftoppm -r 150 -png "japanese/japanese.pdf" > "japanese/japanese.png"
+# These commands are disabled because the CJK font isn't available on travis.
+#pandoc "japanese/japanese.md" -o "japanese/japanese.pdf" --from markdown --template "../eisvogel.latex" --listings --latex-engine=xelatex -V lang=en-us -V CJKmainfont="HiraginoSans-W4"
+#pdftoppm -r 150 -png "japanese/japanese.pdf" > "japanese/japanese.png"
 
 pandoc "listings/listings.md" -o "listings/listings.pdf" --from markdown --template "../eisvogel.latex" --listings
 pdftoppm -r 150 -png "listings/listings.pdf" > "listings/listings.png"

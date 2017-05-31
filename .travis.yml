@@ -4,7 +4,7 @@ language: r
 pandoc_version: 1.19.2.1
 install:
   - sudo apt-get install poppler-utils 
-  - tlmgr install pagecolor babel-german ly1 mweights sourcecodepro sourcesanspro 
+  - tlmgr install xecjk filehook unicode-math ucharcat pagecolor babel-german ly1 mweights sourcecodepro sourcesanspro 
 before_script:
   - cd examples
 script:
