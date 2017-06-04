@@ -376,12 +376,13 @@ $endif$
 \newcommand{\imglabel}[1]{\textbf{\textit{(#1)}}}
 
 %
-% sans-serif font as default font for text
-% Source Sans Pro for headings
+% Source Sans Pro as the de­fault font fam­ily
 % Source Code Pro for monospace text
 %
-\renewcommand*{\familydefault}{\sfdefault}
-\usepackage{sourcesanspro}
+% 'default' option sets the default 
+% font family to Source Sans Pro, not \sfdefault.
+%
+\usepackage[default]{sourcesanspro}
 \usepackage{sourcecodepro}
 
 %
