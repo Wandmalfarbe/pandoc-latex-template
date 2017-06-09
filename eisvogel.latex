@@ -413,7 +413,7 @@ $endif$
 %
 % tables
 %
-\usepackage{booktabs} % needed for midrule
+$if(tables)$
 \usepackage{tabularx}
 \renewcommand{\arraystretch}{1.6} % table spacing
 
@@ -426,6 +426,7 @@ $endif$
 \let\endoldlongtable\endlongtable
 \renewenvironment{longtable}{\rowcolors{2}{white}{table-gray}\oldlongtable} {
 \endoldlongtable}
+$endif$
 
 %
 % remove paragraph indention
