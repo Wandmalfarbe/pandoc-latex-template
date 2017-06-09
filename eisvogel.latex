@@ -417,6 +417,15 @@ $endif$
 \usepackage{tabularx}
 \renewcommand{\arraystretch}{1.6} % table spacing
 
+%
+% tables alternate row colors
+% https://tex.stackexchange.com/questions/61747/how-to-apply-alternate-row-coloring-in-a-longtable-in-lyx
+%
+\definecolor{table-gray}{HTML}{F5F5F5}
+\let\oldlongtable\longtable
+\let\endoldlongtable\endlongtable
+\renewenvironment{longtable}{\rowcolors{2}{white}{table-gray}\oldlongtable} {
+\endoldlongtable}
 
 %
 % remove paragraph indention
