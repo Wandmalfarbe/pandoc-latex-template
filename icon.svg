@@ -17,8 +17,8 @@
    viewBox="0 0 512 512"
    sodipodi:docname="icon.svg"
    inkscape:export-filename="/Users/Pascal/Documents/Git/pandoc-latex-template/icon.png"
-   inkscape:export-xdpi="45"
-   inkscape:export-ydpi="45">
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
   <metadata
      id="metadata8">
     <rdf:RDF>
@@ -27,7 +27,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -47,7 +47,7 @@
      id="namedview4"
      showgrid="false"
      inkscape:zoom="1"
-     inkscape:cx="264.96511"
+     inkscape:cx="90.96511"
      inkscape:cy="209.72179"
      inkscape:current-layer="svg2"
      showguides="false" />
