@@ -1,3 +1,5 @@
+<img src="icon.png" align="right" height="110"/>
+
 # Eisvogel
 
 [![Build Status](https://travis-ci.org/Wandmalfarbe/pandoc-latex-template.svg?branch=master)](https://travis-ci.org/Wandmalfarbe/pandoc-latex-template)
