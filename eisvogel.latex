@@ -33,6 +33,11 @@
 % POSSIBILITY OF SUCH DAMAGE.
 %%
 
+%%
+% For usage information and examples visit the GitHub page of this template:
+% https://github.com/Wandmalfarbe/pandoc-latex-template
+%%
+
 \documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$paper,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{scrartcl}
 $if(beamerarticle)$
 \usepackage{beamerarticle} % needs to be loaded first
@@ -414,18 +419,16 @@ $endif$
 % tables
 %
 $if(tables)$
-\usepackage{tabularx}
-\renewcommand{\arraystretch}{1.6} % table spacing
-
-%
-% tables alternate row colors
-% https://tex.stackexchange.com/questions/61747/how-to-apply-alternate-row-coloring-in-a-longtable-in-lyx
-%
+\renewcommand{\arraystretch}{1.4} % table spacing
 \definecolor{table-gray}{HTML}{F5F5F5}
-\let\oldlongtable\longtable
-\let\endoldlongtable\endlongtable
-\renewenvironment{longtable}{\rowcolors{2}{white}{table-gray}\oldlongtable} {
-\endoldlongtable}
+\rowcolors{3}{white!100!white}{table-gray!100!white!100}
+% Unfortunately the colored cells extend beyond the edge of the 
+% table because pandoc uses @-expressions (@{}) like so: 
+%
+% \begin{longtable}[]{@{}ll@{}}
+% \end{longtable}
+%
+% https://en.wikibooks.org/wiki/LaTeX/Tables#.40-expressions
 $endif$
 
 %
