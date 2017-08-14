@@ -38,7 +38,7 @@
 % https://github.com/Wandmalfarbe/pandoc-latex-template
 %%
 
-\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$paper,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{scrartcl}
+\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$paper,$else$a4paper,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{scrartcl}
 $if(beamerarticle)$
 \usepackage{beamerarticle} % needs to be loaded first
 $endif$
@@ -156,7 +156,9 @@ $if(verbatim-in-note)$
 \VerbatimFootnotes % allows verbatim text in footnotes
 $endif$
 $if(geometry)$
-\usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
+\usepackage[margin=2.5cm,includehead=true,includefoot=true,centering,$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
+$else$
+\usepackage[margin=2.5cm,includehead=true,includefoot=true,centering]{geometry}
 $endif$
 $if(natbib)$
 \usepackage{natbib}
@@ -367,12 +369,6 @@ $endif$
 % to ensure that quoted texts are typeset according to the rules of your main language.
 %
 \usepackage{csquotes}
-
-%
-% paper size and 
-% margins
-%
-\usepackage[$if(papersize)$$papersize$paper,$else$a4paper,$endif$margin=2.5cm,includehead=true,includefoot=true,centering]{geometry}
 
 %
 % captions
