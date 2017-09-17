@@ -1,35 +1,35 @@
 %%
-% Copyright (c) 2017, Pascal Wagler;  
+% Copyright (c) 2017, Pascal Wagler;
 % Copyright (c) 2014--2017, John MacFarlane
-% 
+%
 % All rights reserved.
-% 
-% Redistribution and use in source and binary forms, with or without 
-% modification, are permitted provided that the following conditions 
+%
+% Redistribution and use in source and binary forms, with or without
+% modification, are permitted provided that the following conditions
 % are met:
-% 
-% - Redistributions of source code must retain the above copyright 
+%
+% - Redistributions of source code must retain the above copyright
 % notice, this list of conditions and the following disclaimer.
-% 
-% - Redistributions in binary form must reproduce the above copyright 
-% notice, this list of conditions and the following disclaimer in the 
+%
+% - Redistributions in binary form must reproduce the above copyright
+% notice, this list of conditions and the following disclaimer in the
 % documentation and/or other materials provided with the distribution.
-% 
-% - Neither the name of John MacFarlane nor the names of other 
-% contributors may be used to endorse or promote products derived 
+%
+% - Neither the name of John MacFarlane nor the names of other
+% contributors may be used to endorse or promote products derived
 % from this software without specific prior written permission.
-% 
-% THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 
-% "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT 
-% LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS 
-% FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE 
-% COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, 
+%
+% THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+% "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+% LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+% FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+% COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
 % INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-% BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
-% LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
-% CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT 
-% LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN 
-% ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+% BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+% LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+% CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+% LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+% ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 % POSSIBILITY OF SUCH DAMAGE.
 %%
 
@@ -438,7 +438,7 @@ $if(titlepage)$
 $endif$
 
 %
-% TOC depth and 
+% TOC depth and
 % section numbering depth
 %
 \setcounter{tocdepth}{3}
@@ -458,10 +458,20 @@ $endif$
 \PassOptionsToPackage{hyphens}{url}
 
 %
-% When using babel or polyglossia with biblatex, loading csquotes is recommended 
+% When using babel or polyglossia with biblatex, loading csquotes is recommended
 % to ensure that quoted texts are typeset according to the rules of your main language.
 %
 \usepackage{csquotes}
+
+%
+% Quotes
+%
+\usepackage{framed}
+\usepackage{xcolor}
+\let\oldquote=\quote
+\let\endoldquote=\endquote
+\colorlet{shadecolor}{blue!15}
+\renewenvironment{quote}{\begin{shaded*}\begin{oldquote}}{\end{oldquote}\end{shaded*}}
 
 %
 % captions
@@ -473,7 +483,7 @@ $endif$
 % Source Sans Pro as the de­fault font fam­ily
 % Source Code Pro for monospace text
 %
-% 'default' option sets the default 
+% 'default' option sets the default
 % font family to Source Sans Pro, not \sfdefault.
 %
 \usepackage[default]{sourcesanspro}
@@ -511,8 +521,8 @@ $if(tables)$
 \renewcommand{\arraystretch}{1.4} % table spacing
 \definecolor{table-gray}{HTML}{F5F5F5}
 \rowcolors{3}{white!100!white}{table-gray!100!white!100}
-% Unfortunately the colored cells extend beyond the edge of the 
-% table because pandoc uses @-expressions (@{}) like so: 
+% Unfortunately the colored cells extend beyond the edge of the
+% table because pandoc uses @-expressions (@{}) like so:
 %
 % \begin{longtable}[]{@{}ll@{}}
 % \end{longtable}
