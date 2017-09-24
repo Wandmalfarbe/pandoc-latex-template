@@ -15,7 +15,7 @@ A custom title page      |  A basic example page
 ## Installation
 
 1. Install pandoc from <http://pandoc.org/>. You also need to install [LaTeX](https://en.wikibooks.org/wiki/LaTeX/Installation#Distributions).
-2. Move the template `eisvogel.latex` to your pandoc templates folder. The location of the templates folder depends on your operating system:
+2. Move the template `eisvogel.tex` to your pandoc templates folder and rename the file to `eisvogel.latex`.The location of the templates folder depends on your operating system:
 	- Unix, Linux, macOS: `~/.pandoc/templates/`
 	- Windows XP: `C:\Documents And Settings\USERNAME\Application Data\pandoc`
 	- Windows Vista or later: `C:\Users\USERNAME\AppData\Roaming\pandoc`
