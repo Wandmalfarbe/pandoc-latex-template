@@ -409,14 +409,14 @@ $endif$
 %
 % listing colors
 %
-\definecolor{listing-background}{rgb}{0.97,0.97,0.97}
+\definecolor{listing-background}{HTML}{F7F7F7}
 \definecolor{listing-rule}{HTML}{B3B2B3}
 \definecolor{listing-numbers}{HTML}{B3B2B3}
 \definecolor{listing-text-color}{HTML}{000000}
 \definecolor{listing-keyword}{HTML}{435489}
 \definecolor{listing-identifier}{HTML}{435489}
-\definecolor{listing-string}{HTML}{00999a}
-\definecolor{listing-comment}{HTML}{8e8e8e}
+\definecolor{listing-string}{HTML}{00999A}
+\definecolor{listing-comment}{HTML}{8E8E8E}
 \definecolor{listing-javadoc-comment}{HTML}{006CA9}
 
 %\definecolor{listing-background}{rgb}{0.97,0.97,0.97}
@@ -535,30 +535,30 @@ $endif$
 
 $if(listings)$
 \lstdefinestyle{eisvogel_listing_style}{
-  language=java,
-  numbers=left,
-  backgroundcolor=\color{listing-background},
-  basicstyle=\color{listing-text-color}\small\ttfamily{}, % print whole listing small
-  xleftmargin=0.8em, % 2.8 with line numbers
-  breaklines=true,
-  frame=single,
-  framesep=0.6mm,
-  rulecolor=\color{listing-rule},
-  frameround=ffff,
-  framexleftmargin=0.4em, % 2.4 with line numbers | 0.4 without them
-  tabsize=4, %width of tabs
-  numberstyle=\color{listing-numbers},
-  aboveskip=1.0em,
-  keywordstyle=\color{listing-keyword}\bfseries, % underlined bold black keywords
-  classoffset=0,
-  sensitive=true,
-  identifierstyle=\color{listing-identifier}, % nothing happens
-  commentstyle=\color{listing-comment}, % white comments
-  morecomment=[s][\color{listing-javadoc-comment}]{/**}{*/},
-  stringstyle=\color{listing-string}, % typewriter type for strings
-  showstringspaces=false, % no special string spaces
-  escapeinside={/*@}{@*/}, % for comments
-  literate=
+  language         = java,
+  numbers          = left,
+  backgroundcolor  = \color{listing-background},
+  basicstyle       = \color{listing-text-color}\small\ttfamily{}\linespread{1.15}, % print whole listing small
+  xleftmargin      = 0.8em,
+  breaklines       = true,
+  frame            = single,
+  framesep         = 0.6mm,
+  rulecolor        = \color{listing-rule},
+  frameround       = ffff,
+  framexleftmargin = 0.4em,
+  tabsize          = 4,
+  numberstyle      = \color{listing-numbers},
+  aboveskip        = 1.0em,
+  keywordstyle     = \color{listing-keyword}\bfseries,
+  classoffset      = 0,
+  sensitive        = true,
+  identifierstyle  = \color{listing-identifier},
+  commentstyle     = \color{listing-comment},
+  morecomment      = [s][\color{listing-javadoc-comment}]{/**}{*/},
+  stringstyle      = \color{listing-string},
+  showstringspaces = false,
+  escapeinside     = {/*@}{@*/}, % Allow LaTeX inside these special comments
+  literate         =
   {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
   {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
   {à}{{\`a}}1 {è}{{\'e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
@@ -576,18 +576,17 @@ $if(listings)$
 }
 \lstset{style=eisvogel_listing_style}
 
-\lstdefinelanguage{XML}
-{
-  morestring=[b]",
-  moredelim=[s][\bfseries\color{listing-keyword}]{<}{\ },
-  moredelim=[s][\bfseries\color{listing-keyword}]{</}{>},
-  moredelim=[l][\bfseries\color{listing-keyword}]{/>},
-  moredelim=[l][\bfseries\color{listing-keyword}]{>},
-  morecomment=[s]{<?}{?>},
-  morecomment=[s]{<!--}{-->},
-  commentstyle=\color{listing-comment},
-  stringstyle=\color{listing-string},
-  identifierstyle=\color{listing-identifier}
+\lstdefinelanguage{XML}{
+  morestring      = [b]",
+  moredelim       = [s][\bfseries\color{listing-keyword}]{<}{\ },
+  moredelim       = [s][\bfseries\color{listing-keyword}]{</}{>},
+  moredelim       = [l][\bfseries\color{listing-keyword}]{/>},
+  moredelim       = [l][\bfseries\color{listing-keyword}]{>},
+  morecomment     = [s]{<?}{?>},
+  morecomment     = [s]{<!--}{-->},
+  commentstyle    = \color{listing-comment},
+  stringstyle     = \color{listing-string},
+  identifierstyle = \color{listing-identifier}
 }
 $endif$
 
