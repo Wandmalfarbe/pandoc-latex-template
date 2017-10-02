@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-cp "../eisvogel.latex" "../eisvogel.tex"
+cp "../eisvogel.tex" "../eisvogel.latex"
 
 pandoc "basic-example/basic-example.md"         -o "basic-example/basic-example.pdf"         --from markdown --template "../eisvogel.latex" --listings
 pdftoppm -r 150 -png "basic-example/basic-example.pdf" > "basic-example/basic-example.png"
