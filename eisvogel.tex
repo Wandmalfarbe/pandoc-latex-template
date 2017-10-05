@@ -306,10 +306,9 @@ $else$
 $endif$
 $endif$
 
-% set default figure placement to htbp
-\makeatletter
-\def\fps@figure{htbp}
-\makeatother
+% Make use of float-package and set default placement for figures to H
+\usepackage{float}
+\floatplacement{figure}{H}
 
 $for(header-includes)$
 $header-includes$
