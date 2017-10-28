@@ -27,3 +27,6 @@ pdftoppm -r 150 -png "listings/listings.pdf" > "listings/listings.png"
 
 pandoc "without-listings/without-listings.md" -o "without-listings/without-listings.pdf" --from markdown --template "../eisvogel.latex" --highlight-style kate
 pdftoppm -r 150 -png "without-listings/without-listings.pdf" > "without-listings/without-listings.png"
+
+pandoc "green-titlepage/green-titlepage.md"   -o "green-titlepage/green-titlepage.pdf"   --from markdown --template "../eisvogel.latex" --listings
+pdftoppm -r 150 -png "green-titlepage/green-titlepage.pdf" > "green-titlepage/green-titlepage.png"

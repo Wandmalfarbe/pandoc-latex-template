@@ -105,6 +105,12 @@ The following example changes the language to German:
 pandoc example.md -o example.pdf --template eisvogel -V lang=de
 ```
 
+### More Examples
+
+A green title page      |  Code blocks styled with listings
+:-------------------------:|:-------------------------:
+[![A green title page](examples/green-titlepage/green-titlepage.png)](examples/green-titlepage/green-titlepage.pdf)  |  [![Code blocks styled with listings](examples/listings/listings.png)](examples/listings/listings.pdf)
+
 ## License
 
 This project is open source licensed under the BSD 3-Clause License. Please see the [LICENSE file](LICENSE) for more information.
