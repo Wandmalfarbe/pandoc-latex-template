@@ -479,17 +479,13 @@ $endif$
 \usepackage{sourcecodepro}
 
 %
-% heading font
-%
-\newcommand*{\heading}{\fontfamily{\sfdefault}\selectfont}
-
-%
 % heading color
 %
-\usepackage{relsize}
-\usepackage{sectsty}
-\definecolor{almostblack}{RGB}{40,40,40}
-\allsectionsfont{\sffamily\color{almostblack}}
+\definecolor{heading-color}{RGB}{40,40,40}
+\addtokomafont{section}{\color{heading-color}}
+% When using the classes report, scrreprt, book, 
+% scrbook or memoir, uncomment the following line.
+%\addtokomafont{chapter}{\color{heading-color}}
 
 %
 % variables for title and author
