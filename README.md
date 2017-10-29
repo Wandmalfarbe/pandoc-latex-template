@@ -46,6 +46,26 @@ tags: [Markdown, Example]
 Here is the actual document text...
 ```
 
+### Custom Template Variables
+
+This template defines some new variables to control the appearance of the title page. The existing template variables from pandoc are all supported and their documentation can be found in [the pandoc manual](https://pandoc.org/MANUAL.html#variables-for-latex).
+
+- `titlepage` default=`false`
+    
+    turns on the title page when `true`
+- `titlepage-color`
+    
+    the background color of the title page. The color value must be given as an HTML hex color like `D8DE2C` without the leading number sign (`#`). When specifying the color in YAML, it is advisable to enclose it in quotes like so `titlepage-color: "D8DE2C"` to avoid the truncation of the color (e.g. `000000` becoming `0`).
+- `titlepage-text-color` default=`5F5F5F`
+    
+    the text color of the title page
+- `titlepage-rule-color` default=`435488`
+    
+    the color of the rule on the top of the title page
+- `titlepage-rule-height` default=`4`
+    
+    the height of the rule on the top of the title page (in points)
+
 ## Examples
 
 ### Numbered Sections
@@ -105,7 +125,15 @@ The following example changes the language to German:
 pandoc example.md -o example.pdf --template eisvogel -V lang=de
 ```
 
-### More Examples
+### Typesetting a Book
+
+The template uses the default KOMA-Script class `scrartcl` as the document class because it has some advantages over the default `article` class. For typesetting a book I recommend the corresponding KOMA-Script class `scrbook` instead of the default `book`. You can manually replace the string `scrartcl` in the template with `scrbook`.
+
+To get the correct chapter headings you need to tell pandoc that it should convert first level headings (indicated by one `#` in markdown) to chapters with the command line option `--top-level-division=chapter`.
+
+There will be one blank page before each chapter because the template is two-sided per default. So if you plan to publish your book as a PDF and don't need a blank page you should add the class option `onesided` which can be done by supplying a template variable `-V classoption=oneside`.
+
+### Example Images
 
 A green title page      |  Code blocks styled with listings
 :-------------------------:|:-------------------------:
