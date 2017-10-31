@@ -30,3 +30,12 @@ pdftoppm -r 150 -png "without-listings/without-listings.pdf" > "without-listings
 
 pandoc "green-titlepage/green-titlepage.md"   -o "green-titlepage/green-titlepage.pdf"   --from markdown --template "../eisvogel.latex" --listings
 pdftoppm -r 150 -png "green-titlepage/green-titlepage.pdf" > "green-titlepage/green-titlepage.png"
+
+# create a new template file for typesetting books
+cp "../eisvogel.tex" "../eisvogel-book.latex"
+
+# replace the document class `scrartcl` with `scrbook
+sed -i '' 's/scrartcl/scrbook/g' "../eisvogel-book.latex"
+
+pandoc "book/book.md" -o "book/book.pdf" --from markdown --template "../eisvogel-book.latex" --listings -V classoption=oneside --top-level-division=chapter 
+pdftoppm -r 150 -png "book/book.pdf" > "book/book.png"
