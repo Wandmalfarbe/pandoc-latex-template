@@ -32,7 +32,6 @@ pandoc "green-titlepage/green-titlepage.md"   -o "green-titlepage/green-titlepag
 pdftoppm -r 150 -png "green-titlepage/green-titlepage.pdf" > "green-titlepage/green-titlepage.png"
 
 # replace the document class `scrartcl` with `scrbook
-sed -i '' 's/scrartcl/scrbook/g' "../eisvogel-book.latex"
 sed 's/scrartcl/scrbook/g' <"../eisvogel.latex" >"../eisvogel-book.latex"
 
 pandoc "book/book.md" -o "book/book.pdf" --from markdown --template "../eisvogel-book.latex" --listings -V classoption=oneside --top-level-division=chapter 
