@@ -139,6 +139,10 @@ A green title page      |  Code blocks styled with listings
 :-------------------------:|:-------------------------:
 [![A green title page](examples/green-titlepage/green-titlepage.png)](examples/green-titlepage/green-titlepage.pdf)  |  [![Code blocks styled with listings](examples/listings/listings.png)](examples/listings/listings.pdf)
 
+## Credits
+
+- This template includes code for styling block quotations from [pandoc-letter](https://github.com/aaronwolen/pandoc-letter) by [Aaron Wolen](https://github.com/aaronwolen).
+
 ## License
 
 This project is open source licensed under the BSD 3-Clause License. Please see the [LICENSE file](LICENSE) for more information.

@@ -469,6 +469,16 @@ $endif$
 \newcommand{\imglabel}[1]{\textbf{\textit{(#1)}}}
 
 %
+% blockquote
+%
+\definecolor{blockquote-border}{RGB}{221,221,221}
+\definecolor{blockquote-text}{RGB}{119,119,119}
+\usepackage{mdframed}
+\newmdenv[rightline=false,bottomline=false,topline=false,linewidth=3pt,linecolor=blockquote-border,skipabove=\parskip]{customblockquote}
+\renewenvironment{quote}{\begin{customblockquote}\list{}{\rightmargin=0em\leftmargin=0em}%
+\item\relax\color{blockquote-text}\ignorespaces}{\unskip\unskip\endlist\end{customblockquote}}
+
+%
 % Source Sans Pro as the de­fault font fam­ily
 % Source Code Pro for monospace text
 %
@@ -535,13 +545,13 @@ $if(listings)$
   numbers          = left,
   backgroundcolor  = \color{listing-background},
   basicstyle       = \color{listing-text-color}\small\ttfamily{}\linespread{1.15}, % print whole listing small
-  xleftmargin      = 0.8em,
+  xleftmargin      = 2.7em,
   breaklines       = true,
   frame            = single,
   framesep         = 0.6mm,
   rulecolor        = \color{listing-rule},
   frameround       = ffff,
-  framexleftmargin = 0.4em,
+  framexleftmargin = 2.5em,
   tabsize          = 4,
   numberstyle      = \color{listing-numbers},
   aboveskip        = 1.0em,
