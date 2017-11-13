@@ -517,6 +517,15 @@ $if(tables)$
 \definecolor{table-row-color}{HTML}{F5F5F5}
 \rowcolors{3}{}{table-row-color!100}
 
+% Reset rownum counter so that each table
+% starts with the same row colors.
+% https://tex.stackexchange.com/questions/170637/restarting-rowcolors
+\let\oldlongtable\longtable
+\let\endoldlongtable\endlongtable
+\renewenvironment{longtable}{\oldlongtable} {
+\endoldlongtable
+\global\rownum=0\relax}
+
 % Unfortunately the colored cells extend beyond the edge of the 
 % table because pandoc uses @-expressions (@{}) like so: 
 %
