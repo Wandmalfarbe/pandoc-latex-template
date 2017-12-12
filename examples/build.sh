@@ -36,3 +36,6 @@ sed 's/scrartcl/scrbook/g' <"../eisvogel.latex" >"../eisvogel-book.latex"
 
 pandoc "book/book.md" -o "book/book.pdf" --from markdown --template "../eisvogel-book.latex" --listings -V classoption=oneside --top-level-division=chapter 
 pdftoppm -r 150 -png "book/book.pdf" > "book/book.png"
+
+pandoc "images-and-tables/images-and-tables.md" -o "images-and-tables/images-and-tables.pdf" --from markdown --template "../eisvogel.latex" --listings --resource-path "./images-and-tables/"
+pdftoppm -r 150 -png "images-and-tables/images-and-tables.pdf" > "images-and-tables/images-and-tables.png"
