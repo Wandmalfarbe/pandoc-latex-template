@@ -1,7 +1,7 @@
 sudo: required
 dist: trusty
 language: r
-pandoc_version: 1.19.2.1
+pandoc_version: 2.0.2
 install:
   - sudo apt-get install poppler-utils 
   - tlmgr install xecjk filehook unicode-math ucharcat pagecolor babel-german ly1 mweights sourcecodepro sourcesanspro mdframed needspace
