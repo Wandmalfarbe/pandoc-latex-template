@@ -44,7 +44,7 @@ $if(colorlinks)$
 \PassOptionsToPackage{dvipsnames,svgnames*,x11names*,table}{xcolor}
 $endif$
 %
-\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$paper,$else$a4paper,$endif$$if(beamer)$ignorenonframetext,$if(handout)$handout,$endif$$if(aspectratio)$aspectratio=$aspectratio$,$endif$$endif$$for(classoption)$$classoption$$sep$,$endfor$]{scrartcl}
+\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$paper,$else$a4paper,$endif$$if(beamer)$ignorenonframetext,$if(handout)$handout,$endif$$if(aspectratio)$aspectratio=$aspectratio$,$endif$$endif$$for(classoption)$$classoption$$sep$,$endfor$,tablecaptionabove]{scrartcl}
 $if(beamer)$
 \setbeamertemplate{caption}[numbered]
 \setbeamertemplate{caption label separator}{: }
@@ -469,8 +469,10 @@ $endif$
 %
 % captions
 %
-\usepackage[font={small,it}]{caption}
-\newcommand{\imglabel}[1]{\textbf{\textit{(#1)}}}
+\definecolor{caption-color}{HTML}{777777}
+\usepackage[font={stretch=1.2}, textfont={color=caption-color}, position=top, skip=4mm, labelfont=bf, singlelinecheck=false]{caption}
+\setcapindent{0em}
+\captionsetup[longtable]{position=above}
 
 %
 % blockquote
@@ -509,17 +511,18 @@ $endif$
 \author{$for(author)$$author$$sep$, $endfor$}
 
 %
-% environment for boxes
-%
-%\usepackage{framed}
-
-%
 % tables
 %
 $if(tables)$
-\renewcommand{\arraystretch}{1.3} % table spacing
+
 \definecolor{table-row-color}{HTML}{F5F5F5}
-\rowcolors{3}{}{table-row-color!100}
+\definecolor{table-rule-color}{HTML}{999999}
+
+%\arrayrulecolor{black!40}
+\arrayrulecolor{table-rule-color}     % color of \toprule, \midrule, \bottomrule
+\setlength\heavyrulewidth{0.3ex}      % thickness of \toprule, \bottomrule
+\renewcommand{\arraystretch}{1.3}     % spacing (padding)
+\rowcolors{3}{}{table-row-color!100}  % row color
 
 % Reset rownum counter so that each table
 % starts with the same row colors.
