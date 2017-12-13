@@ -470,7 +470,7 @@ $endif$
 % captions
 %
 \definecolor{caption-color}{HTML}{777777}
-\usepackage[font={stretch=1.2}, textfont={color=caption-color}, position=top, skip=4mm, labelfont=bf, singlelinecheck=false]{caption}
+\usepackage[font={stretch=1.2}, textfont={color=caption-color}, position=top, skip=4mm, labelfont=bf, singlelinecheck=false, justification=$if(caption-justification)$$caption-justification$$else$raggedright$endif$]{caption}
 \setcapindent{0em}
 \captionsetup[longtable]{position=above}
 
