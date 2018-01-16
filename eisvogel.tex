@@ -320,8 +320,11 @@ $if(babel-newcommands)$
   $babel-newcommands$
 $endif$
 \else
+  $if(mainfont)$
+  $else$
   % See issue https://github.com/reutenauer/polyglossia/issues/127
   \renewcommand*\familydefault{\sfdefault}
+  $endif$
   % load polyglossia as late as possible as it *could* call bidi if RTL lang (e.g. Hebrew or Arabic)
   \usepackage{polyglossia}
   \setmainlanguage[$polyglossia-lang.options$]{$polyglossia-lang.name$}
@@ -390,8 +393,11 @@ $if(babel-newcommands)$
   $babel-newcommands$
 $endif$
 \else
+  $if(mainfont)$
+  $else$
   % See issue https://github.com/reutenauer/polyglossia/issues/127
   \renewcommand*\familydefault{\sfdefault}
+  $endif$
   % load polyglossia as late as possible as it *could* call bidi if RTL lang (e.g. Hebrew or Arabic)
   \usepackage{polyglossia}
   \setmainlanguage[]{english}
@@ -491,8 +497,11 @@ $endif$
 % 'default' option sets the default 
 % font family to Source Sans Pro, not \sfdefault.
 %
+$if(mainfont)$
+$else$
 \usepackage[default]{sourcesanspro}
 \usepackage{sourcecodepro}
+$endif$
 
 %
 % heading color
