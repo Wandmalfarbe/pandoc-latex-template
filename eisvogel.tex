@@ -458,8 +458,11 @@ $endif$
 %
 % line spacing
 %
+$if(linestretch)$
+$else$
 \usepackage{setspace}
 \setstretch{1.2}
+$endif$
 
 %
 % break urls
