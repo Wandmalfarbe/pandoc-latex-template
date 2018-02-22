@@ -6,9 +6,9 @@ subject: "Markdown"
 tags: [Markdown, Example]
 subtitle: "Aesculeae domus vincemur et Veneris adsuetus lapsum"
 titlepage: true
-titlepage-color: d8de2c
-titlepage-text-color: "523c31"
-titlepage-rule-color: "523c31"
+titlepage-color: 3C9F53
+titlepage-text-color: "FFFFFF"
+titlepage-rule-color: "FFFFFF"
 titlepage-rule-height: 2
 ...
 
