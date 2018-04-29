@@ -69,6 +69,9 @@ This template defines some new variables to control the appearance of the title 
     
     justification setting for captions (uses the `justification` parameter of the [caption](https://ctan.org/pkg/caption?lang=en) package)
 
+- `tikz`
+    
+    adding tikz support to the template. 
 ## Examples
 
 ### Numbered Sections
