@@ -724,6 +724,9 @@ $if(beamer)$
 \begin{frame}
 \tableofcontents[hideallsubsections]
 \end{frame}
+$if(toc-own-page)$
+\newpage
+$endif$
 $else$
 {
 $if(colorlinks)$
@@ -731,6 +734,9 @@ $if(colorlinks)$
 $endif$
 \setcounter{tocdepth}{$toc-depth$}
 \tableofcontents
+$if(toc-own-page)$
+\newpage
+$endif$
 }
 $endif$
 $endif$

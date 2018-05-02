@@ -68,6 +68,9 @@ This template defines some new variables to control the appearance of the title 
 - `caption-justification` default=`raggedright`
     
     justification setting for captions (uses the `justification` parameter of the [caption](https://ctan.org/pkg/caption?lang=en) package)
+- `toc-own-page` default=`false`
+
+    begin new page after table of contents, when `true`
 
 ## Examples
 
