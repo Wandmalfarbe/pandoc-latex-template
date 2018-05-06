@@ -40,9 +40,7 @@
 
 \PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
 \PassOptionsToPackage{hyphens}{url}
-$if(colorlinks)$
-\PassOptionsToPackage{dvipsnames,svgnames*,x11names*,table}{xcolor}
-$endif$
+\PassOptionsToPackage{svgnames*,table}{xcolor}
 %
 \documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$paper,$else$a4paper,$endif$$if(beamer)$ignorenonframetext,$if(handout)$handout,$endif$$if(aspectratio)$aspectratio=$aspectratio$,$endif$$endif$$for(classoption)$$classoption$$sep$,$endfor$,tablecaptionabove]{scrartcl}
 $if(beamer)$
@@ -425,10 +423,7 @@ $endif$
 %
 % colors
 %
-$if(colorlinks)$
-$else$
-\usepackage[dvipsnames,svgnames*,x11names*,table]{xcolor}
-$endif$
+\usepackage[]{xcolor}
 
 %
 % listing colors
