@@ -71,6 +71,9 @@ This template defines some new variables to control the appearance of the title 
 - `toc-own-page` default=`false`
 
     begin new page after table of contents, when `true`
+- `listings-disable-line-numbers` default=`false`
+    
+    disables line numbers for all listings
 
 ## Examples
 
