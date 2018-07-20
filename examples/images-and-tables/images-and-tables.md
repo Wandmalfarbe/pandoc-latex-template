@@ -3,7 +3,7 @@ title: "Example PDF"
 author: [Author]
 date: 2017-02-20
 subject: "Markdown"
-tags: [Markdown, Example]
+keywords: [Markdown, Example]
 ...
 
 # Images and Tables
