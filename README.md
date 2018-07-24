@@ -50,30 +50,33 @@ Here is the actual document text...
 
 This template defines some new variables to control the appearance of the title page. The existing template variables from pandoc are all supported and their documentation can be found in [the pandoc manual](https://pandoc.org/MANUAL.html#variables-for-latex).
 
-- `titlepage` default=`false`
+- `titlepage` (defaults to `false`)
     
     turns on the title page when `true`
 - `titlepage-color`
     
     the background color of the title page. The color value must be given as an HTML hex color like `D8DE2C` without the leading number sign (`#`). When specifying the color in YAML, it is advisable to enclose it in quotes like so `titlepage-color: "D8DE2C"` to avoid the truncation of the color (e.g. `000000` becoming `0`).
-- `titlepage-text-color` default=`5F5F5F`
+- `titlepage-text-color` (defaults to `5F5F5F`)
     
     the text color of the title page
-- `titlepage-rule-color` default=`435488`
+- `titlepage-rule-color` (defaults to `435488`)
     
     the color of the rule on the top of the title page
-- `titlepage-rule-height` default=`4`
+- `titlepage-rule-height` (defaults to `4`)
     
     the height of the rule on the top of the title page (in points)
-- `caption-justification` default=`raggedright`
+- `caption-justification` (defaults to `raggedright`)
     
     justification setting for captions (uses the `justification` parameter of the [caption](https://ctan.org/pkg/caption?lang=en) package)
-- `toc-own-page` default=`false`
+- `toc-own-page` (defaults to `false`)
 
     begin new page after table of contents, when `true`
-- `listings-disable-line-numbers` default=`false`
+- `listings-disable-line-numbers` (defaults to `false`)
     
     disables line numbers for all listings
+- `disable-header-and-footer` (default to `false`)
+	
+	disables the header and footer completely on all pages
 
 ## Examples
 
