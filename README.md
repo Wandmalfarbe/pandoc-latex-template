@@ -77,6 +77,24 @@ This template defines some new variables to control the appearance of the title 
 - `disable-header-and-footer` (default to `false`)
 	
 	disables the header and footer completely on all pages
+- `header-left` (defaults to the title)
+	
+	the text in the left of the header
+- `header-center`
+	
+	the text in the center of the header
+- `header-right` (defaults to the date)
+	
+	the text in the right of the header
+- `footer-left` (defaults to the author)
+	
+	the text in the left of the footer
+- `footer-center`
+	
+	the text in the center of the footer
+- `footer-right` (defaults to the page number)
+	
+	the text in the right of the footer
 
 ## Examples
 

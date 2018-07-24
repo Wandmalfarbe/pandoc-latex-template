@@ -647,12 +647,12 @@ $else$
 \pagestyle{fancy}
 \fancyhead{}
 \fancyfoot{}
-\lhead{$title$}
-\chead{}
-\rhead{$date$}
-\lfoot{$for(author)$$author$$sep$, $endfor$}
-\cfoot{}
-\rfoot{\thepage}
+\lhead{$if(header-left)$$header-left$$else$$title$$endif$}
+\chead{$if(header-center)$$header-center$$else$$endif$}
+\rhead{$if(header-right)$$header-right$$else$$date$$endif$}
+\lfoot{$if(footer-left)$$footer-left$$else$$for(author)$$author$$sep$, $endfor$$endif$}
+\cfoot{$if(footer-center)$$footer-center$$else$$endif$}
+\rfoot{$if(footer-right)$$footer-right$$else$\thepage$endif$}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
 $endif$
