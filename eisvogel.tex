@@ -641,6 +641,8 @@ $endif$
 %
 % header and footer
 %
+$if(disable-header-and-footer)$
+$else$
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhead{}
@@ -653,6 +655,7 @@ $endif$
 \rfoot{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
+$endif$
 
 %%
 %% end added
