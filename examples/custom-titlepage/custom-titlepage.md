@@ -1,14 +1,14 @@
 ---
 title: "Vinaque sanguine metuenti cuiquam Alcyone fixus"
 author: [Author Name]
-date: 2017-02-20
+date: "2017-02-20"
 subject: "Markdown"
 keywords: [Markdown, Example]
 subtitle: "Aesculeae domus vincemur et Veneris adsuetus lapsum"
 titlepage: true
-titlepage-color: 06386e
-titlepage-text-color: ffffff
-titlepage-rule-color: ffffff
+titlepage-color: "06386e"
+titlepage-text-color: "ffffff"
+titlepage-rule-color: "ffffff"
 titlepage-rule-height: 1
 ...
 

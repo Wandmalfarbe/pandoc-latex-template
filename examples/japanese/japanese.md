@@ -1,7 +1,7 @@
 ---
 title: "よ派にへたひ素ヘムナフュてるあてっはれねね区露。巣擢"
 author: [むて絵ヤイヤ手津絵]
-date: 2017-02-20
+date: "2017-02-20"
 subject: "Markdown"
 keywords: [Markdown, Example]
 ...

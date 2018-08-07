@@ -39,7 +39,7 @@ In order to have nice headers and footers you need to supply metadata to your do
 ---
 title: "The Document Title"
 author: [Example Author, Another Author]
-date: 2017-02-20
+date: "2017-02-20"
 keywords: [Markdown, Example]
 ...
 
