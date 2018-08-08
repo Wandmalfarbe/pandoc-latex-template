@@ -7,8 +7,8 @@ keywords: [Markdown, Example]
 subtitle: "Aesculeae domus vincemur et Veneris adsuetus lapsum"
 titlepage: true
 titlepage-color: "06386e"
-titlepage-text-color: "ffffff"
-titlepage-rule-color: "ffffff"
+titlepage-text-color: "FFFFFF"
+titlepage-rule-color: "FFFFFF"
 titlepage-rule-height: 1
 ...
 
