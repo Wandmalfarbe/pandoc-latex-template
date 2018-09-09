@@ -95,6 +95,9 @@ This template defines some new variables to control the appearance of the title 
 - `footer-right` (defaults to the page number)
 	
 	the text on the right side of the footer
+- `book` (defaults to `false`)
+
+    typeset as book.
 
 ## Examples
 
