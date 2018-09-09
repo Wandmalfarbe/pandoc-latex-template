@@ -31,10 +31,7 @@ pdftoppm -r 150 -png "without-listings/without-listings.pdf" > "without-listings
 pandoc "green-titlepage/green-titlepage.md"   -o "green-titlepage/green-titlepage.pdf"   --from markdown --template "../eisvogel.latex" --listings
 pdftoppm -r 150 -png "green-titlepage/green-titlepage.pdf" > "green-titlepage/green-titlepage.png"
 
-# replace the document class `scrartcl` with `scrbook
-sed 's/scrartcl/scrbook/g' <"../eisvogel.latex" >"../eisvogel-book.latex"
-
-pandoc "book/book.md" -o "book/book.pdf" --from markdown --template "../eisvogel-book.latex" --listings -V classoption=oneside --top-level-division=chapter 
+pandoc "book/book.md" -o "book/book.pdf" --from markdown --template "../eisvogel.latex" --listings -V book -V classoption=oneside --top-level-division=chapter 
 pdftoppm -r 150 -png "book/book.pdf" > "book/book.png"
 
 pandoc "images-and-tables/images-and-tables.md" -o "images-and-tables/images-and-tables.pdf" --from markdown --template "../eisvogel.latex" --listings --resource-path "./images-and-tables/"
