@@ -157,7 +157,7 @@ pandoc example.md -o example.pdf --template eisvogel -V lang=de
 
 ### Typesetting a Book
 
-The template uses the default KOMA-Script class `scrartcl` as the document class because it has some advantages over the default `article` class. For typesetting a book I recommend the corresponding KOMA-Script class `scrbook` instead of the default `book`. You can manually replace the string `scrartcl` in the template with `scrbook`.
+To typeset a book supply the template variable `-V book`.
 
 To get the correct chapter headings you need to tell pandoc that it should convert first level headings (indicated by one `#` in markdown) to chapters with the command line option `--top-level-division=chapter`.
 
