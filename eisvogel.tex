@@ -245,6 +245,10 @@ $if(geometry)$
 $else$
 \usepackage[margin=2.5cm,includehead=true,includefoot=true,centering]{geometry}
 $endif$
+$if(logo)$
+\usepackage[export]{adjustbox}
+\usepackage{graphicx}
+$endif$
 $if(beamer)$
 \newif\ifbibliography
 $endif$
@@ -703,6 +707,11 @@ $endif$
 {\Large \textsf{$for(author)$$author$$sep$, $endfor$}
 \vfill
 }
+
+$if(logo)$
+\noindent
+\includegraphics[width=$if(logo-width)$$logo-width$$else$100$endif$pt, left]{$logo$}
+$endif$
 
 \textsf{$date$}}
 \end{flushleft}

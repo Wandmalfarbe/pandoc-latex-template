@@ -36,3 +36,12 @@ pdftoppm -r 150 -png "book/book.pdf" > "book/book.png"
 
 pandoc "images-and-tables/images-and-tables.md" -o "images-and-tables/images-and-tables.pdf" --from markdown --template "../eisvogel.latex" --listings --resource-path "./images-and-tables/"
 pdftoppm -r 150 -png "images-and-tables/images-and-tables.pdf" > "images-and-tables/images-and-tables.png"
+
+# Important: Since the logo is a manually included image, the option "--resource-path" can't be used for specifying its location.
+# The location of the logo has to be relative to where pandoc is executed, so we cd into the directory with the logo.
+cd "logo-titlepage"
+pandoc "logo-titlepage.md" -o "logo-titlepage.pdf" --from markdown --template "../../eisvogel.latex" --listings
+pdftoppm -r 150 -png "logo-titlepage.pdf" > "logo-titlepage.png"
+cd ".."
+
+rm "../eisvogel.latex"

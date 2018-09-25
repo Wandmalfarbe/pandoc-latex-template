@@ -97,7 +97,13 @@ This template defines some new variables to control the appearance of the title 
 	the text on the right side of the footer
 - `book` (defaults to `false`)
 
-    typeset as book.
+	typeset as book
+- `logo`
+	
+	path to an image that will be displayed on the title page. The path is always relative to where pandoc is executed. The option `--resource-path` has no effect.
+- `logo-width` (defaults to `100`)
+	
+	the width of the logo (in points)
 
 ## Examples
 
