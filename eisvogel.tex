@@ -106,6 +106,9 @@ $endif$
 $if(linestretch)$
 \usepackage{setspace}
 \setstretch{$linestretch$}
+$else$
+\usepackage{setspace}
+\setstretch{1.2}
 $endif$
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
@@ -472,15 +475,6 @@ $endif$
 \setcounter{tocdepth}{3}
 $if(numbersections)$
 \setcounter{secnumdepth}{3}
-$endif$
-
-%
-% line spacing
-%
-$if(linestretch)$
-$else$
-\usepackage{setspace}
-\setstretch{1.2}
 $endif$
 
 %
