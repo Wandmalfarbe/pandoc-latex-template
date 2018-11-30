@@ -74,6 +74,9 @@ This template defines some new variables to control the appearance of the title 
 - `listings-disable-line-numbers` (defaults to `false`)
     
     disables line numbers for all listings
+- `listings-no-page-break` (defaults to `false`)
+    
+    avoid page break inside listings
 - `disable-header-and-footer` (default to `false`)
 	
 	disables the header and footer completely on all pages
