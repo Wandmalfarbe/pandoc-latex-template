@@ -736,6 +736,11 @@ $abstract$
 $endif$
 $endif$
 
+$if(first-chapter)$
+\setcounter{chapter}{$first-chapter$}
+\addtocounter{chapter}{-1}
+$endif$
+
 $for(include-before)$
 $include-before$
 
