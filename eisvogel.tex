@@ -562,6 +562,23 @@ $if(mainfont)$
 $else$
 \usepackage[default]{sourcesanspro}
 \usepackage{sourcecodepro}
+\usepackage[default]{sourcesanspro}
+\usepackage{sourcecodepro}
+\usepackage{ifxetex}
+\ifxetex
+\makeatletter % XeLaTeX adjustments for straight quotes: https://tex.stackexchange.com/a/354887
+\defaultfontfeatures[\ttfamily]
+  { Numbers   = \sourcecodepro@figurestyle,
+    Scale     = \SourceCodePro@scale,
+    Extension = .otf }
+\setmonofont
+  [ UprightFont    = *-\sourcecodepro@regstyle,
+    ItalicFont     = *-\sourcecodepro@regstyle It,
+    BoldFont       = *-\sourcecodepro@boldstyle,
+    BoldItalicFont = *-\sourcecodepro@boldstyle It ]
+  {SourceCodePro}
+\makeatother
+\fi
 $endif$
 
 %
