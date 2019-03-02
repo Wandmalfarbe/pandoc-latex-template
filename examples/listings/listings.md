@@ -10,8 +10,8 @@ keywords: [Markdown, Example]
 
 ## Aesculeae domus vincemur et Veneris adsuetus lapsum
 
-Lorem markdownum Letoia, et alios: figurae flectentem annis aliquid Peneosque ab
-esse, obstat gravitate.
+Lorem markdownum Letoia, et alios -- "figurae flectentem annis aliquid Peneosque" ab
+esse, 'obstat' gravitate.
 
 ```java
 public class Example implements LoremIpsum { 
