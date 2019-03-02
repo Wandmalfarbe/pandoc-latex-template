@@ -562,11 +562,13 @@ $if(mainfont)$
 $else$
 \usepackage[default]{sourcesanspro}
 \usepackage{sourcecodepro}
-\usepackage[default]{sourcesanspro}
-\usepackage{sourcecodepro}
-\usepackage{ifxetex}
+
+% XeLaTeX specific adjustments for straight quotes: https://tex.stackexchange.com/a/354887
+% This issue is already fixed (see https://github.com/silkeh/latex-sourcecodepro/pull/5) but the 
+% fix is still unreleased.
+% TODO: Remove this workaround when the new version of sourcecodepro is reelased on CTAN.
 \ifxetex
-\makeatletter % XeLaTeX adjustments for straight quotes: https://tex.stackexchange.com/a/354887
+\makeatletter
 \defaultfontfeatures[\ttfamily]
   { Numbers   = \sourcecodepro@figurestyle,
     Scale     = \SourceCodePro@scale,
