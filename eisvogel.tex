@@ -784,6 +784,9 @@ $endif$
 %% end titlepage
 %%
 
+$if(book-class)$
+\frontmatter
+$endif$
 $if(title)$
 $if(beamer)$
 \frame{\titlepage}
@@ -837,8 +840,14 @@ $endif$
 $if(lof)$
 \listoffigures
 $endif$
+$if(book-class)$
+\mainmatter
+$endif$
 $body$
 
+$if(book-class)$
+\backmatter
+$endif$
 $if(natbib)$
 $if(bibliography)$
 $if(biblio-title)$
