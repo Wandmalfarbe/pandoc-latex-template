@@ -26,7 +26,7 @@ pandoc "german/german.md" -o "german/german.pdf" --from markdown --template "../
 pdftoppm -r 150 -png "german/german.pdf" > "german/german.png"
 
 # No lang option (-V lang=jp) here because it's
-# unspported in XeLaTex (in polyglossia).
+# unspported in XeLaTeX (in polyglossia).
 # These commands are disabled because the CJK font isn't available on travis.
 #pandoc "japanese/japanese.md" -o "japanese/japanese.pdf" --from markdown --template "../eisvogel.latex" --listings --pdf-engine=xelatex -V lang=en-us -V CJKmainfont="HiraginoSans-W4"
 #pdftoppm -r 150 -png "japanese/japanese.pdf" > "japanese/japanese.png"
@@ -44,7 +44,8 @@ pandoc "green-titlepage/green-titlepage.md"   -o "green-titlepage/green-titlepag
 pdftoppm -r 150 -png "green-titlepage/green-titlepage.pdf" > "green-titlepage/green-titlepage.png"
 
 echo "- book"
-pandoc "book/book.md" -o "book/book.pdf" --from markdown --template "../eisvogel.latex" --listings -V book -V classoption=oneside --top-level-division="chapter" 
+# Additional options like `book: true` and `classoption: [oneside]` are set in the markdown file via the YAML metadata block.
+pandoc "book/book.md" -o "book/book.pdf" --from markdown --template "../eisvogel.latex" --listings --top-level-division="chapter" 
 pdftoppm -r 150 -png "book/book.pdf" > "book/book.png"
 
 echo "- images-and-tables"

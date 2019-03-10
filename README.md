@@ -175,7 +175,7 @@ pandoc example.md -o example.pdf --template eisvogel -V lang=de
 
 ### Typesetting a Book
 
-To typeset a book supply the template variable `-V book`.
+To typeset a book supply the template variable `-V book` from the command line or via `book: true` in the metadata.
 
 To get the correct chapter headings you need to tell pandoc that it should convert first level headings (indicated by one `#` in markdown) to chapters with the command line option `--top-level-division=chapter`. Chapter numbers start at 1. If you need to change that, specify `first-chapter` in the template variables.
 

@@ -4,6 +4,8 @@ author: [Author]
 date: "2017-02-20"
 subject: "Markdown"
 keywords: [Markdown, Example]
+book: true
+classoption: [oneside]
 ...
 
 # Crinis mixtaque factisque ille

@@ -26,7 +26,8 @@ public class Example implements LoremIpsum {
 Porrigitur et Pallas nuper longusque cratere habuisse sepulcro pectore fertur. Obscura atque coniuge, per de coniunx, sibi medias
 commentaque virgine anima tamen comitemque petis, sed.
 
-```html
+```{.html caption="Porrigitur et Pallas nuper longusque cratere habuisse sepulcro pectore fertur. Obscura atque coniuge, per de coniunx, sibi medias
+commentaque virgine anima tamen comitemque petis, sed."}
 <!DOCTYPE html>
 <html>
   <head>
@@ -48,7 +49,6 @@ CREATE TYPE person_t AS (
 	firstName VARCHAR(50) NOT NULL,
 	lastName VARCHAR(50) NOT NULL
 );
-
 CREATE Or REPLACE FUNCTION getFormattedName(person) RETURNS text AS 
 	$$ SELECT 'P: ' || initcap($1.firstName); $$ 
 LANGUAGE SQL;

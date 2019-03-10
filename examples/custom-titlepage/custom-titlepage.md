@@ -5,6 +5,7 @@ date: "2017-02-20"
 subject: "Markdown"
 keywords: [Markdown, Example]
 subtitle: "Aesculeae domus vincemur et Veneris adsuetus lapsum"
+lang: "en"
 titlepage: true
 titlepage-color: "06386e"
 titlepage-text-color: "FFFFFF"
