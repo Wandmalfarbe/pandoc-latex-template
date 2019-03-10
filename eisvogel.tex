@@ -344,7 +344,7 @@ $endif$
 $if(numbersections)$
 \setcounter{secnumdepth}{$if(secnumdepth)$$secnumdepth$$else$5$endif$}
 $else$
-\setcounter{secnumdepth}{-2}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 $endif$
 $if(beamer)$
 $else$
@@ -778,7 +778,7 @@ $endif$
 %% end titlepage
 %%
 
-$if(book-class)$
+$if(has-frontmatter)$
 \frontmatter
 $endif$
 $if(title)$
@@ -834,18 +834,18 @@ $endif$
 $if(lof)$
 \listoffigures
 $endif$
-$if(book-class)$
+$if(has-frontmatter)$
 \mainmatter
 $endif$
 $body$
 
-$if(book-class)$
+$if(has-frontmatter)$
 \backmatter
 $endif$
 $if(natbib)$
 $if(bibliography)$
 $if(biblio-title)$
-$if(book-class)$
+$if(has-frontmatter)$
 \renewcommand\bibname{$biblio-title$}
 $else$
 \renewcommand\refname{$biblio-title$}
