@@ -8,4 +8,4 @@ install:
 before_script:
   - cd examples
 script:
-  - sh build.sh
+  - sh build-examples.sh
