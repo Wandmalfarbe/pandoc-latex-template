@@ -1,6 +1,9 @@
 
 # contains all sorts of unfinished changes
-tests
+private
+
+# build folder
+dist
 
 #
 # macOS.gitignore
