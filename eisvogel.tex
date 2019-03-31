@@ -1,35 +1,35 @@
 %%
-% Copyright (c) 2017 - 2019, Pascal Wagler;  
+% Copyright (c) 2017 - 2019, Pascal Wagler;
 % Copyright (c) 2014 - 2019, John MacFarlane
-% 
+%
 % All rights reserved.
-% 
-% Redistribution and use in source and binary forms, with or without 
-% modification, are permitted provided that the following conditions 
+%
+% Redistribution and use in source and binary forms, with or without
+% modification, are permitted provided that the following conditions
 % are met:
-% 
-% - Redistributions of source code must retain the above copyright 
+%
+% - Redistributions of source code must retain the above copyright
 % notice, this list of conditions and the following disclaimer.
-% 
-% - Redistributions in binary form must reproduce the above copyright 
-% notice, this list of conditions and the following disclaimer in the 
+%
+% - Redistributions in binary form must reproduce the above copyright
+% notice, this list of conditions and the following disclaimer in the
 % documentation and/or other materials provided with the distribution.
-% 
-% - Neither the name of John MacFarlane nor the names of other 
-% contributors may be used to endorse or promote products derived 
+%
+% - Neither the name of John MacFarlane nor the names of other
+% contributors may be used to endorse or promote products derived
 % from this software without specific prior written permission.
-% 
-% THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 
-% "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT 
-% LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS 
-% FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE 
-% COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, 
+%
+% THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+% "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+% LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+% FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+% COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
 % INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-% BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
-% LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
-% CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT 
-% LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN 
-% ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+% BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+% LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+% CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+% LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+% ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 % POSSIBILITY OF SUCH DAMAGE.
 %%
 
@@ -432,7 +432,7 @@ $endif$
 \subtitle{$subtitle$}
 $endif$
 $if(author)$
-\author{$for(author)$$author$$sep$ \and $endfor$}
+\author{$for(author)$$if(author.name)$$author.name$$if(author.affiliation)$($author.affiliation$)$endif$$else$$author$$endif$ \and $endfor$}
 $endif$
 \date{$date$}
 $if(beamer)$
@@ -493,7 +493,7 @@ $if(titlepage)$
 $endif$
 
 %
-% TOC depth and 
+% TOC depth and
 % section numbering depth
 %
 \setcounter{tocdepth}{3}
@@ -507,7 +507,7 @@ $endif$
 \PassOptionsToPackage{hyphens}{url}
 
 %
-% When using babel or polyglossia with biblatex, loading csquotes is recommended 
+% When using babel or polyglossia with biblatex, loading csquotes is recommended
 % to ensure that quoted texts are typeset according to the rules of your main language.
 %
 \usepackage{csquotes}
@@ -533,7 +533,7 @@ $endif$
 % Source Sans Pro as the de­fault font fam­ily
 % Source Code Pro for monospace text
 %
-% 'default' option sets the default 
+% 'default' option sets the default
 % font family to Source Sans Pro, not \sfdefault.
 %
 $if(mainfont)$
@@ -542,7 +542,7 @@ $else$
 \usepackage{sourcecodepro}
 
 % XeLaTeX specific adjustments for straight quotes: https://tex.stackexchange.com/a/354887
-% This issue is already fixed (see https://github.com/silkeh/latex-sourcecodepro/pull/5) but the 
+% This issue is already fixed (see https://github.com/silkeh/latex-sourcecodepro/pull/5) but the
 % fix is still unreleased.
 % TODO: Remove this workaround when the new version of sourcecodepro is released on CTAN.
 \ifxetex
@@ -566,7 +566,7 @@ $endif$
 %
 \definecolor{heading-color}{RGB}{40,40,40}
 \addtokomafont{section}{\color{heading-color}}
-% When using the classes report, scrreprt, book, 
+% When using the classes report, scrreprt, book,
 % scrbook or memoir, uncomment the following line.
 %\addtokomafont{chapter}{\color{heading-color}}
 
@@ -575,7 +575,7 @@ $endif$
 %
 \usepackage{titling}
 \title{$title$}
-\author{$for(author)$$author$$sep$, $endfor$}
+\author{$for(author)$$if(author.name)$$author.name$$if(author.affiliation)$($author.affiliation$)$endif$$else$$author$$endif$$endfor$}
 
 %
 % tables
@@ -601,8 +601,8 @@ $if(tables)$
 \endoldlongtable
 \global\rownum=0\relax}
 
-% Unfortunately the colored cells extend beyond the edge of the 
-% table because pandoc uses @-expressions (@{}) like so: 
+% Unfortunately the colored cells extend beyond the edge of the
+% table because pandoc uses @-expressions (@{}) like so:
 %
 % \begin{longtable}[]{@{}ll@{}}
 % \end{longtable}
@@ -715,9 +715,9 @@ $else$
   \lhead[$if(header-right)$$header-right$$else$$date$$endif$]{$if(header-left)$$header-left$$else$$title$$endif$}
   \chead[$if(header-center)$$header-center$$else$$endif$]{$if(header-center)$$header-center$$else$$endif$}
   \rhead[$if(header-left)$$header-left$$else$$title$$endif$]{$if(header-right)$$header-right$$else$$date$$endif$}
-  \lfoot[$if(footer-right)$$footer-right$$else$\thepage$endif$]{$if(footer-left)$$footer-left$$else$$for(author)$$author$$sep$, $endfor$$endif$}
+  \lfoot[$if(footer-right)$$footer-right$$else$\thepage$endif$]{$if(footer-left)$$footer-left$$else$$for(author)$$if(author.name)$$author.name$$if(author.affiliation)$($author.affiliation$)$endif$$else$$author$$endif$ $endfor$$endif$}
   \cfoot[$if(footer-center)$$footer-center$$else$$endif$]{$if(footer-center)$$footer-center$$else$$endif$}
-  \rfoot[$if(footer-left)$$footer-left$$else$$for(author)$$author$$sep$, $endfor$$endif$]{$if(footer-right)$$footer-right$$else$\thepage$endif$}
+  \rfoot[$if(footer-left)$$footer-left$$else$$for(author)$$if(author.name)$$author.name$$if(author.affiliation)$($author.affiliation$)$endif$$else$$author$$endif$ $endfor$$endif$]{$if(footer-right)$$footer-right$$else$\thepage$endif$}
   \renewcommand{\headrulewidth}{0.4pt}
   \renewcommand{\footrulewidth}{0.4pt}
 }
