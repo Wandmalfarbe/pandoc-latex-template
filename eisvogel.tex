@@ -496,9 +496,12 @@ $endif$
 % TOC depth and 
 % section numbering depth
 %
-\setcounter{tocdepth}{3}
 $if(numbersections)$
-\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{$if(tocdepth)$$tocdepth$$else$3$endif$}
+\setcounter{secnumdepth}{$if(secnumdepth)$$secnumdepth$$else$3$endif$}
+$else$
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 $endif$
 
 %
