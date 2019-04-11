@@ -18,7 +18,7 @@ A custom title page      |  A basic example page
 2. Download the latest version of the Eisvogel template from [the release page](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/latest).
 3. Extract the downloaded ZIP archive and open the folder.
 4. Move the template `eisvogel.tex` to your pandoc templates folder and rename the file to `eisvogel.latex`.The location of the templates folder depends on your operating system:
-	- Unix, Linux, macOS: `~/.pandoc/templates/`
+	- Unix, Linux, macOS: `$XDG_DATA_HOME/pandoc/templates` or `~/.pandoc/templates/`
 	- Windows XP: `C:\Documents And Settings\USERNAME\Application Data\pandoc\templates`
 	- Windows Vista or later: `C:\Users\USERNAME\AppData\Roaming\pandoc\templates`
 	
