@@ -374,9 +374,10 @@ $if(pagestyle)$
 \pagestyle{$pagestyle$}
 $endif$
 
-% Make use of float-package and set default placement for figures to H
+% Make use of float-package and set default placement for figures to H.
+% The option H means 'PUT IT HERE' (as  opposed to the standard h option which means 'You may put it here if you like').
 \usepackage{float}
-\floatplacement{figure}{H}
+\floatplacement{figure}{$if(float-placement-figure)$$float-placement-figure$$else$H$endif$}
 
 $for(header-includes)$
 $header-includes$
@@ -388,7 +389,7 @@ $if(lang)$
   % See issue https://github.com/reutenauer/polyglossia/issues/127
   \renewcommand*\familydefault{\sfdefault}
   $endif$
-% Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
+  % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
   \usepackage{polyglossia}
   \setmainlanguage[$polyglossia-lang.options$]{$polyglossia-lang.name$}
 $for(polyglossia-otherlangs)$
