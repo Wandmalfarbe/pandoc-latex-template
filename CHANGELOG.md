@@ -2,6 +2,14 @@
 
 All notable changes to this project are documented in this file. On the [releases page](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/) you can see all released versions of the Eisvogel template and download the latest version.
 
+## [1.2.3] - 2019-06-12
+
+- Fixed: Code blocks were too close to the text above.
+- Fixed: The default float placement of figures can be changed with the variable `float-placement-figure`.
+- Changed: Merged changes from the pandoc default LaTeX template.
+- Added: A changelog is available as `CHANGELOG.md`.
+- Changed: Updated installation instructions in the README with new XDG support (#89, Andrew Zhou).
+
 ## [1.2.2] - 2019-04-09
 
 - Merged changes from the pandoc default LaTeX template.
@@ -31,6 +39,7 @@ All notable changes to this project are documented in this file. On the [release
 
 - First release of the template as a ZIP file with the examples.
 
+[1.2.3]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v1.2.2...v1.2.3
 [1.2.2]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v1.2.1...v1.2.2
 [1.2.1]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/1.1.0...v1.2.0
