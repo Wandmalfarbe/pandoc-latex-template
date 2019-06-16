@@ -583,9 +583,12 @@ $endif$
 %
 % variables for title and author
 %
+$if(beamer)$
+$else$
 \usepackage{titling}
 \title{$title$}
 \author{$for(author)$$author$$sep$, $endfor$}
+$endif$
 
 %
 % tables
