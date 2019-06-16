@@ -8,7 +8,7 @@ echo "##"
 echo ""
 
 echo "- basic-example"
-pandoc "basic-example/basic-example.md"         -o "basic-example/basic-example.pdf"         --from markdown --template "../eisvogel.latex" --listings
+pandoc "basic-example/basic-example.md" -o "basic-example/basic-example.pdf" --from markdown --template "../eisvogel.latex" --listings
 pdftoppm -r 150 -png "basic-example/basic-example.pdf" > "basic-example/basic-example.png"
 
 echo "- beamer"
@@ -16,7 +16,7 @@ pandoc "beamer/beamer.md" -o "beamer/beamer.pdf" --from markdown --to beamer --t
 pdftoppm -r 150 -png "beamer/beamer.pdf" > "beamer/beamer.png"
 
 echo "- custom-titlepage"
-pandoc "custom-titlepage/custom-titlepage.md"   -o "custom-titlepage/custom-titlepage.pdf"   --from markdown --template "../eisvogel.latex" -V "logo=custom-titlepage/logo-inverted.pdf" --listings
+pandoc "custom-titlepage/custom-titlepage.md" -o "custom-titlepage/custom-titlepage.pdf" --from markdown --template "../eisvogel.latex" -V "logo=custom-titlepage/logo-inverted.pdf" --listings
 pdftoppm -r 150 -png "custom-titlepage/custom-titlepage.pdf" > "custom-titlepage/custom-titlepage.png"
 
 echo "- default-titlepage"
@@ -44,12 +44,12 @@ pandoc "without-listings/without-listings.md" -o "without-listings/without-listi
 pdftoppm -r 150 -png "without-listings/without-listings.pdf" > "without-listings/without-listings.png"
 
 echo "- green-titlepage"
-pandoc "green-titlepage/green-titlepage.md"   -o "green-titlepage/green-titlepage.pdf"   --from markdown --template "../eisvogel.latex" --listings
+pandoc "green-titlepage/green-titlepage.md" -o "green-titlepage/green-titlepage.pdf" --from markdown --template "../eisvogel.latex" --listings
 pdftoppm -r 150 -png "green-titlepage/green-titlepage.pdf" > "green-titlepage/green-titlepage.png"
 
 echo "- book"
 # Additional options like `book: true` and `classoption: [oneside]` are set in the markdown file via the YAML metadata block.
-pandoc "book/book.md" -o "book/book.pdf" --from markdown --template "../eisvogel.latex" --listings --top-level-division="chapter" 
+pandoc "book/book.md" -o "book/book.pdf" --from markdown --template "../eisvogel.latex" --listings --top-level-division="chapter"
 pdftoppm -r 150 -png "book/book.pdf" > "book/book.png"
 
 echo "- images-and-tables"

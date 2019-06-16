@@ -14,13 +14,13 @@ Lorem markdownum Letoia, et alios -- "figurae flectentem annis aliquid Peneosque
 esse, 'obstat' gravitate.
 
 ```java
-public class Example implements LoremIpsum { 
+public class Example implements LoremIpsum {
 	public static void main(String[] args) {
 		if(args.length < 2) {
 			System.out.println("Lorem ipsum dolor sit amet");
 		}
 	} // Obscura atque coniuge, per de coniunx
-}		
+}
 ```
 
 Porrigitur et Pallas nuper longusque cratere habuisse sepulcro pectore fertur. Obscura atque coniuge, per de coniunx, sibi medias
@@ -49,7 +49,7 @@ CREATE TYPE person_t AS (
 	firstName VARCHAR(50) NOT NULL,
 	lastName VARCHAR(50) NOT NULL
 );
-CREATE Or REPLACE FUNCTION getFormattedName(person) RETURNS text AS 
-	$$ SELECT 'P: ' || initcap($1.firstName); $$ 
+CREATE Or REPLACE FUNCTION getFormattedName(person) RETURNS text AS
+	$$ SELECT 'P: ' || initcap($1.firstName); $$
 LANGUAGE SQL;
 ```
