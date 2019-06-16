@@ -1,6 +1,10 @@
 # Changelog
 
-All notable changes to this project are documented in this file. On the [releases page](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/) you can see all released versions of the Eisvogel template and download the latest version.
+All notable changes to this project are documented in this file. On the [releases page](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/) you can see all released versions of the Eisvogel template and download the [latest version](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/latest).
+
+## [1.2.4] - 2019-06-16
+
+- Fixed: The template now compiles with the output format `beamer` (#99). The styling for the generated slides is currently not customized.
 
 ## [1.2.3] - 2019-06-12
 
@@ -39,6 +43,7 @@ All notable changes to this project are documented in this file. On the [release
 
 - First release of the template as a ZIP file with the examples.
 
+[1.2.4]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v1.2.3...v1.2.4
 [1.2.3]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v1.2.2...v1.2.3
 [1.2.2]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v1.2.1...v1.2.2
 [1.2.1]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v1.2.0...v1.2.1
