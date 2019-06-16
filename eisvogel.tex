@@ -75,7 +75,7 @@ $for(classoption)$
   $classoption$$sep$,
 $endfor$
 ,tablecaptionabove
-]{$if(book)$scrbook$else$scrartcl$endif$}
+]{$if(beamer)$$documentclass$$else$$if(book)$scrbook$else$scrartcl$endif$$endif$}
 $if(beamer)$
 $if(background-image)$
 \usebackgroundtemplate{%
@@ -283,7 +283,10 @@ $endif$
 $if(geometry)$
 \usepackage[margin=2.5cm,includehead=true,includefoot=true,centering,$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
 $else$
-\usepackage[margin=2.5cm,includehead=true,includefoot=true,centering]{geometry}
+  $if(beamer)$
+  $else$
+  \usepackage[margin=2.5cm,includehead=true,includefoot=true,centering]{geometry}
+  $endif$
 $endif$
 $if(logo)$
 \usepackage[export]{adjustbox}
@@ -517,8 +520,11 @@ $endif$
 % captions
 %
 \definecolor{caption-color}{HTML}{777777}
+$if(beamer)$
+$else$
 \usepackage[font={stretch=1.2}, textfont={color=caption-color}, position=top, skip=4mm, labelfont=bf, singlelinecheck=false, justification=$if(caption-justification)$$caption-justification$$else$raggedright$endif$]{caption}
 \setcapindent{0em}
+$endif$
 
 %
 % blockquote
@@ -566,7 +572,10 @@ $endif$
 % heading color
 %
 \definecolor{heading-color}{RGB}{40,40,40}
+$if(beamer)$
+$else$
 \addtokomafont{section}{\color{heading-color}}
+$endif$
 % When using the classes report, scrreprt, book, 
 % scrbook or memoir, uncomment the following line.
 %\addtokomafont{chapter}{\color{heading-color}}
@@ -706,6 +715,8 @@ $endif$
 %
 % header and footer
 %
+$if(beamer)$
+$else$
 $if(disable-header-and-footer)$
 $else$
 \usepackage{fancyhdr}
@@ -724,6 +735,7 @@ $else$
 }
 \pagestyle{eisvogel-header-footer}
 $endif$
+$endif$
 
 %%
 %% end added
@@ -734,7 +746,8 @@ $endif$
 %%
 %% begin titlepage
 %%
-
+$if(beamer)$
+$else$
 $if(titlepage)$
 \begin{titlepage}
 \newgeometry{left=6cm}
@@ -773,6 +786,7 @@ $endif$
 \end{flushleft}
 \end{titlepage}
 \restoregeometry
+$endif$
 $endif$
 
 %%
