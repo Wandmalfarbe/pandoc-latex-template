@@ -79,40 +79,43 @@ This template defines some new variables to control the appearance of the result
 - `listings-no-page-break` (defaults to `false`)
 
     avoid page break inside listings
+- `disable-footnote-backlinks` (default to `false`)
+
+    disables making the reference from the footnote at the bottom of the page into a link back to the occurence of the footnote in the main text.
 - `disable-header-and-footer` (default to `false`)
 
-	disables the header and footer completely on all pages
+    disables the header and footer completely on all pages
 - `header-left` (defaults to the title)
 
-	the text on the left side of the header
+    the text on the left side of the header
 - `header-center`
 
-	the text in the center of the header
+    the text in the center of the header
 - `header-right` (defaults to the date)
 
-	the text on the right side of the header
+    the text on the right side of the header
 - `footer-left` (defaults to the author)
 
-	the text on the left side of the footer
+    the text on the left side of the footer
 - `footer-center`
 
-	the text in the center of the footer
+    the text in the center of the footer
 - `footer-right` (defaults to the page number)
 
-	the text on the right side of the footer
+    the text on the right side of the footer
 - `book` (defaults to `false`)
 
-	typeset as book
+    typeset as book
 - `logo`
 
-	path to an image that will be displayed on the title page. The path is always relative to where pandoc is executed. The option `--resource-path` has no effect.
+    path to an image that will be displayed on the title page. The path is always relative to where pandoc is executed. The option `--resource-path` has no effect.
 - `logo-width` (defaults to `100`)
 
-	the width of the logo (in points)
+    the width of the logo (in points)
 
 - `first-chapter` (defaults to `1`)
 
-	if typesetting a book with chapter numbers, specifies the number that will be assigned to the first chapter
+    if typesetting a book with chapter numbers, specifies the number that will be assigned to the first chapter
 
 - `float-placement-figure` (defaults to `H`)
 
