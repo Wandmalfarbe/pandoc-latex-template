@@ -70,6 +70,14 @@ This template defines some new variables to control the appearance of the result
 - `caption-justification` (defaults to `raggedright`)
 
     justification setting for captions (uses the `justification` parameter of the [caption](https://ctan.org/pkg/caption?lang=en) package)
+- `toc-links` (defaults to `all`)
+
+    defines which part of an entry in the table of contents (TOC) is made into a link. Possible values include:
+
+    - `none`: Don't make the TOC into links at all.
+    - `section`: Only make the section/chapter titles into links.
+    - `page`: Only make the page numbers into links.
+    - `all`: Make both the section/chapter titles and the page numbers into links.
 - `toc-own-page` (defaults to `false`)
 
     begin new page after table of contents, when `true`

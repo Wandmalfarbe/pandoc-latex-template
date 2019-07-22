@@ -274,6 +274,7 @@ $if(colorlinks)$
 $else$
   hidelinks,
 $endif$
+  linktoc=$if(toc-links)$$toc-links$$else$all$endif$,
   breaklinks=true,
   pdfcreator={LaTeX via pandoc with the Eisvogel template}}
 \urlstyle{same} % disable monospaced font for URLs
