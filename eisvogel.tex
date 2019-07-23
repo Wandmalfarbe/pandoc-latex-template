@@ -254,11 +254,6 @@ $endif$
 \setlength{\footnotesep}{\baselineskip} % set space between multiple footnotes
 \setlength{\skip\footins}{0.3cm} % set space between page content and footnote
 \setlength{\footskip}{0.9cm} % set space between footnote and page bottom
-% add backlinks to footnote references, cf. https://tex.stackexchange.com/questions/302266/make-footnote-clickable-both-ways
-$if(disable-footnote-backlinks)$
-$else$
-\usepackage{footnotebackref}
-$endif$
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
 $if(title-meta)$
@@ -352,6 +347,11 @@ $else$
 \IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
 \makesavenoteenv{longtable}
 $endif$
+$endif$
+% add backlinks to footnote references, cf. https://tex.stackexchange.com/questions/302266/make-footnote-clickable-both-ways
+$if(disable-footnote-backlinks)$
+$else$
+\usepackage{footnotebackref}
 $endif$
 $if(graphics)$
 \usepackage{graphicx,grffile}
