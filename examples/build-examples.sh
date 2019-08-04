@@ -22,8 +22,10 @@ pandoc "beamer/beamer.md" -o "beamer/beamer.pdf" --from markdown --to beamer --t
 pdftoppm -r 150 -png "beamer/beamer.pdf" > "beamer/beamer.png"
 
 echo "- custom-titlepage"
-pandoc "custom-titlepage/custom-titlepage.md" -o "custom-titlepage/custom-titlepage.pdf" --from markdown --template "../eisvogel.latex" -V "logo=custom-titlepage/logo-inverted.pdf" --listings
-pdftoppm -r 150 -png "custom-titlepage/custom-titlepage.pdf" > "custom-titlepage/custom-titlepage.png"
+cd "custom-titlepage"
+pandoc "custom-titlepage.md" -o "custom-titlepage.pdf" --from markdown --template "../../eisvogel.latex" --listings
+pdftoppm -r 150 -png "custom-titlepage.pdf" > "custom-titlepage.png"
+cd ".."
 
 echo "- default-titlepage"
 pandoc "default-titlepage/default-titlepage.md" -o "default-titlepage/default-titlepage.pdf" --from markdown --template "../eisvogel.latex" --listings

@@ -6,11 +6,11 @@ subject: "Markdown"
 keywords: [Markdown, Example]
 subtitle: "Aesculeae domus vincemur et Veneris adsuetus lapsum"
 lang: "en"
-titlepage: true
-titlepage-color: "06386e"
+titlepage: true,
 titlepage-text-color: "FFFFFF"
-titlepage-rule-color: "FFFFFF"
-titlepage-rule-height: 1
+titlepage-rule-color: "360049"
+titlepage-rule-height: 0
+titlepage-background: "background.pdf"
 ...
 
 # Vinaque sanguine metuenti cuiquam Alcyone fixus
