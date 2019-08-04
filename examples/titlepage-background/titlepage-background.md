@@ -7,7 +7,7 @@ keywords: [Markdown, Example]
 lang: "en"
 titlepage: true,
 titlepage-rule-color: "360049"
-titlepage-background: "background.pdf"
+titlepage-background: "backgrounds/background1.pdf"
 ...
 
 # Vinaque sanguine metuenti cuiquam Alcyone fixus
