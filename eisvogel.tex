@@ -512,6 +512,9 @@ $endif$
 $if(titlepage)$
 \usepackage{pagecolor}
 \usepackage{afterpage}
+$if(titlepage-background)$
+\usepackage{tikz}
+$endif$
 $endif$
 
 %
@@ -804,10 +807,17 @@ $if(beamer)$
 $else$
 $if(titlepage)$
 \begin{titlepage}
+$if(titlepage-background)$
+\newgeometry{top=2cm, right=4cm, bottom=3cm, left=4cm}
+$else$
 \newgeometry{left=6cm}
+$endif$
 $if(titlepage-color)$
 \definecolor{titlepage-color}{HTML}{$titlepage-color$}
 \newpagecolor{titlepage-color}\afterpage{\restorepagecolor}
+$endif$
+$if(titlepage-background)$
+\tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{$titlepage-background$}};
 $endif$
 \newcommand{\colorRule}[3][black]{\textcolor[HTML]{#1}{\rule{#2}{#3}}}
 \begin{flushleft}
@@ -818,25 +828,45 @@ $endif$
 \par
 \noindent
 
-{ \setstretch{1.4}
-\vfill
-\noindent {\huge \textbf{\textsf{$title$}}}
-$if(subtitle)$
-\vskip 1em
-{\Large \textsf{$subtitle$}}
-$endif$
-\vskip 2em
-\noindent
-{\Large \textsf{$for(author)$$author$$sep$, $endfor$}
-\vfill
+$if(titlepage-background)$
+% The titlepage with a background image has other text spacing and text size
+{
+  \setstretch{2}
+  \vfill
+  \vskip -8em
+  \noindent {\huge \textbf{\textsf{$title$}}}
+  $if(subtitle)$
+  \vskip 1em
+  {\Large \textsf{$subtitle$}}
+  $endif$
+  \vskip 2em
+  \noindent {\Large \textsf{$for(author)$$author$$sep$, $endfor$} \vskip 0.6em \textsf{$date$}}
+  \vfill
 }
+$else$
+{
+  \setstretch{1.4}
+  \vfill
+  \noindent {\huge \textbf{\textsf{$title$}}}
+  $if(subtitle)$
+  \vskip 1em
+  {\Large \textsf{$subtitle$}}
+  $endif$
+  \vskip 2em
+  \noindent {\Large \textsf{$for(author)$$author$$sep$, $endfor$}}
+  \vfill
+}
+$endif$
 
 $if(logo)$
 \noindent
 \includegraphics[width=$if(logo-width)$$logo-width$$else$100$endif$pt, left]{$logo$}
 $endif$
 
-\textsf{$date$}}
+$if(titlepage-background)$
+$else$
+\textsf{$date$}
+$endif$
 \end{flushleft}
 \end{titlepage}
 \restoregeometry

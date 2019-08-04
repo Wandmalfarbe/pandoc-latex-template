@@ -7,6 +7,12 @@ echo "# Building examples"
 echo "##"
 echo ""
 
+echo "- titlepage-background"
+cd "titlepage-background"
+pandoc "titlepage-background.md" -o "titlepage-background.pdf" --from markdown --template "../../eisvogel.latex" --listings
+pdftoppm -r 150 -png "titlepage-background.pdf" > "titlepage-background.png"
+cd ".."
+
 echo "- basic-example"
 pandoc "basic-example/basic-example.md" -o "basic-example/basic-example.pdf" --from markdown --template "../eisvogel.latex" --listings
 pdftoppm -r 150 -png "basic-example/basic-example.pdf" > "basic-example/basic-example.png"
