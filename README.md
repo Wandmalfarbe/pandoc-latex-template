@@ -82,9 +82,6 @@ This template defines some new variables to control the appearance of the result
 - `listings-no-page-break` (defaults to `false`)
 
     avoid page break inside listings
-- `disable-footnote-backlinks` (default to `false`)
-
-    disables making the reference from the footnote at the bottom of the page into a link back to the occurence of the footnote in the main text.
 - `disable-header-and-footer` (default to `false`)
 
     disables the header and footer completely on all pages
@@ -106,6 +103,12 @@ This template defines some new variables to control the appearance of the result
 - `footer-right` (defaults to the page number)
 
     the text on the right side of the footer
+- `footnotes-pretty` (defaults to `false`)
+
+    prettifies formatting of footnotes (requires package `footmisc`).
+- `footnotes-disable-backlinks` (defaults to `false`)
+
+    disables making the reference from the footnote at the bottom of the page into a link back to the occurence of the footnote in the main text.
 - `book` (defaults to `false`)
 
     typeset as book
