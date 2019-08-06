@@ -1,16 +1,15 @@
 ---
-title: "Vinaque sanguine metuenti cuiquam Alcyone fixus"
-author: [Author Name]
+title: "Example PDF"
+author: [Author]
 date: "2017-02-20"
 subject: "Markdown"
 keywords: [Markdown, Example]
-subtitle: "Aesculeae domus vincemur et Veneris adsuetus lapsum"
-lang: "en"
-titlepage: true,
-titlepage-text-color: "FFFFFF"
-titlepage-rule-color: "360049"
-titlepage-rule-height: 0
-titlepage-background: "background.pdf"
+header-left: "\\hspace{1cm}"
+header-center: "\\leftmark"
+header-right: "Page \\thepage"
+footer-left: "\\thetitle"
+footer-center: "This is \\LaTeX{}"
+footer-right: "\\theauthor"
 ...
 
 # Vinaque sanguine metuenti cuiquam Alcyone fixus
@@ -54,7 +53,7 @@ vel pede inter si.
 Tamen condeturque saxa Pallorque num et ferarum promittis inveni lilia iuvencae
 adessent arbor. Florente perque at condeturque saxa et ferarum promittis tendebat. Armos nisi obortas refugit me.
 
-Et nepotes poterat, se qui. Euntem ego pater desuetaque aethera Maeandri, et
+> Et nepotes poterat, se qui. Euntem ego pater desuetaque aethera Maeandri, et
 [Dardanio geminaque](http://example.com#Dardanio_geminaque) cernit. Lassaque poenas
 nec, manifesta $\pi r^2$ mirantia captivarum prohibebant scelerato gradus unusque
 dura.

@@ -523,6 +523,9 @@ $endif$
 $if(titlepage)$
 \usepackage{pagecolor}
 \usepackage{afterpage}
+$if(titlepage-background)$
+\usepackage{tikz}
+$endif$
 $endif$
 
 %
@@ -623,17 +626,12 @@ $if(tables)$
 \setlength\heavyrulewidth{0.3ex}      % thickness of \toprule, \bottomrule
 \renewcommand{\arraystretch}{1.3}     % spacing (padding)
 
+$if(table-use-row-colors)$
+% TODO: This doesn't work anymore. I don't know why.
 % Reset rownum counter so that each table
 % starts with the same row colors.
 % https://tex.stackexchange.com/questions/170637/restarting-rowcolors
-\let\oldlongtable\longtable
-\let\endoldlongtable\endlongtable
-\renewenvironment{longtable}{
-\rowcolors{3}{}{table-row-color!100}  % row color
-\oldlongtable} {
-\endoldlongtable
-\global\rownum=0\relax}
-
+%
 % Unfortunately the colored cells extend beyond the edge of the
 % table because pandoc uses @-expressions (@{}) like so:
 %
@@ -641,6 +639,14 @@ $if(tables)$
 % \end{longtable}
 %
 % https://en.wikibooks.org/wiki/LaTeX/Tables#.40-expressions
+\let\oldlongtable\longtable
+\let\endoldlongtable\endlongtable
+\renewenvironment{longtable}{
+\rowcolors{3}{}{table-row-color!100}  % row color
+\oldlongtable} {
+\endoldlongtable
+\global\rownum=0\relax}
+$endif$
 $endif$
 
 %
@@ -722,6 +728,44 @@ $endif$
 }
 \lstset{style=eisvogel_listing_style}
 
+%
+% Java (Java SE 12, 2019-06-22)
+%
+\lstdefinelanguage{Java}{
+  morekeywords={
+    % normal keywords (without data types)
+    abstract,assert,break,case,catch,class,continue,default,
+    do,else,enum,exports,extends,final,finally,for,if,implements,
+    import,instanceof,interface,module,native,new,package,private,
+    protected,public,requires,return,static,strictfp,super,switch,
+    synchronized,this,throw,throws,transient,try,volatile,while,
+    % var is an identifier
+    var
+  },
+  morekeywords={[2] % data types
+    % primitive data types
+    boolean,byte,char,double,float,int,long,short,
+    % String
+    String,
+    % primitive wrapper types
+    Boolean,Byte,Character,Double,Float,Integer,Long,Short
+    % number types
+    Number,AtomicInteger,AtomicLong,BigDecimal,BigInteger,DoubleAccumulator,DoubleAdder,LongAccumulator,LongAdder,Short,
+    % other
+    Object,Void,void
+  },
+  morekeywords={[3] % literals
+    % reserved words for literal values
+    null,true,false,
+  },
+  sensitive,
+  morecomment  = [l]//,
+  morecomment  = [s]{/*}{*/},
+  morecomment  = [s]{/**}{*/},
+  morestring   = [b]",
+  morestring   = [b]',
+}
+
 \lstdefinelanguage{XML}{
   morestring      = [b]",
   moredelim       = [s][\bfseries\color{listing-keyword}]{<}{\ },
@@ -774,10 +818,17 @@ $if(beamer)$
 $else$
 $if(titlepage)$
 \begin{titlepage}
+$if(titlepage-background)$
+\newgeometry{top=2cm, right=4cm, bottom=3cm, left=4cm}
+$else$
 \newgeometry{left=6cm}
+$endif$
 $if(titlepage-color)$
 \definecolor{titlepage-color}{HTML}{$titlepage-color$}
 \newpagecolor{titlepage-color}\afterpage{\restorepagecolor}
+$endif$
+$if(titlepage-background)$
+\tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{$titlepage-background$}};
 $endif$
 \newcommand{\colorRule}[3][black]{\textcolor[HTML]{#1}{\rule{#2}{#3}}}
 \begin{flushleft}
@@ -788,25 +839,45 @@ $endif$
 \par
 \noindent
 
-{ \setstretch{1.4}
-\vfill
-\noindent {\huge \textbf{\textsf{$title$}}}
-$if(subtitle)$
-\vskip 1em
-{\Large \textsf{$subtitle$}}
-$endif$
-\vskip 2em
-\noindent
-{\Large \textsf{$for(author)$$author$$sep$, $endfor$}
-\vfill
+$if(titlepage-background)$
+% The titlepage with a background image has other text spacing and text size
+{
+  \setstretch{2}
+  \vfill
+  \vskip -8em
+  \noindent {\huge \textbf{\textsf{$title$}}}
+  $if(subtitle)$
+  \vskip 1em
+  {\Large \textsf{$subtitle$}}
+  $endif$
+  \vskip 2em
+  \noindent {\Large \textsf{$for(author)$$author$$sep$, $endfor$} \vskip 0.6em \textsf{$date$}}
+  \vfill
 }
+$else$
+{
+  \setstretch{1.4}
+  \vfill
+  \noindent {\huge \textbf{\textsf{$title$}}}
+  $if(subtitle)$
+  \vskip 1em
+  {\Large \textsf{$subtitle$}}
+  $endif$
+  \vskip 2em
+  \noindent {\Large \textsf{$for(author)$$author$$sep$, $endfor$}}
+  \vfill
+}
+$endif$
 
 $if(logo)$
 \noindent
 \includegraphics[width=$if(logo-width)$$logo-width$$else$100$endif$pt, left]{$logo$}
 $endif$
 
-\textsf{$date$}}
+$if(titlepage-background)$
+$else$
+\textsf{$date$}
+$endif$
 \end{flushleft}
 \end{titlepage}
 \restoregeometry

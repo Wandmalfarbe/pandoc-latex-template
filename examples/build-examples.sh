@@ -7,6 +7,16 @@ echo "# Building examples"
 echo "##"
 echo ""
 
+echo "- header-and-footer"
+pandoc "header-and-footer/header-and-footer.md" -o "header-and-footer/header-and-footer.pdf" --from markdown --template "../eisvogel.latex" --listings --resource-path "./header-and-footer/"
+pdftoppm -r 150 -png "header-and-footer/header-and-footer.pdf" > "header-and-footer/header-and-footer.png"
+
+echo "- titlepage-background"
+cd "titlepage-background"
+pandoc "titlepage-background.md" -o "titlepage-background.pdf" --from markdown --template "../../eisvogel.latex" --listings
+pdftoppm -r 150 -png "titlepage-background.pdf" > "titlepage-background.png"
+cd ".."
+
 echo "- basic-example"
 pandoc "basic-example/basic-example.md" -o "basic-example/basic-example.pdf" --from markdown --template "../eisvogel.latex" --listings
 pdftoppm -r 150 -png "basic-example/basic-example.pdf" > "basic-example/basic-example.png"
@@ -16,8 +26,10 @@ pandoc "beamer/beamer.md" -o "beamer/beamer.pdf" --from markdown --to beamer --t
 pdftoppm -r 150 -png "beamer/beamer.pdf" > "beamer/beamer.png"
 
 echo "- custom-titlepage"
-pandoc "custom-titlepage/custom-titlepage.md" -o "custom-titlepage/custom-titlepage.pdf" --from markdown --template "../eisvogel.latex" -V "logo=custom-titlepage/logo-inverted.pdf" --listings
-pdftoppm -r 150 -png "custom-titlepage/custom-titlepage.pdf" > "custom-titlepage/custom-titlepage.png"
+cd "custom-titlepage"
+pandoc "custom-titlepage.md" -o "custom-titlepage.pdf" --from markdown --template "../../eisvogel.latex" --listings
+pdftoppm -r 150 -png "custom-titlepage.pdf" > "custom-titlepage.png"
+cd ".."
 
 echo "- default-titlepage"
 pandoc "default-titlepage/default-titlepage.md" -o "default-titlepage/default-titlepage.pdf" --from markdown --template "../eisvogel.latex" --listings

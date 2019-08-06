@@ -67,6 +67,9 @@ This template defines some new variables to control the appearance of the result
 - `titlepage-rule-height` (defaults to `4`)
 
     the height of the rule on the top of the title page (in points)
+- `titlepage-background`
+
+    the path to a background image for the title page. The background image is scaled to cover the entire page. In the examples folder under `titlepage-background` are a few example background images.
 - `caption-justification` (defaults to `raggedright`)
 
     justification setting for captions (uses the `justification` parameter of the [caption](https://ctan.org/pkg/caption?lang=en) package)
@@ -196,13 +199,17 @@ There will be one blank page before each chapter because the template is two-sid
 
 ### Example Images
 
-A green title page      |  Code blocks styled with listings
+A green title page | A background image on the title page
 :-------------------------:|:-------------------------:
-[![A green title page](examples/green-titlepage/green-titlepage.png)](examples/green-titlepage/green-titlepage.pdf)  |  [![Code blocks styled with listings](examples/listings/listings.png)](examples/listings/listings.pdf)
+[![A green title page](examples/green-titlepage/green-titlepage.png)](examples/green-titlepage/green-titlepage.pdf)  |  [![A background image on the title page](examples/titlepage-background/titlepage-background.png)](examples/titlepage-background/titlepage-background.pdf)
 
-images and tables      |  Code blocks styled without listings
+images and tables | Code blocks styled without listings
 :-------------------------:|:-------------------------:
 [![images and tables](examples/images-and-tables/images-and-tables.png)](examples/images-and-tables/images-and-tables.pdf)  |  [![Code blocks styled without listings](examples/without-listings/without-listings.png)](examples/without-listings/without-listings.pdf)
+
+A book | Code blocks styled with listings
+:-------------------------:|:-------------------------:
+[![A book](examples/book/book.png)](examples/book/book.pdf)  |  [![Code blocks styled with listings](examples/listings/listings.png)](examples/listings/listings.pdf)
 
 ## Credits
 
