@@ -862,11 +862,11 @@ $else$
   \vfill
 }
 $endif$
-
+$if(logo)$
   \noindent
   \includegraphics[width=$if(logo-width)$$logo-width$$else$100$endif$pt, left]{$logo$}
   $endif$<Paste>
-
+$endif$
 $if(titlepage-background)$
 $else$
 \textsf{$date$}
