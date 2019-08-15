@@ -846,10 +846,6 @@ $if(titlepage-background)$
 $else$
 {
   \setstretch{1.4}
-  $if(logo)$
-  \noindent
-  \includegraphics[width=$if(logo-width)$$logo-width$$else$100$endif$pt, left]{$logo$}
-  $endif$
 
   \vfill
   \noindent {\huge \textbf{\textsf{$title$}}}
@@ -859,11 +855,17 @@ $else$
   $endif$
   \vskip 2em
   \noindent {\Large \textsf{$for(author)$$author$$sep$, $endfor$}}
+  $if(tutor)$
   \vskip 1em
   \noindent {\Large \textsf{$for(tutor)$$tutor$$sep$, $endfor$}}
+  $endif$
   \vfill
 }
 $endif$
+
+  \noindent
+  \includegraphics[width=$if(logo-width)$$logo-width$$else$100$endif$pt, left]{$logo$}
+  $endif$<Paste>
 
 $if(titlepage-background)$
 $else$
