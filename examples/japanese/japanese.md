@@ -1,6 +1,6 @@
 ---
 title: "日本語サンプル"
-author: [日本語]
+author: [著者]
 date: "2017-02-20"
 subject: "Markdown"
 keywords: [Markdown, Example]
