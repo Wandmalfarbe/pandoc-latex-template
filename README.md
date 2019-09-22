@@ -146,6 +146,10 @@ This template defines some new variables to control the appearance of the result
     4.  `p`: Place the float on the next *page* that will contain only floats like figures and tables.
     5.  `H`: Place the float *HERE* (exactly where it occurs in the source text). The `H` specifier is provided by the [float package](https://ctan.org/pkg/float) and may not be used in conjunction with any other placement specifiers.
 
+  - `table-use-row-colors` (defaults to `false`)
+
+    enables row colors for tables. The default value is `false` because the coloring extends beyond the edge of the table and there is currently no way to change that.
+
 ## Examples
 
 ### Numbered Sections
