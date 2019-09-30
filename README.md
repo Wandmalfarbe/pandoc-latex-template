@@ -150,6 +150,10 @@ This template defines some new variables to control the appearance of the result
 
     enables row colors for tables. The default value is `false` because the coloring extends beyond the edge of the table and there is currently no way to change that.
 
+  - `code-block-font-size` (defaults to `\small`)
+
+    LaTeX command to change the font size for code blocks. The available values are `\tiny`, `\scriptsize`, `\footnotesize`, `\small`, `\normalsize`, `\large`, `\Large`, `\LARGE`, `\huge` and `\Huge`. This option will change the font size for default code blocks using the verbatim environment and for code blocks generated with listings.
+
 ## Examples
 
 ### Numbered Sections
