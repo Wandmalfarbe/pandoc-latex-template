@@ -248,6 +248,14 @@ $endif$
 \definecolor{default-citecolor}{HTML}{4077C0}
 \definecolor{default-urlcolor}{HTML}{4077C0}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+$if(footnotes-pretty)$
+% load footmisc in order to customize footnotes (footmisc has to be loaded before hyperref, cf. https://tex.stackexchange.com/a/169124/144087)
+\usepackage[hang,flushmargin,bottom,multiple]{footmisc}
+\setlength{\footnotemargin}{0.8em} % set space between footnote nr and text
+\setlength{\footnotesep}{\baselineskip} % set space between multiple footnotes
+\setlength{\skip\footins}{0.3cm} % set space between page content and footnote
+\setlength{\footskip}{0.9cm} % set space between footnote and page bottom
+$endif$
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
 $if(title-meta)$
@@ -341,6 +349,11 @@ $else$
 \IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
 \makesavenoteenv{longtable}
 $endif$
+$endif$
+% add backlinks to footnote references, cf. https://tex.stackexchange.com/questions/302266/make-footnote-clickable-both-ways
+$if(footnotes-disable-backlinks)$
+$else$
+\usepackage{footnotebackref}
 $endif$
 $if(graphics)$
 \usepackage{graphicx,grffile}

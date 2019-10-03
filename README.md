@@ -120,6 +120,14 @@ This template defines some new variables to control the appearance of the result
 
     the text on the right side of the footer
 
+  - `footnotes-pretty` (defaults to `false`)
+
+    prettifies formatting of footnotes (requires package `footmisc`)
+
+  - `footnotes-disable-backlinks` (defaults to `false`)
+
+    disables making the reference from the footnote at the bottom of the page into a link back to the occurence of the footnote in the main text.
+
   - `book` (defaults to `false`)
 
     typeset as book
