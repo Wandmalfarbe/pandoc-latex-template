@@ -4,7 +4,7 @@ language: r
 pandoc_version: 2.0.2
 install:
   - sudo apt-get install poppler-utils
-  - tlmgr install xecjk filehook unicode-math ucharcat pagecolor babel-german ly1 mweights sourcecodepro sourcesanspro mdframed needspace fvextra
+  - tlmgr install xecjk filehook unicode-math ucharcat pagecolor babel-german ly1 mweights sourcecodepro sourcesanspro mdframed needspace fvextra footmisc footnotebackref
 before_script:
   - cd examples
 script:
