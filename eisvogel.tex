@@ -574,6 +574,13 @@ $endif$
 % 'default' option sets the default
 % font family to Source Sans Pro, not \sfdefault.
 %
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  $if(fontfamily)$
+  $else$
+  \usepackage[default]{sourcesanspro}
+  \usepackage{sourcecodepro}
+  $endif$
+\else % if not pdftex
   $if(mainfont)$
   $else$
   \usepackage[default]{sourcesanspro}
@@ -598,6 +605,7 @@ $endif$
     \makeatother
   \fi
   $endif$
+\fi
 
 %
 % heading color
