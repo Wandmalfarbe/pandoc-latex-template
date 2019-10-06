@@ -535,6 +535,10 @@ $if(titlepage)$
 $if(titlepage-background)$
 \usepackage{tikz}
 $endif$
+$if(geometry)$
+$else$
+\usepackage[margin=2.5cm,includehead=true,includefoot=true,centering]{geometry}
+$endif$
 $endif$
 
 %
