@@ -2,6 +2,23 @@
 
 All notable changes to this project are documented in this file. On the [releases page](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/) you can see all released versions of the Eisvogel template and download the [latest version](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/latest).
 
+## [1.3.0] - 2019-10-26
+
+- Clarified the location of the pandoc templates directory in the readme.
+- Added missing `$endif$` that caused a compilation failure (#125, 0az).
+- Merged changes from the pandoc default LaTeX template.
+- Fixed a bug where specifying a font via `mainfont` when using pdfLaTeX would not apply the default font Source Sans Pro.
+- Improve formatting of footnotes with the variables `footnotes-pretty` and `footnotes-disable-backlinks` (#107, salim-b).
+- Added the variable `code-block-font-size` to change the font size for code blocks via the supplied LaTeX command (#123, #17).
+- Improve Japanese dummy text (#86, JKPOKE)
+- Added an example on how to change header and footer (#109).
+- Added example backgrounds to the titlepage example.
+- Added support for background images on the title page with the variable `titlepage-background` (#31, #41).
+- Disabled striped tables per default. Enable them with the variable `table-use-row-colors: true` (#29).
+- Updated listings definition for Java which is the default language when using listings. This means that more keywords such as `var` from Java 10 are highlighted.
+- Added support for additional keyword colors when using `listings` for syntax highlighting. The support depends on the used language. Some languages like `motorola68k`, `x86masm`, `inform`, `llvm`, `lua`, `metapost`, `mupad`, `ocl`, `python`, `verrilog`, `basic`, `cil`, `fortran` and `hansl` will have additional colors for some keywords.
+- Fixed: Long lines in code blocks (verbatim environment) wrap automatically (#2).
+
 ## [1.2.4] - 2019-06-16
 
 - Fixed: The template now compiles with the output format `beamer` (#99). The styling for the generated slides is currently not customized.
@@ -43,6 +60,7 @@ All notable changes to this project are documented in this file. On the [release
 
 - First release of the template as a ZIP file with the examples.
 
+[1.3.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v1.2.4...v1.3.0
 [1.2.4]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v1.2.3...v1.2.4
 [1.2.3]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v1.2.2...v1.2.3
 [1.2.2]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v1.2.1...v1.2.2
