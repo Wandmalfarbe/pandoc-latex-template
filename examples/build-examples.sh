@@ -9,37 +9,43 @@ echo ""
 
 echo "- header-and-footer"
 pandoc "header-and-footer/header-and-footer.md" -o "header-and-footer/header-and-footer.pdf" --from markdown --template "../eisvogel.latex" --listings --resource-path "./header-and-footer/"
-pdftoppm -r 150 -png "header-and-footer/header-and-footer.pdf" > "header-and-footer/header-and-footer.png"
+pdftopng -r 150 "header-and-footer/header-and-footer.pdf" "header-and-footer/header-and-footer"
 
 echo "- titlepage-background"
 cd "titlepage-background"
 pandoc "titlepage-background.md" -o "titlepage-background.pdf" --from markdown --template "../../eisvogel.latex" --listings
-pdftoppm -r 150 -png "titlepage-background.pdf" > "titlepage-background.png"
+pdftopng -r 150 "titlepage-background.pdf" "titlepage-background"
+cd ".."
+
+echo "- page-background"
+cd "page-background"
+pandoc "page-background.md" -o "page-background.pdf" --from markdown --template "../../eisvogel.latex" --listings
+pdftopng -r 150 "page-background.pdf" "page-background"
 cd ".."
 
 echo "- basic-example"
 pandoc "basic-example/basic-example.md" -o "basic-example/basic-example.pdf" --from markdown --template "../eisvogel.latex" --listings
-pdftoppm -r 150 -png "basic-example/basic-example.pdf" > "basic-example/basic-example.png"
+pdftopng -r 150 "basic-example/basic-example.pdf" "basic-example/basic-example"
 
 echo "- beamer"
 pandoc "beamer/beamer.md" -o "beamer/beamer.pdf" --from markdown --to beamer --template "../eisvogel.latex" --listings
-pdftoppm -r 150 -png "beamer/beamer.pdf" > "beamer/beamer.png"
+pdftopng -r 150 "beamer/beamer.pdf" "beamer/beamer"
 
 echo "- custom-titlepage"
 cd "custom-titlepage"
 pandoc "custom-titlepage.md" -o "custom-titlepage.pdf" --from markdown --template "../../eisvogel.latex" --listings
-pdftoppm -r 150 -png "custom-titlepage.pdf" > "custom-titlepage.png"
+pdftopng -r 150 "custom-titlepage.pdf" "custom-titlepage"
 cd ".."
 
 echo "- default-titlepage"
 pandoc "default-titlepage/default-titlepage.md" -o "default-titlepage/default-titlepage.pdf" --from markdown --template "../eisvogel.latex" --listings
-pdftoppm -r 150 -png "default-titlepage/default-titlepage.pdf" > "default-titlepage/default-titlepage.png"
+pdftopng -r 150 "default-titlepage/default-titlepage.pdf" "default-titlepage/default-titlepage"
 
 echo "- german"
 # No lang option (-V lang=de) here because the language
 # is set in the markdown file via the YAML metadata block.
 pandoc "german/german.md" -o "german/german.pdf" --from markdown --template "../eisvogel.latex" --highlight-style kate
-pdftoppm -r 150 -png "german/german.pdf" > "german/german.png"
+pdftopng -r 150 "german/german.pdf" "german/german"
 
 # No lang option (-V lang=jp) here because it's
 # unspported in XeLaTeX (in polyglossia).
@@ -49,31 +55,31 @@ pdftoppm -r 150 -png "german/german.pdf" > "german/german.png"
 
 echo "- listings"
 pandoc "listings/listings.md" -o "listings/listings.pdf" --from markdown --template "../eisvogel.latex" --listings
-pdftoppm -r 150 -png "listings/listings.pdf" > "listings/listings.png"
+pdftopng -r 150 "listings/listings.pdf" "listings/listings"
 
 echo "- without-listings"
 pandoc "without-listings/without-listings.md" -o "without-listings/without-listings.pdf" --from markdown --template "../eisvogel.latex" --highlight-style kate
-pdftoppm -r 150 -png "without-listings/without-listings.pdf" > "without-listings/without-listings.png"
+pdftopng -r 150 "without-listings/without-listings.pdf" "without-listings/without-listings"
 
 echo "- green-titlepage"
 pandoc "green-titlepage/green-titlepage.md" -o "green-titlepage/green-titlepage.pdf" --from markdown --template "../eisvogel.latex" --listings
-pdftoppm -r 150 -png "green-titlepage/green-titlepage.pdf" > "green-titlepage/green-titlepage.png"
+pdftopng -r 150 "green-titlepage/green-titlepage.pdf" "green-titlepage/green-titlepage"
 
 echo "- book"
 # Additional options like `book: true` and `classoption: [oneside]` are set in the markdown file via the YAML metadata block.
 pandoc "book/book.md" -o "book/book.pdf" --from markdown --template "../eisvogel.latex" --listings --top-level-division="chapter"
-pdftoppm -r 150 -png "book/book.pdf" > "book/book.png"
+pdftopng -r 150 "book/book.pdf" "book/book"
 
 echo "- images-and-tables"
 pandoc "images-and-tables/images-and-tables.md" -o "images-and-tables/images-and-tables.pdf" --from markdown --template "../eisvogel.latex" --listings --resource-path "./images-and-tables/"
-pdftoppm -r 150 -png "images-and-tables/images-and-tables.pdf" > "images-and-tables/images-and-tables.png"
+pdftopng -r 150 "images-and-tables/images-and-tables.pdf" "images-and-tables/images-and-tables"
 
 echo "- logo-titlepage"
 # Important: Since the logo is a manually included image, the option "--resource-path" can't be used for specifying its location.
 # The location of the logo has to be relative to where pandoc is executed, so we cd into the directory with the logo.
 cd "logo-titlepage"
 pandoc "logo-titlepage.md" -o "logo-titlepage.pdf" --from markdown --template "../../eisvogel.latex" --listings
-pdftoppm -r 150 -png "logo-titlepage.pdf" > "logo-titlepage.png"
+pdftopng -r 150 "logo-titlepage.pdf" "logo-titlepage"
 cd ".."
 
 rm "../eisvogel.latex"
