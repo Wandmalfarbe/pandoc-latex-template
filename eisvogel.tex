@@ -290,10 +290,15 @@ $if(verbatim-in-note)$
 $endif$
 $if(geometry)$
 $if(beamer)$
-\geometry{margin=2.5cm,includehead=true,includefoot=true,centering,$for(geometry)$$geometry$$sep$,$endfor$}
+\geometry{$for(geometry)$$geometry$$sep$,$endfor$}
+$else$
+\usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
 $endif$
 $else$
+$if(beamer)$
+$else$
 \usepackage[margin=2.5cm,includehead=true,includefoot=true,centering,$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
+$endif$
 $endif$
 $if(logo)$
 \usepackage[export]{adjustbox}
