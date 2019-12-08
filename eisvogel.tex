@@ -291,9 +291,9 @@ $endif$
 $if(geometry)$
 $if(beamer)$
 \geometry{margin=2.5cm,includehead=true,includefoot=true,centering,$for(geometry)$$geometry$$sep$,$endfor$}
+$endif$
 $else$
 \usepackage[margin=2.5cm,includehead=true,includefoot=true,centering,$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
-$endif$
 $endif$
 $if(logo)$
 \usepackage[export]{adjustbox}
