@@ -76,6 +76,14 @@ This template defines some new variables to control the appearance of the result
 
     the path to a background image for the title page. The background image is scaled to cover the entire page. In the examples folder under `titlepage-background` are a few example background images.
 
+  - `page-background`
+
+    the path to a background image for any page. The background image is scaled to cover the entire page. In the examples folder under `page-background` are a few example background images.
+
+  - `page-background-opacity` (defaults to `0.2`)
+
+    the background image opacity
+
   - `caption-justification` (defaults to `raggedright`)
 
     justification setting for captions (uses the `justification` parameter of the [caption](https://ctan.org/pkg/caption?lang=en) package)
