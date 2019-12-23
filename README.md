@@ -252,6 +252,10 @@ There will be one blank page before each chapter because the template is two-sid
 | :----: | :----: |
 | [![A book](examples/book/book.png)](examples/book/book.pdf) | [![Code blocks styled with listings](examples/listings/listings.png)](examples/listings/listings.pdf) |
 
+| A background images on all pages | CJK Support (when using XeLaTeX) |
+| :----: | :----: |
+| [![A background images on all pages](examples/page-background/page-background.png)](examples/page-background/page-background.pdf) | [![CJK Support (when using XeLaTeX)](examples/japanese/japanese.png)](examples/japanese/japanese.pdf) |
+
 ## Credits
 
   - This template includes code for styling block quotations from [pandoc-letter](https://github.com/aaronwolen/pandoc-letter) by [Aaron Wolen](https://github.com/aaronwolen).
