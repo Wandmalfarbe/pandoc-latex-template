@@ -8,7 +8,7 @@ install:
   # for executing python based pandoc filters
   - sudo apt-get install python3
   - sudo apt-get install python3-pip
-  - pip3 install --upgrade setuptools
+  - sudo pip3 install --upgrade setuptools
   # install python filters
   - pip3 install pandoc-latex-environment
   # packages needed for the template
