@@ -70,6 +70,10 @@ echo "- book"
 pandoc "book/book.md" -o "book/book.pdf" --from markdown --template "../eisvogel.latex" --listings --top-level-division="chapter"
 pdftoppm -r 150 -png "book/book.pdf" > "book/book.png"
 
+echo "- boxes-with-pandoc-latex-environment-and-awesomebox"
+pandoc "boxes-with-pandoc-latex-environment-and-awesomebox/boxes.md" -o "boxes-with-pandoc-latex-environment-and-awesomebox/boxes.pdf" --from markdown --template "../eisvogel.latex" --filter pandoc-latex-environment --listings
+pdftoppm -r 150 -png "boxes-with-pandoc-latex-environment-and-awesomebox/boxes.pdf" > "boxes-with-pandoc-latex-environment-and-awesomebox/boxes.png"
+
 echo "- images-and-tables"
 pandoc "images-and-tables/images-and-tables.md" -o "images-and-tables/images-and-tables.pdf" --from markdown --template "../eisvogel.latex" --listings --resource-path "./images-and-tables/"
 pdftoppm -r 150 -png "images-and-tables/images-and-tables.pdf" > "images-and-tables/images-and-tables.png"
