@@ -1,7 +1,7 @@
-sudo: required
-dist: trusty
+os: linux
+dist: xenial
 language: r
-pandoc_version: 2.0.2
+pandoc_version: 2.9.1
 install:
   # for rendering the PDFs
   - sudo apt-get install poppler-utils
@@ -14,7 +14,7 @@ install:
   # packages needed for the template
   - tlmgr install xecjk filehook unicode-math ucharcat pagecolor babel-german ly1 mweights sourcecodepro sourcesanspro mdframed needspace fvextra footmisc footnotebackref background
   # packages only needed for some examples (that include packages via header-includes)
-  - tlmgr install awesomebox
+  - tlmgr install awesomebox fontawesome5
 before_script:
   - cd examples
 script:
