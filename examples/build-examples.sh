@@ -47,10 +47,9 @@ echo "- german"
 pandoc "german/german.md" -o "german/german.pdf" --from markdown --template "../eisvogel.latex" --highlight-style kate
 pdftoppm -r 150 -png "german/german.pdf" > "german/german.png"
 
-# No lang option (-V lang=jp) here because it's
-# unspported in XeLaTeX (in polyglossia).
+# No lang option (-V lang=jp) here because Japanese unsupported in polyglossia.
 # These commands are disabled because the CJK font isn't available on travis.
-#pandoc "japanese/japanese.md" -o "japanese/japanese.pdf" --from markdown --template "../eisvogel.latex" --listings --pdf-engine=xelatex -V lang=en-us -V CJKmainfont="HiraginoSans-W4"
+#pandoc "japanese/japanese.md" -o "japanese/japanese.pdf" --from markdown --template "../eisvogel.latex" --listings --pdf-engine=xelatex -V CJKmainfont="HiraginoSans-W4"
 #pdftoppm -r 150 -png "japanese/japanese.pdf" > "japanese/japanese.png"
 
 echo "- listings"
@@ -73,6 +72,11 @@ pdftoppm -r 150 -png "book/book.pdf" > "book/book.png"
 echo "- boxes-with-pandoc-latex-environment-and-awesomebox"
 pandoc "boxes-with-pandoc-latex-environment-and-awesomebox/boxes.md" -o "boxes-with-pandoc-latex-environment-and-awesomebox/boxes.pdf" --from markdown --template "../eisvogel.latex" --filter pandoc-latex-environment --listings
 pdftoppm -r 150 -png "boxes-with-pandoc-latex-environment-and-awesomebox/boxes.pdf" > "boxes-with-pandoc-latex-environment-and-awesomebox/boxes.png"
+
+# No lang option (-V lang=zh) here because Chinese is unsupported in polyglossia and babel.
+# These commands are disabled because the CJK font isn't available on travis.
+#pandoc "chinese/chinese.md" -o "chinese/chinese.pdf" --from markdown --template "../eisvogel.latex" --listings --pdf-engine=xelatex -V CJKmainfont="HiraginoSans-W4"
+#pdftoppm -r 150 -png "chinese/chinese.pdf" > "chinese/chinese.png"
 
 echo "- images-and-tables"
 pandoc "images-and-tables/images-and-tables.md" -o "images-and-tables/images-and-tables.pdf" --from markdown --template "../eisvogel.latex" --listings --resource-path "./images-and-tables/"
