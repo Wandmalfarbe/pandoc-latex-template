@@ -199,7 +199,7 @@ Eisvogel requires a full texlive distribution that can be installed by running
 large (about 5 Gigabytes) you can also install the smaller texlive bundles and
 add any missing packages manually.
 
-A smaller texlife bundle is `texlive-latex-extra`. With `texlive-latex-extra`
+A smaller texlive bundle is `texlive-latex-extra`. With `texlive-latex-extra`
 you also need to install these packages manually:
 
 ```
