@@ -172,7 +172,7 @@ This template defines some new variables to control the appearance of the result
 
 ## Required LaTeX Packages
 
-LaTeX manages addons and additional funktionality in so called packages. You
+LaTeX manages addons and additional functionality in so called packages. You
 might get the following error when compiling a document with the Eisvogel
 template:
 
