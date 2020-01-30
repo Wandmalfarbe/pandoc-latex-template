@@ -186,7 +186,6 @@ or enter new name. (Default extension: sty)
 Enter file name:
 ! Emergency stop.
 <read *>
-
 ```
 
 LaTeX informs you that the additional package `footnotebackref` is required to
@@ -212,7 +211,7 @@ unicode-math upquote xecjk xurl zref
 Install them with the following command:
 
 ``` sh
-tlmgt install adjustbox babel-german background bidi collectbox csquotes everypage filehook footmisc footnotebackref framed fvextra letltxmacro ly1 mdframed mweights needspace pagecolor sourcecodepro sourcesanspro titling ucharcat ulem unicode-math upquote xecjk xurl zref
+tlmgr install adjustbox babel-german background bidi collectbox csquotes everypage filehook footmisc footnotebackref framed fvextra letltxmacro ly1 mdframed mweights needspace pagecolor sourcecodepro sourcesanspro titling ucharcat ulem unicode-math upquote xecjk xurl zref
 ```
 
 Additional information about the different texlive packages can be found at
