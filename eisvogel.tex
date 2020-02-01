@@ -410,6 +410,32 @@ $endif$
 \usepackage{float}
 \floatplacement{figure}{$if(float-placement-figure)$$float-placement-figure$$else$H$endif$}
 
+% Define a \keystroke command, rendering a visual representatiom
+% of a keyboard key
+\usepackage{tikz}
+\usetikzlibrary{shadows}
+\newcommand*\keystroke[1]{
+  \tikz[baseline=(key.base)]
+    \node[
+      draw,
+      text height=1.5ex,
+      text depth=0ex,
+      fill=white,
+      minimum width=1.2em,
+      drop shadow={
+        shadow xshift=0.2ex,
+        shadow yshift=-0.2ex,
+        fill=black,
+        opacity=0.50
+      },
+      rectangle,
+      rounded corners=2pt,
+      inner sep=2.75pt,
+      line width=0.5pt,
+      font=\footnotesize\sffamily
+    ](key) {#1};
+}
+
 $for(header-includes)$
 $header-includes$
 $endfor$
