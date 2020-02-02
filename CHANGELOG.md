@@ -2,6 +2,16 @@
 
 All notable changes to this project are documented in this file. On the [releases page](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/) you can see all released versions of the Eisvogel template and download the [latest version](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/latest).
 
+## [1.4.0] - 2020-02-02
+
+- Added support for a page background (#138, evildead).
+    - The variable `page-background` specifies the path to a background image for any page. The background image is scaled to cover the entire page.
+    - The variable `page-background-opacity` specifies the background image opacity.
+- Added an example on how to generate admonition boxes (#115). The example demonstrates the use of the filter `pandoc-latex-environments` to create custom admonition boxes with the `awesomebox` package.
+- Added an example on how to compile Chinese documents (#140).
+- Added a section on *required LaTeX packages* to the readme (#141). The section explains how to install the required packages with TeX Live and MiKtEX.
+- Corrected the command `tlmgr` in `README.md` (#143).
+
 ## [1.3.1] - 2019-12-08
 
 - Fixed wrong margins when not using the titlepage option (#135).
@@ -64,6 +74,7 @@ All notable changes to this project are documented in this file. On the [release
 
 - First release of the template as a ZIP file with the examples.
 
+[1.4.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v1.3.1...v1.4.0
 [1.3.1]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v1.3.0...v1.3.1
 [1.3.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v1.2.4...v1.3.0
 [1.2.4]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v1.2.3...v1.2.4
