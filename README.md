@@ -87,11 +87,19 @@ This template defines some new variables to control the appearance of the result
   - `caption-justification` (defaults to `raggedright`)
 
     justification setting for captions (uses the `justification` parameter of the [caption](https://ctan.org/pkg/caption?lang=en) package)
-
+    
+  - `toc` (defaults to `false`):
+  
+    include toc at the start of the document or after the title page
+    
   - `toc-own-page` (defaults to `false`)
 
     begin new page after table of contents, when `true`
-
+    
+  - `toc-title` (defaults to `Contents`)
+  
+    change toc default title
+    
   - `listings-disable-line-numbers` (defaults to `false`)
 
     disables line numbers for all listings
