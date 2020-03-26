@@ -134,7 +134,7 @@ This template defines some new variables to control the appearance of the result
 
   - `footnotes-disable-backlinks` (defaults to `false`)
 
-    disables making the reference from the footnote at the bottom of the page into a link back to the occurence of the footnote in the main text.
+    disables making the reference from the footnote at the bottom of the page into a link back to the occurence of the footnote in the main text (enabling requires package `footnotebackref`).
 
   - `book` (defaults to `false`)
 
