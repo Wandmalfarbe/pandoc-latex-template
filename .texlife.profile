@@ -1,0 +1,15 @@
+selected_scheme scheme-basic
+instopt_adjustpath 1
+collection-basic 1
+collection-bibtexextra 0
+collection-fontsextra 0
+collection-fontsrecommended 1
+collection-langchinese 0
+collection-latex 1
+collection-latexextra 0
+collection-latexrecommended 1
+collection-mathscience 0
+collection-xetex 1
+tlpdbopt_autobackup 0
+tlpdbopt_install_docfiles 0
+tlpdbopt_install_srcfiles 0
