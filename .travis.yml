@@ -9,6 +9,7 @@ install:
   - sudo apt-get install python3
   - sudo apt-get install python3-pip
   - sudo pip3 install --upgrade setuptools
+  - sudo pip3 install wheel # see https://github.com/pypa/setuptools/issues/1934
   # install python filters
   - pip3 install pandoc-latex-environment
   # packages needed for the template
