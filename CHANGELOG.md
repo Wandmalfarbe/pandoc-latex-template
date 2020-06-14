@@ -2,6 +2,15 @@
 
 All notable changes to this project are documented in this file. On the [releases page](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/) you can see all released versions of the Eisvogel template and download the [latest version](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/latest).
 
+## [1.5.0] - 2020-06-14
+
+- Create release assets with and without version number for easy access (#175).
+- Added example `boxes-with-pandoc-latex-environment-and-tcolorbox` This example shows how to render beautiful boxes with the filter `pandoc-latex-environment` and the package `tcolorbox`.
+- Fix LaTeX installation problems on Travis by installing everything manually.
+- Fixed a couple of LuaLaTeX warnings (#169, khaveesh)
+- Mention required LaTeX package for option `footnotes-disable-backlinks` in the Readme (#148, salim-b).
+- Remove `graphicx` dependency (#149, noraj). Please see https://github.com/jgm/pandoc/issues/5848 for the full discussion.
+
 ## [1.4.0] - 2020-02-02
 
 - Added support for a page background (#138, evildead).
@@ -74,6 +83,7 @@ All notable changes to this project are documented in this file. On the [release
 
 - First release of the template as a ZIP file with the examples.
 
+[1.5.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v1.3.1...v1.4.0
 [1.3.1]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v1.3.0...v1.3.1
 [1.3.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v1.2.4...v1.3.0
