@@ -53,6 +53,9 @@ before_install:
 
   # packages only needed for some examples (that include packages via header-includes)
   - tlmgr install awesomebox fontawesome5
+
+  # packages only needed for some examples (example boxes-with-pandoc-latex-environment-and-tcolorbox)
+  - tlmgr install tcolorbox pgf verbatim etoolbox environ
 before_script:
   - cd examples
 script:

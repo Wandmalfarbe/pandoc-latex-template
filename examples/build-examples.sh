@@ -73,6 +73,10 @@ echo "- boxes-with-pandoc-latex-environment-and-awesomebox"
 pandoc "boxes-with-pandoc-latex-environment-and-awesomebox/boxes.md" -o "boxes-with-pandoc-latex-environment-and-awesomebox/boxes.pdf" --from markdown --template "../eisvogel.latex" --filter pandoc-latex-environment --listings
 pdftoppm -r 150 -png "boxes-with-pandoc-latex-environment-and-awesomebox/boxes.pdf" > "boxes-with-pandoc-latex-environment-and-awesomebox/boxes.png"
 
+echo "- boxes-with-pandoc-latex-environment-and-tcolorbox"
+pandoc "boxes-with-pandoc-latex-environment-and-tcolorbox/boxes-tcolorbox.md" -o "boxes-with-pandoc-latex-environment-and-tcolorbox/boxes-tcolorbox.pdf" --from markdown --template "../eisvogel.latex" --filter pandoc-latex-environment --listings
+pdftoppm -r 150 -png "boxes-with-pandoc-latex-environment-and-tcolorbox/boxes-tcolorbox.pdf" > "boxes-with-pandoc-latex-environment-and-tcolorbox/boxes-tcolorbox.png"
+
 # No lang option (-V lang=zh) here because Chinese is unsupported in polyglossia and babel.
 # These commands are disabled because the CJK font isn't available on travis.
 #pandoc "chinese/chinese.md" -o "chinese/chinese.pdf" --from markdown --template "../eisvogel.latex" --listings --pdf-engine=xelatex -V CJKmainfont="HiraginoSans-W4"
