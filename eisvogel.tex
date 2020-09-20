@@ -634,13 +634,14 @@ $endif$
 %\addtokomafont{chapter}{\color{heading-color}}
 
 %
-% variables for title and author
+% variables for title, author and date
 %
 $if(beamer)$
 $else$
 \usepackage{titling}
 \title{$title$}
 \author{$for(author)$$author$$sep$, $endfor$}
+\date{$date$}
 $endif$
 
 %
