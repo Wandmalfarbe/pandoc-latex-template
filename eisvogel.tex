@@ -275,10 +275,10 @@ $if(keywords)$
 $endif$
 $if(colorlinks)$
   colorlinks=true,
-  linkcolor=$if(linkcolor)$$linkcolor$$else$default-linkcolor$endif$,
-  filecolor=$if(filecolor)$$filecolor$$else$default-filecolor$endif$,
-  citecolor=$if(citecolor)$$citecolor$$else$default-citecolor$endif$,
-  urlcolor=$if(urlcolor)$$urlcolor$$else$default-urlcolor$endif$,
+  linkcolor=$if(linkcolor)$[HTML]$linkcolor$$else$default-linkcolor$endif$,
+  filecolor=$if(filecolor)$[HTML]$filecolor$$else$default-filecolor$endif$,
+  citecolor=$if(citecolor)$[HTML]$citecolor$$else$default-citecolor$endif$,
+  urlcolor=$if(urlcolor)$[HTML]$urlcolor$$else$default-urlcolor$endif$,
 $else$
   hidelinks,
 $endif$
