@@ -64,6 +64,10 @@ This template defines some new variables to control the appearance of the result
 
     the text color of the title page
 
+  - `titlepage-urlcolor` (defaults to `default-urlcolor` of `4077C0`)
+
+    the color of URLs on the title page
+
   - `titlepage-rule-color` (defaults to `435488`)
 
     the color of the rule on the top of the title page
@@ -169,6 +173,26 @@ This template defines some new variables to control the appearance of the result
   - `code-block-font-size` (defaults to `\small`)
 
     LaTeX command to change the font size for code blocks. The available values are `\tiny`, `\scriptsize`, `\footnotesize`, `\small`, `\normalsize`, `\large`, `\Large`, `\LARGE`, `\huge` and `\Huge`. This option will change the font size for default code blocks using the verbatim environment and for code blocks generated with listings.
+
+  - `colorlinks` (defaults to `false`)
+
+    enables colored links in the document
+ 
+  - `linkcolor` (defaults to `A50000`)
+  
+    color links within the document
+    
+  - `filecolor` (defaults to `A50000`)
+  
+    color of links to files
+    
+  - `citecolor` (defaults to `4077C0`)
+  
+    color of citation links
+    
+  - `urlcolor` (defaults to `4077C0`)
+  
+    color of links to websites
 
 ## Required LaTeX Packages
 
