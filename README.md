@@ -365,7 +365,7 @@ The same fix can be used for the logo image as well:
 logo: "`logo_image.pdf`{=latex}"
 ```
 
-Corresponding issues: 
+Corresponding issues:
 
 - [Wandmalfarbe/pandoc-latex-template#100](https://github.com/Wandmalfarbe/pandoc-latex-template/issues/100)
 - [Wandmalfarbe/pandoc-latex-template#166](https://github.com/Wandmalfarbe/pandoc-latex-template/issues/166)
@@ -386,7 +386,7 @@ This error likely occurs on Windows with MiKTeX installed. StackOverflow user
 
 > To solve the problem navigate to `C:\Program Files\MiKTeX 2.9\miktex\bin\x64` and run `updmap.exe`. The program may seem as it hangs for a while, but its probably because it tries to update the whole font tree. This solved the problem for me. After re-compiling everything should work fine.
 
-Corresponding issue: 
+Corresponding issue:
 
 - [Wandmalfarbe/pandoc-latex-template#133](https://github.com/Wandmalfarbe/pandoc-latex-template/issues/133)
 
