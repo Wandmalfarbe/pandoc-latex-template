@@ -370,6 +370,23 @@ Corresponding issues:
 - [Wandmalfarbe/pandoc-latex-template#100](https://github.com/Wandmalfarbe/pandoc-latex-template/issues/100)
 - [Wandmalfarbe/pandoc-latex-template#166](https://github.com/Wandmalfarbe/pandoc-latex-template/issues/166)
 
+### LaTeX Error `Missing \begin{document}`
+
+```
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...
+
+l.7 <
+     !DOCTYPE html>
+!  ==> Fatal error occurred, no output PDF file produced!
+```
+
+This error indicates that you try to use some text file for conversion that is
+not the Eisvogel template. Please download the [latest Eisvogel template](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/latest) from the releases page and start the conversion again.
+
 ### LaTeX Error `auto expansion is only possible with scalable fonts`
 
 ``` latex
