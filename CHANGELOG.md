@@ -2,6 +2,13 @@
 
 All notable changes to this project are documented in this file. On the [releases page](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/) you can see all released versions of the Eisvogel template and download the [latest version](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/latest).
 
+## [1.6.0] - 2020-11-02
+
+- Merged changes from the pandoc default LaTeX template (https://github.com/jgm/pandoc/blob/master/data/templates/default.latex).
+    - This merge should fix problems related to using CSL bibliographies (#201).
+- Added documentation about common errors to the readme.
+- The command `\thedate` can be used in the source document or metadata fields (#163).
+
 ## [1.5.0] - 2020-06-14
 
 - Create release assets with and without version number for easy access (#175).
@@ -83,6 +90,7 @@ All notable changes to this project are documented in this file. On the [release
 
 - First release of the template as a ZIP file with the examples.
 
+[1.6.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v1.5.0...v1.6.0
 [1.5.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v1.3.1...v1.4.0
 [1.3.1]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v1.3.0...v1.3.1
