@@ -132,6 +132,7 @@ $endif$
 $if(beamerarticle)$
 \usepackage{beamerarticle} % needs to be loaded first
 $endif$
+\usepackage{amsmath,amssymb}
 $if(fontfamily)$
 \usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
 $else$
@@ -341,7 +342,8 @@ $highlighting-macros$
 
 $endif$
 $if(tables)$
-\usepackage{longtable,booktabs}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
 $if(beamer)$
 \usepackage{caption}
 % Make caption package work with longtable
@@ -436,7 +438,10 @@ $for(polyglossia-otherlangs)$
   \setotherlanguage[$for(polyglossia-otherlangs.options)$$polyglossia-otherlangs.options$$sep$,$endfor$]{$polyglossia-otherlangs.name$}
 $endfor$
 \else
-  \usepackage[shorthands=off,$for(babel-otherlangs)$$babel-otherlangs$,$endfor$main=$babel-lang$]{babel}
+  \usepackage[$for(babel-otherlangs)$$babel-otherlangs$,$endfor$main=$babel-lang$]{babel}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
 $if(babel-newcommands)$
   $babel-newcommands$
 $endif$
@@ -473,7 +478,7 @@ $if(csl-refs)$
 \setlength{\cslhangindent}{1.5em}
 \newlength{\csllabelwidth}
 \setlength{\csllabelwidth}{3em}
-\newenvironment{CSLReferences}[3] % #1 hanging-ident, #2 entry spacing
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
  {% don't indent paragraphs
   \setlength{\parindent}{0pt}
   % turn on hanging indent if param 1 is 1
@@ -484,10 +489,10 @@ $if(csl-refs)$
   \fi
  }%
  {}
-\usepackage{calc} % for \widthof, \maxof
+\usepackage{calc}
 \newcommand{\CSLBlock}[1]{#1\hfill\break}
-\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\maxof{\widthof{#1}}{\csllabelwidth}}{#1}}
-\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth}{#1}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 $endif$
 
