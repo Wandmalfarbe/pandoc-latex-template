@@ -3,7 +3,7 @@ dist: bionic
 language: java
 before_install:
   # default pandoc is too old -> install a newer version manually
-  - PANDOC_VERSION="2.9.2"
+  - PANDOC_VERSION="2.11.2"
   - pandoc_deb="pandoc-${PANDOC_VERSION}-1-amd64.deb"
   - wget "https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/${pandoc_deb}"
   - sudo dpkg -i ${pandoc_deb}
