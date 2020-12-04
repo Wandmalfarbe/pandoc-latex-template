@@ -8,7 +8,11 @@ echo "##"
 echo ""
 
 echo "- header-and-footer"
-pandoc "header-and-footer/header-and-footer.md" -o "header-and-footer/header-and-footer.pdf" --from markdown --template "../eisvogel.latex" --listings --resource-path "./header-and-footer/"
+# Important: The template file will be searched in the '--resource-path' if it
+# is specified. So in order to find the template we have to include the cwd
+# into the resource path as well by specifying a '.' and separating the
+# two paths with a ':' (should be ';' on windows).
+pandoc "header-and-footer/header-and-footer.md" -o "header-and-footer/header-and-footer.pdf" --from markdown --template "../eisvogel.latex" --listings --resource-path ".:./header-and-footer/"
 pdftoppm -r 150 -png "header-and-footer/header-and-footer.pdf" > "header-and-footer/header-and-footer.png"
 
 echo "- page-background"
@@ -83,7 +87,11 @@ pdftoppm -r 150 -png "boxes-with-pandoc-latex-environment-and-tcolorbox/boxes-tc
 #pdftoppm -r 150 -png "chinese/chinese.pdf" > "chinese/chinese.png"
 
 echo "- images-and-tables"
-pandoc "images-and-tables/images-and-tables.md" -o "images-and-tables/images-and-tables.pdf" --from markdown --template "../eisvogel.latex" --listings --resource-path "./images-and-tables/"
+# Important: The template file will be searched in the '--resource-path' if it
+# is specified. So in order to find the template we have to include the cwd
+# into the resource path as well by specifying a '.' and separating the
+# two paths with a ':' (should be ';' on windows).
+pandoc "images-and-tables/images-and-tables.md" -o "images-and-tables/images-and-tables.pdf" --from markdown --template "../eisvogel.latex" --listings --resource-path ".:./images-and-tables/"
 pdftoppm -r 150 -png "images-and-tables/images-and-tables.pdf" > "images-and-tables/images-and-tables.png"
 
 echo "- logo-titlepage"
