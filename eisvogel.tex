@@ -928,6 +928,7 @@ $if(titlepage-background)$
 $else$
 {
   \setstretch{1.4}
+
   \vfill
   \noindent {\huge \textbf{\textsf{$title$}}}
   $if(subtitle)$
@@ -936,15 +937,18 @@ $else$
   $endif$
   \vskip 2em
   \noindent {\Large \textsf{$for(author)$$author$$sep$, $endfor$}}
+  $if(tutor)$
+  \vskip 1em
+  \noindent {\Large \textsf{$for(tutor)$$tutor$$sep$, $endfor$}}
+  $endif$
   \vfill
 }
 $endif$
-
 $if(logo)$
-\noindent
-\includegraphics[width=$if(logo-width)$$logo-width$$else$100$endif$pt, left]{$logo$}
+  \noindent
+  \includegraphics[width=$if(logo-width)$$logo-width$$else$100$endif$pt, left]{$logo$}
+  $endif$
 $endif$
-
 $if(titlepage-background)$
 $else$
 \textsf{$date$}
