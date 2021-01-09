@@ -91,6 +91,10 @@ This template defines some new variables to control the appearance of the result
   - `toc-own-page` (defaults to `false`)
 
     begin new page after table of contents, when `true`
+    
+  - `toc-depth` (defaults to `2`)
+
+    depth of the table of content
 
   - `listings-disable-line-numbers` (defaults to `false`)
 
