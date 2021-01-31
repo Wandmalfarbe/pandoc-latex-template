@@ -11,7 +11,7 @@ titlepage-text-color: "7137C8"
 titlepage-rule-color: "7137C8"
 titlepage-rule-height: 2
 logo: "logo.pdf"
-logo-width: 120
+logo-width: 30mm
 ...
 
 # Vinaque sanguine metuenti cuiquam Alcyone fixus

@@ -144,9 +144,24 @@ This template defines some new variables to control the appearance of the result
 
     path to an image that will be displayed on the title page. The path is always relative to where pandoc is executed. The option `--resource-path` has no effect.
 
-  - `logo-width` (defaults to `100`)
+  - `logo-width` (defaults to `35mm`)
 
-    the width of the logo (in points)
+    the width of the logo. One needs to specify the width with a (TeX) unit e.g. `100pt` or `35mm`. The following units can be used:
+
+    - `pt`: Point
+    - `pc`: pica (12 `pt`)
+    - `in`: inch (72.27 `pt`)
+    - `bp`: Big point (72 `bp` = 1 `in`)
+    - `cm`: Centimeter
+    - `mm`: Millimeter
+    - `dd`: Didot point
+    - `cc`: cicero (12 `dd`)
+    - `sp`: Scaled point (65,536 `sp` = 1 `pt`)
+    - `ex`: Nomimal x-height
+    - `em`: Nominal m-width
+    - `px`: Pixel (only for pdfTeX and LuaTeX) The dimension given to the `\pdfpxdimen` primitive; default value is 1 `bp`, corresponding to a pixel density of 72 dpi.
+
+    A visual overview of the length units is available at <https://github.com/tweh/tex-units>.
 
   - `first-chapter` (defaults to `1`)
 
