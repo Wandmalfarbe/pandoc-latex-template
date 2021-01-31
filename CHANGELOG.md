@@ -2,6 +2,29 @@
 
 All notable changes to this project are documented in this file. On the [releases page](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/) you can see all released versions of the Eisvogel template and download the [latest version](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/latest).
 
+## [2.0.0] - 2021-01-31
+
+**This release includes breaking changes.**
+
+- Merged changes from the pandoc default LaTeX template.
+- Fix broken travis build by modifying the `--resource-path`
+
+    When specifying the resource path via `--resource-path` the template will be searched there since pandoc 2.9.2.1.
+    To fix the broken travis build (`Could not find data file templates/eisvogel.latex`) the current working directory `.` is included in the resource path for pandoc to find the template again.
+
+    For more information visit the pandoc issue <https://github.com/jgm/pandoc/issues/6618>.
+- Rename template to `eisvogel.latex` after release (#182). There is no need for renaming the template file after the download.
+
+    This is a breaking change because there will be no file `eisvogel.latex` in the released artifacts anymore.
+
+- Option `logo-width` has no hard coded unit `pt` anymore (#221).
+
+    The width of the logo can be specified with various units e.g. `pt`, `in`, `mm`.
+
+    This is a breaking change because a previously specified `logo-width` without a unit needs a unit now. If there is no unit LaTeX will emit an error `Illegal unit of measure (pt inserted)` and no document will be created.
+
+    The default value for `logo-width` has also changed from `100pt` to `35mm`.
+
 ## [1.6.1] - 2020-11-26
 
 - Merged changes from the pandoc default LaTeX template (https://github.com/jgm/pandoc/blob/master/data/templates/default.latex).
@@ -95,6 +118,7 @@ All notable changes to this project are documented in this file. On the [release
 
 - First release of the template as a ZIP file with the examples.
 
+[2.0.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v1.6.1...v2.0.0
 [1.6.1]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v1.6.0...v1.6.1
 [1.6.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v1.5.0...v1.6.0
 [1.5.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v1.4.0...v1.5.0
