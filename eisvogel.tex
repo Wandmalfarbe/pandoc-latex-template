@@ -142,7 +142,7 @@ $else$
 \setstretch{1.2}
 $endif$
 \usepackage{amssymb,amsmath}
-\usepackage{iftex}
+\usepackage{ifxetex,ifluatex}
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[$if(fontenc)$$fontenc$$else$T1$endif$]{fontenc}
   \usepackage[utf8]{inputenc}
