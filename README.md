@@ -187,7 +187,7 @@ This template defines some new variables to control the appearance of the result
 
   - `colorlinks-use-html-colors` (defaults to `false`)
 
-    Use `HTML` colors for `linkcolor`, `filecolor`, `citecolor`, and `urlcolor`,
+    Use `HTML` colors for `linkcolor`, `filecolor`, `citecolor`, and `urlcolor`.
 
 ## Required LaTeX Packages
 
