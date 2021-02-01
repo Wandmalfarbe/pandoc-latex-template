@@ -144,7 +144,7 @@ $else$
 $endif$
 \usepackage{amssymb,amsmath}
 \usepackage{iftex}
-\ifpdftex
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[$if(fontenc)$$fontenc$$else$T1$endif$]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
@@ -439,7 +439,7 @@ $if(dir)$
   % Load bidi as late as possible as it modifies e.g. graphicx
   \usepackage{bidi}
 \fi
-\ifpdftex
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \TeXXeTstate=1
   \newcommand{\RL}[1]{\beginR #1\endR}
   \newcommand{\LR}[1]{\beginL #1\endL}
@@ -509,7 +509,7 @@ $endif$
 % If no language is specified, use English as the default main document language.
 %
 $if(lang)$$else$
-\ifpdftex
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[shorthands=off,$for(babel-otherlangs)$$babel-otherlangs$,$endfor$main=english]{babel}
 $if(babel-newcommands)$
   $babel-newcommands$
@@ -589,13 +589,13 @@ $endif$
 % 'default' option sets the default
 % font family to Source Sans Pro, not \sfdefault.
 %
-\ifpdftex
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   $if(fontfamily)$
   $else$
   \usepackage[default]{sourcesanspro}
   \usepackage{sourcecodepro}
   $endif$
-\else
+\else % if not pdftex
   $if(mainfont)$
   $else$
   \usepackage[default]{sourcesanspro}
