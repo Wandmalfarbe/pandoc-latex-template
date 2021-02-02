@@ -1,6 +1,5 @@
 #!/bin/bash
 set -e
-cp "../eisvogel.tex" "../eisvogel.latex"
 
 echo "##"
 echo "# building examples"
@@ -28,7 +27,7 @@ containsElement () {
 }
 
 # these examples are skipped because they don't run on travis (for now)
-skippedExamples=("images-and-tables")
+skippedExamples=("language-chinese" "language-japanese")
 
 # loop all files in the current folder
 for f in *; do
