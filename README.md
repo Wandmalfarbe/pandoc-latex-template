@@ -10,7 +10,7 @@ A clean **pandoc LaTeX template** to convert your markdown files to PDF or LaTeX
 
 | A custom title page  | A basic example page |
 | :------------------: | :------------------: |
-| [![A custom title page](examples/custom-titlepage/custom-titlepage.png)](examples/custom-titlepage/custom-titlepage.pdf) | [![A basic example page](examples/basic-example/basic-example.png)](examples/basic-example/basic-example.pdf) |
+| [![A custom title page](examples/title-page-custom/preview.png)](examples/title-page-custom/document.pdf) | [![A basic example page](examples/basic-example/preview.png)](examples/basic-example/document.pdf) |
 
 ## Installation
 
@@ -319,19 +319,19 @@ There will be one blank page before each chapter because the template is two-sid
 
 | A green title page | A background image on the title page |
 | :----------------: | :----------------: |
-| [![A green title page](examples/green-titlepage/green-titlepage.png)](examples/green-titlepage/green-titlepage.pdf) | [![A background image on the title page](examples/titlepage-background/titlepage-background.png)](examples/titlepage-background/titlepage-background.pdf) |
+| [![A green title page](examples/title-page-green/preview.png)](examples/title-page-green/document.pdf) | [![A background image on the title page](examples/title-page-background/preview.png)](examples/title-page-background/document.pdf) |
 
 | images and tables | Code blocks styled without listings |
 | :---------------: | :---------------: |
-| [![images and tables](examples/images-and-tables/images-and-tables.png)](examples/images-and-tables/images-and-tables.pdf) | [![Code blocks styled without listings](examples/without-listings/without-listings.png)](examples/without-listings/without-listings.pdf) |
+| [![images and tables](examples/images-and-tables/preview.png)](examples/images-and-tables/document.pdf) | [![Code blocks styled without listings](examples/code-blocks-without-listings/preview.png)](examples/code-blocks-without-listings/document.pdf) |
 
 | A book | Code blocks styled with listings |
 | :----: | :----: |
-| [![A book](examples/book/book.png)](examples/book/book.pdf) | [![Code blocks styled with listings](examples/listings/listings.png)](examples/listings/listings.pdf) |
+| [![A book](examples/book/preview.png)](examples/book/document.pdf) | [![Code blocks styled with listings](examples/code-blocks-listings/preview.png)](examples/code-blocks-listings/document.pdf) |
 
 | A background images on all pages | CJK Support (when using XeLaTeX) |
 | :----: | :----: |
-| [![A background images on all pages](examples/page-background/page-background.png)](examples/page-background/page-background.pdf) | [![CJK Support (when using XeLaTeX)](examples/japanese/japanese.png)](examples/japanese/japanese.pdf) |
+| [![A background images on all pages](examples/page-background/preview.png)](examples/page-background/document.pdf) | [![CJK Support (when using XeLaTeX)](examples/language-japanese/preview.png)](examples/language-japanese/document.pdf) |
 
 ## Common Errors / Issues
 

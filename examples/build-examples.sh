@@ -3,103 +3,50 @@ set -e
 cp "../eisvogel.tex" "../eisvogel.latex"
 
 echo "##"
-echo "# Building examples"
+echo "# building examples"
 echo "##"
 echo ""
 
-echo "- header-and-footer"
-# Important: The template file will be searched in the '--resource-path' if it
-# is specified. So in order to find the template we have to include the cwd
-# into the resource path as well by specifying a '.' and separating the
-# two paths with a ':' (should be ';' on windows).
-pandoc "header-and-footer/header-and-footer.md" -o "header-and-footer/header-and-footer.pdf" --from markdown --template "../eisvogel.latex" --listings --resource-path ".:./header-and-footer/"
-pdftoppm -r 150 -png "header-and-footer/header-and-footer.pdf" > "header-and-footer/header-and-footer.png"
+# Reset
+Color_Off='\033[0m'       # Text Reset
 
-echo "- page-background"
-cd "page-background"
-pandoc "page-background.md" -o "page-background.pdf" --from markdown --template "../../eisvogel.latex" --listings
-pdftoppm -r 150 -png "page-background.pdf" > "page-background.png"
-cd ".."
+# Regular Colors
+Black='\033[0;30m'        # Black
+Red='\033[0;31m'          # Red
+Green='\033[0;32m'        # Green
+Yellow='\033[0;33m'       # Yellow
+Blue='\033[0;34m'         # Blue
+Purple='\033[0;35m'       # Purple
+Cyan='\033[0;36m'         # Cyan
+White='\033[0;37m'        # White
 
-echo "- titlepage-background"
-cd "titlepage-background"
-pandoc "titlepage-background.md" -o "titlepage-background.pdf" --from markdown --template "../../eisvogel.latex" --listings
-pdftoppm -r 150 -png "titlepage-background.pdf" > "titlepage-background.png"
-cd ".."
+containsElement () {
+  local e match="$1"
+  shift
+  for e; do [[ "$e" == "$match" ]] && return 0; done
+  return 1
+}
 
-echo "- basic-example"
-pandoc "basic-example/basic-example.md" -o "basic-example/basic-example.pdf" --from markdown --template "../eisvogel.latex" --listings
-pdftoppm -r 150 -png "basic-example/basic-example.pdf" > "basic-example/basic-example.png"
+# these examples are skipped because they don't run on travis (for now)
+skippedExamples=("images-and-tables")
 
-echo "- beamer"
-pandoc "beamer/beamer.md" -o "beamer/beamer.pdf" --from markdown --to beamer --template "../eisvogel.latex" --listings
-pdftoppm -r 150 -png "beamer/beamer.pdf" > "beamer/beamer.png"
+# loop all files in the current folder
+for f in *; do
+	# run only for folders
+    if [ -d "$f" ]; then
 
-echo "- custom-titlepage"
-cd "custom-titlepage"
-pandoc "custom-titlepage.md" -o "custom-titlepage.pdf" --from markdown --template "../../eisvogel.latex" --listings
-pdftoppm -r 150 -png "custom-titlepage.pdf" > "custom-titlepage.png"
-cd ".."
-
-echo "- default-titlepage"
-pandoc "default-titlepage/default-titlepage.md" -o "default-titlepage/default-titlepage.pdf" --from markdown --template "../eisvogel.latex" --listings
-pdftoppm -r 150 -png "default-titlepage/default-titlepage.pdf" > "default-titlepage/default-titlepage.png"
-
-echo "- german"
-# No lang option (-V lang=de) here because the language
-# is set in the markdown file via the YAML metadata block.
-pandoc "german/german.md" -o "german/german.pdf" --from markdown --template "../eisvogel.latex" --highlight-style kate
-pdftoppm -r 150 -png "german/german.pdf" > "german/german.png"
-
-# No lang option (-V lang=jp) here because Japanese unsupported in polyglossia.
-# These commands are disabled because the CJK font isn't available on travis.
-#pandoc "japanese/japanese.md" -o "japanese/japanese.pdf" --from markdown --template "../eisvogel.latex" --listings --pdf-engine=xelatex -V CJKmainfont="HiraginoSans-W4"
-#pdftoppm -r 150 -png "japanese/japanese.pdf" > "japanese/japanese.png"
-
-echo "- listings"
-pandoc "listings/listings.md" -o "listings/listings.pdf" --from markdown --template "../eisvogel.latex" --listings
-pdftoppm -r 150 -png "listings/listings.pdf" > "listings/listings.png"
-
-echo "- without-listings"
-pandoc "without-listings/without-listings.md" -o "without-listings/without-listings.pdf" --from markdown --template "../eisvogel.latex" --highlight-style kate
-pdftoppm -r 150 -png "without-listings/without-listings.pdf" > "without-listings/without-listings.png"
-
-echo "- green-titlepage"
-pandoc "green-titlepage/green-titlepage.md" -o "green-titlepage/green-titlepage.pdf" --from markdown --template "../eisvogel.latex" --listings
-pdftoppm -r 150 -png "green-titlepage/green-titlepage.pdf" > "green-titlepage/green-titlepage.png"
-
-echo "- book"
-# Additional options like `book: true` and `classoption: [oneside]` are set in the markdown file via the YAML metadata block.
-pandoc "book/book.md" -o "book/book.pdf" --from markdown --template "../eisvogel.latex" --listings --top-level-division="chapter"
-pdftoppm -r 150 -png "book/book.pdf" > "book/book.png"
-
-echo "- boxes-with-pandoc-latex-environment-and-awesomebox"
-pandoc "boxes-with-pandoc-latex-environment-and-awesomebox/boxes.md" -o "boxes-with-pandoc-latex-environment-and-awesomebox/boxes.pdf" --from markdown --template "../eisvogel.latex" --filter pandoc-latex-environment --listings
-pdftoppm -r 150 -png "boxes-with-pandoc-latex-environment-and-awesomebox/boxes.pdf" > "boxes-with-pandoc-latex-environment-and-awesomebox/boxes.png"
-
-echo "- boxes-with-pandoc-latex-environment-and-tcolorbox"
-pandoc "boxes-with-pandoc-latex-environment-and-tcolorbox/boxes-tcolorbox.md" -o "boxes-with-pandoc-latex-environment-and-tcolorbox/boxes-tcolorbox.pdf" --from markdown --template "../eisvogel.latex" --filter pandoc-latex-environment --listings
-pdftoppm -r 150 -png "boxes-with-pandoc-latex-environment-and-tcolorbox/boxes-tcolorbox.pdf" > "boxes-with-pandoc-latex-environment-and-tcolorbox/boxes-tcolorbox.png"
-
-# No lang option (-V lang=zh) here because Chinese is unsupported in polyglossia and babel.
-# These commands are disabled because the CJK font isn't available on travis.
-#pandoc "chinese/chinese.md" -o "chinese/chinese.pdf" --from markdown --template "../eisvogel.latex" --listings --pdf-engine=xelatex -V CJKmainfont="HiraginoSans-W4"
-#pdftoppm -r 150 -png "chinese/chinese.pdf" > "chinese/chinese.png"
-
-echo "- images-and-tables"
-# Important: The template file will be searched in the '--resource-path' if it
-# is specified. So in order to find the template we have to include the cwd
-# into the resource path as well by specifying a '.' and separating the
-# two paths with a ':' (should be ';' on windows).
-pandoc "images-and-tables/images-and-tables.md" -o "images-and-tables/images-and-tables.pdf" --from markdown --template "../eisvogel.latex" --listings --resource-path ".:./images-and-tables/"
-pdftoppm -r 150 -png "images-and-tables/images-and-tables.pdf" > "images-and-tables/images-and-tables.png"
-
-echo "- logo-titlepage"
-# Important: Since the logo is a manually included image, the option "--resource-path" can't be used for specifying its location.
-# The location of the logo has to be relative to where pandoc is executed, so we cd into the directory with the logo.
-cd "logo-titlepage"
-pandoc "logo-titlepage.md" -o "logo-titlepage.pdf" --from markdown --template "../../eisvogel.latex" --listings
-pdftoppm -r 150 -png "logo-titlepage.pdf" > "logo-titlepage.png"
-cd ".."
-
-rm "../eisvogel.latex"
+    	if containsElement "$f" "${skippedExamples[@]}"; then
+    		echo "${Yellow}skipping '$f'${Color_Off}"
+    		echo ""
+    	else
+    		echo "${Blue}building '$f'${Color_Off}"
+    		cd "$f"
+    		echo "    - running pandoc build script"
+        	sh "$PWD/build.sh"
+        	echo "    - generating preview"
+        	pdftoppm -r 150 -png "document.pdf" > "preview.png"
+        	echo ""
+        	cd ".."
+    	fi
+    fi
+done
