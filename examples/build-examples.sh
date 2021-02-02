@@ -41,7 +41,7 @@ for f in *; do
     		echo "${Blue}building '$f'${Color_Off}"
     		cd "$f"
     		echo "    - running pandoc build script"
-        	sh "$PWD/build.sh"
+        	bash "$PWD/build.sh"
         	echo "    - generating preview"
         	pdftoppm -r 150 -png "document.pdf" > "preview.png"
         	echo ""

@@ -59,4 +59,4 @@ before_install:
 before_script:
   - cd examples
 script:
-  - sh build-examples.sh
+  - bash build-examples.sh
