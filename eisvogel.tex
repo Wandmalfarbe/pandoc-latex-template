@@ -954,6 +954,16 @@ $endif$
 \end{flushleft}
 \end{titlepage}
 \restoregeometry
+$else$
+$if(maketitle)$
+\vspace*{-3\baselineskip}
+\begin{center}
+  {\LARGE \thetitle}\\
+  \vspace{0.7\baselineskip}
+  {\large \theauthor}
+\end{center}
+\thispagestyle{plain}
+$endif$
 $endif$
 $endif$
 
