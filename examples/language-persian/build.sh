@@ -1,1 +1,1 @@
-pandoc "document.md" -o "document.pdf" --from markdown --template "../../eisvogel.tex" --listings
+pandoc "document.md" -o "document.pdf" --from markdown --pdf-engine=xelatex --template "../../eisvogel.tex" --listings
