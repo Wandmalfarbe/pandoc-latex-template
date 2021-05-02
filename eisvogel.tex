@@ -449,6 +449,28 @@ $endif$
 \ifluatex
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
+%
+% captions
+% caption must be loaded before bidi
+%
+\definecolor{caption-color}{HTML}{777777}
+$if(beamer)$
+$else$
+\usepackage[font={stretch=1.2}, textfont={color=caption-color}, position=top, skip=4mm, labelfont=bf, singlelinecheck=false, justification=$if(caption-justification)$$caption-justification$$else$raggedright$endif$]{caption}
+\setcapindent{0em}
+$endif$
+
+%
+% blockquote
+% mdframed must be loaded before bidi
+%
+\definecolor{blockquote-border}{RGB}{221,221,221}
+\definecolor{blockquote-text}{RGB}{119,119,119}
+\usepackage{mdframed}
+\newmdenv[rightline=false,bottomline=false,topline=false,linewidth=3pt,linecolor=blockquote-border,skipabove=\parskip]{customblockquote}
+\renewenvironment{quote}{\begin{customblockquote}\list{}{\rightmargin=0em\leftmargin=0em}%
+\item\relax\color{blockquote-text}\ignorespaces}{\unskip\unskip\endlist\end{customblockquote}}
+
 $if(dir)$
 \ifxetex
   % Load bidi as late as possible as it modifies e.g. graphicx
@@ -554,8 +576,8 @@ $endif$
   \renewcommand*\familydefault{\sfdefault}
   $endif$
   % load polyglossia as late as possible as it *could* call bidi if RTL lang (e.g. Hebrew or Arabic)
-  \usepackage{polyglossia}
-  \setmainlanguage[]{english}
+  %%%\usepackage{polyglossia}
+  %%%\setmainlanguage[]{english}
 $for(polyglossia-otherlangs)$
   \setotherlanguage[$polyglossia-otherlangs.options$]{$polyglossia-otherlangs.name$}
 $endfor$
@@ -591,26 +613,6 @@ $endif$
 % to ensure that quoted texts are typeset according to the rules of your main language.
 %
 \usepackage{csquotes}
-
-%
-% captions
-%
-\definecolor{caption-color}{HTML}{777777}
-$if(beamer)$
-$else$
-\usepackage[font={stretch=1.2}, textfont={color=caption-color}, position=top, skip=4mm, labelfont=bf, singlelinecheck=false, justification=$if(caption-justification)$$caption-justification$$else$raggedright$endif$]{caption}
-\setcapindent{0em}
-$endif$
-
-%
-% blockquote
-%
-\definecolor{blockquote-border}{RGB}{221,221,221}
-\definecolor{blockquote-text}{RGB}{119,119,119}
-\usepackage{mdframed}
-\newmdenv[rightline=false,bottomline=false,topline=false,linewidth=3pt,linecolor=blockquote-border,skipabove=\parskip]{customblockquote}
-\renewenvironment{quote}{\begin{customblockquote}\list{}{\rightmargin=0em\leftmargin=0em}%
-\item\relax\color{blockquote-text}\ignorespaces}{\unskip\unskip\endlist\end{customblockquote}}
 
 %
 % Source Sans Pro as the de­fault font fam­ily
