@@ -185,6 +185,10 @@ This template defines some new variables to control the appearance of the result
 
     LaTeX command to change the font size for code blocks. The available values are `\tiny`, `\scriptsize`, `\footnotesize`, `\small`, `\normalsize`, `\large`, `\Large`, `\LARGE`, `\huge` and `\Huge`. This option will change the font size for default code blocks using the verbatim environment and for code blocks generated with listings.
 
+  - `colorlinks-use-html-colors` (defaults to `false`)
+
+    Use `HTML` colors for `linkcolor`, `filecolor`, `citecolor`, and `urlcolor`.
+
 ## Required LaTeX Packages
 
 LaTeX manages addons and additional functionality in so called packages. You
