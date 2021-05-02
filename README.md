@@ -64,6 +64,10 @@ This template defines some new variables to control the appearance of the result
 
     the text color of the title page
 
+  - `titlepage-urlcolor` (defaults to `default-urlcolor` of `4077C0`)
+
+    the color of URLs on the title page
+
   - `titlepage-rule-color` (defaults to `435488`)
 
     the color of the rule on the top of the title page
