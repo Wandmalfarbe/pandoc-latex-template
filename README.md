@@ -100,6 +100,21 @@ This template defines some new variables to control the appearance of the result
 
     avoid page break inside listings
 
+  - `listings-disable-font-styling` (defaults to `false`)
+
+    disables the bold and italic font styles used for certain keywords inside listings
+
+  - `listings-text-color` (defaults to `000000`)
+
+    the color of text inside listings. Other color options inside listings are:
+
+    - `listings-keyword-color`
+    - `listings-keyword-2-color`
+    - `listings-keyword-3-color`
+    - `listings-identifier-color`
+    - `listings-string-color`
+    - `listings-comment-color`
+
   - `disable-header-and-footer` (default to `false`)
 
     disables the header and footer completely on all pages
