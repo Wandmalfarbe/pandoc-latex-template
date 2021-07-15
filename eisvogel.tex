@@ -729,19 +729,19 @@ $if(listings)$
 %
 % general listing colors
 %
-\definecolor{listing-background}{HTML}{F7F7F7}
-\definecolor{listing-rule}{HTML}{B3B2B3}
-\definecolor{listing-numbers}{HTML}{B3B2B3}
-\definecolor{listing-text-color}{HTML}{000000}
-\definecolor{listing-keyword}{HTML}{435489}
-\definecolor{listing-keyword-2}{HTML}{1284CA} % additional keywords
-\definecolor{listing-keyword-3}{HTML}{9137CB} % additional keywords
-\definecolor{listing-identifier}{HTML}{435489}
-\definecolor{listing-string}{HTML}{00999A}
-\definecolor{listing-comment}{HTML}{8E8E8E}
+\definecolor{listing-background}{HTML}{$if(listings-background-color)$$listings-background-color$$else$F7F7F7$endif$}
+\definecolor{listing-rule}{HTML}{$if(listings-rule-color)$$listings-rule-color$$else$B3B2B3$endif$}
+\definecolor{listing-numbers}{HTML}{$if(listings-numbers-color)$$listings-numbers-color$$else$B3B2B3$endif$}
+\definecolor{listing-text-color}{HTML}{$if(listings-text-color)$$listings-text-color$$else$000000$endif$}
+\definecolor{listing-keyword}{HTML}{$if(listings-keyword-color)$$listings-keyword-color$$else$435489$endif$}
+\definecolor{listing-keyword-2}{HTML}{$if(listings-keyword-2-color)$$listings-keyword-2-color$$else$1284CA$endif$} % additional keywords
+\definecolor{listing-keyword-3}{HTML}{$if(listings-keyword-3-color)$$listings-keyword-3-color$$else$9137CB$endif$} % additional keywords
+\definecolor{listing-identifier}{HTML}{$if(listings-identifier-color)$$listings-identifier-color$$else$435489$endif$}
+\definecolor{listing-string}{HTML}{$if(listings-string-color)$$listings-string-color$$else$00999A$endif$}
+\definecolor{listing-comment}{HTML}{$if(listings-comment-color)$$listings-comment-color$$else$8E8E8E$endif$}
 
 \lstdefinestyle{eisvogel_listing_style}{
-  language         = java,
+  language         = $if(listings-syntax-highlighting-language)$$listings-syntax-highlighting-language$$else$java$endif$,
 $if(listings-disable-line-numbers)$
   xleftmargin      = 0.6em,
   framexleftmargin = 0.4em,
@@ -763,9 +763,9 @@ $endif$
   belowskip        = 0.1em,
   abovecaptionskip = 0em,
   belowcaptionskip = 1.0em,
-  keywordstyle     = {\color{listing-keyword}\bfseries},
-  keywordstyle     = {[2]\color{listing-keyword-2}\bfseries},
-  keywordstyle     = {[3]\color{listing-keyword-3}\bfseries\itshape},
+  keywordstyle     = {\color{listing-keyword}$if(listings-disable-font-styling)$$else$\bfseries$endif$},
+  keywordstyle     = {[2]\color{listing-keyword-2}$if(listings-disable-font-styling)$$else$\bfseries$endif$},
+  keywordstyle     = {[3]\color{listing-keyword-3}$if(listings-disable-font-styling)$$else$\bfseries\itshape$endif$},
   sensitive        = true,
   identifierstyle  = \color{listing-identifier},
   commentstyle     = \color{listing-comment},
