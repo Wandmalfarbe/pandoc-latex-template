@@ -70,8 +70,8 @@ Fusce aliquet augue sapien, non efficitur mi ornare sed. Morbi at dictum
 felis. Pellentesque tortor lacus, semper et neque vitae, egestas commodo nisl.
 :::
 
-```caution
-::: warning
+```markdown
+::: caution
 Lorem ipsum dolor ...
 :::
 ```
