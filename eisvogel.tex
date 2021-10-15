@@ -43,7 +43,7 @@
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode$for(hyperrefoptions)$,$hyperrefoptions$$endfor$}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
-\PassOptionsToPackage{dvipsnames,svgnames*,x11names*,table}{xcolor}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names,table}{xcolor}
 $if(dir)$
 $if(latex-dir-rtl)$
 \PassOptionsToPackage{RTLdocument}{bidi}
@@ -144,14 +144,14 @@ $else$
 \usepackage{setspace}
 \setstretch{1.2}
 $endif$
-\usepackage{ifxetex,ifluatex}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+\usepackage{iftex}
+\ifPDFTeX
   \usepackage[$if(fontenc)$$fontenc$$else$T1$endif$]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
 \else % if luatex or xetex
 $if(mathspec)$
-  \ifxetex
+  \ifXeTeX
     \usepackage{mathspec}
   \else
     \usepackage{unicode-math}
@@ -175,7 +175,7 @@ $for(fontfamilies)$
 $endfor$
 $if(mathfont)$
 $if(mathspec)$
-  \ifxetex
+  \ifXeTeX
     \setmathfont(Digits,Latin,Greek)[$for(mathfontoptions)$$mathfontoptions$$sep$,$endfor$]{$mathfont$}
   \else
     \setmathfont[$for(mathfontoptions)$$mathfontoptions$$sep$,$endfor$]{$mathfont$}
@@ -185,23 +185,42 @@ $else$
 $endif$
 $endif$
 $if(CJKmainfont)$
-  \ifxetex
+  \ifXeTeX
     \usepackage{xeCJK}
     \setCJKmainfont[$for(CJKoptions)$$CJKoptions$$sep$,$endfor$]{$CJKmainfont$}
   \fi
 $endif$
 $if(luatexjapresetoptions)$
-  \ifluatex
+  \ifLuaTeX
     \usepackage[$for(luatexjapresetoptions)$$luatexjapresetoptions$$sep$,$endfor$]{luatexja-preset}
   \fi
 $endif$
 $if(CJKmainfont)$
-  \ifluatex
+  \ifLuaTeX
     \usepackage[$for(luatexjafontspecoptions)$$luatexjafontspecoptions$$sep$,$endfor$]{luatexja-fontspec}
     \setmainjfont[$for(CJKoptions)$$CJKoptions$$sep$,$endfor$]{$CJKmainfont$}
   \fi
 $endif$
 \fi
+$if(zero-width-non-joiner)$
+%% Support for zero-width non-joiner characters.
+\makeatletter
+\def\zerowidthnonjoiner{%
+  % Prevent ligatures and adjust kerning, but still support hyphenating.
+  \texorpdfstring{%
+    \textormath{\nobreak\discretionary{-}{}{\kern.03em}%
+      \ifvmode\else\nobreak\hskip\z@skip\fi}{}%
+  }{}%
+}
+\makeatother
+\ifPDFTeX
+  \DeclareUnicodeCharacter{200C}{\zerowidthnonjoiner}
+\else
+  \catcode`^^^^200c=\active
+  \protected\def ^^^^200c{\zerowidthnonjoiner}
+\fi
+%% End of ZWNJ support
+$endif$
 $if(beamer)$
 $if(theme)$
 \usetheme[$for(themeoptions)$$themeoptions$$sep$,$endfor$]{$theme$}
@@ -277,10 +296,10 @@ $if(keywords)$
 $endif$
 $if(colorlinks)$
   colorlinks=true,
-  linkcolor=$if(linkcolor)$$linkcolor$$else$default-linkcolor$endif$,
-  filecolor=$if(filecolor)$$filecolor$$else$default-filecolor$endif$,
-  citecolor=$if(citecolor)$$citecolor$$else$default-citecolor$endif$,
-  urlcolor=$if(urlcolor)$$urlcolor$$else$default-urlcolor$endif$,
+  linkcolor={$if(linkcolor)$$linkcolor$$else$default-linkcolor$endif$},
+  filecolor={$if(filecolor)$$filecolor$$else$default-filecolor$endif$},
+  citecolor={$if(citecolor)$$citecolor$$else$default-citecolor$endif$},
+  urlcolor={$if(urlcolor)$$urlcolor$$else$default-urlcolor$endif$},
 $else$
   hidelinks,
 $endif$
@@ -385,6 +404,7 @@ $if(links-as-notes)$
 \DeclareRobustCommand{\href}[2]{#2\footnote{\url{#1}}}
 $endif$
 $if(strikeout)$
+$-- also used for underline
 \usepackage[normalem]{ulem}
 % Avoid problems with \sout in headers with hyperref
 \pdfstringdefDisableCommands{\renewcommand{\sout}{}}
@@ -414,47 +434,49 @@ $endif$
 $if(pagestyle)$
 \pagestyle{$pagestyle$}
 $endif$
-
-% Make use of float-package and set default placement for figures to H.
-% The option H means 'PUT IT HERE' (as  opposed to the standard h option which means 'You may put it here if you like').
-\usepackage{float}
-\floatplacement{figure}{$if(float-placement-figure)$$float-placement-figure$$else$H$endif$}
-
+$if(csl-refs)$
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+$endif$
 $for(header-includes)$
 $header-includes$
 $endfor$
 $if(lang)$
-\ifxetex
-  $if(mainfont)$
-  $else$
-  % See issue https://github.com/reutenauer/polyglossia/issues/127
-  \renewcommand*\familydefault{\sfdefault}
-  $endif$
-  % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
-  \usepackage{polyglossia}
-  \setmainlanguage[$for(polyglossia-lang.options)$$polyglossia-lang.options$$sep$,$endfor$]{$polyglossia-lang.name$}
-$for(polyglossia-otherlangs)$
-  \setotherlanguage[$for(polyglossia-otherlangs.options)$$polyglossia-otherlangs.options$$sep$,$endfor$]{$polyglossia-otherlangs.name$}
-$endfor$
-\else
-  \usepackage[$for(babel-otherlangs)$$babel-otherlangs$,$endfor$main=$babel-lang$]{babel}
+\usepackage[$for(babel-otherlangs)$$babel-otherlangs$,$endfor$main=$babel-lang$]{babel}
 % get rid of language-specific shorthands (see #6817):
 \let\LanguageShortHands\languageshorthands
 \def\languageshorthands#1{}
-$if(babel-newcommands)$
-  $babel-newcommands$
 $endif$
-\fi
-$endif$
-\ifluatex
+\ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
 $if(dir)$
-\ifxetex
+\ifXeTeX
   % Load bidi as late as possible as it modifies e.g. graphicx
   \usepackage{bidi}
 \fi
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+\ifPDFTeX
   \TeXXeTstate=1
   \newcommand{\RL}[1]{\beginR #1\endR}
   \newcommand{\LR}[1]{\beginL #1\endL}
@@ -472,27 +494,8 @@ $for(bibliography)$
 \addbibresource{$bibliography$}
 $endfor$
 $endif$
-$if(csl-refs)$
-\newlength{\cslhangindent}
-\setlength{\cslhangindent}{1.5em}
-\newlength{\csllabelwidth}
-\setlength{\csllabelwidth}{3em}
-\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
- {% don't indent paragraphs
-  \setlength{\parindent}{0pt}
-  % turn on hanging indent if param 1 is 1
-  \ifodd #1 \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces\fi
-  % set entry spacing
-  \ifnum #2 > 0
-  \setlength{\parskip}{#2\baselineskip}
-  \fi
- }%
- {}
-\usepackage{calc}
-\newcommand{\CSLBlock}[1]{#1\hfill\break}
-\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
-\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
-\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+$if(nocite-ids)$
+\nocite{$for(nocite-ids)$$it$$sep$, $endfor$}
 $endif$
 $if(csquotes)$
 \usepackage{csquotes}
@@ -532,35 +535,6 @@ $endif$
 %%
 %% added
 %%
-
-%
-% language specification
-%
-% If no language is specified, use English as the default main document language.
-%
-$if(lang)$$else$
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[shorthands=off,$for(babel-otherlangs)$$babel-otherlangs$,$endfor$main=english]{babel}
-$if(babel-newcommands)$
-  $babel-newcommands$
-$endif$
-\else
-  $if(mainfont)$
-  $else$
-  % Workaround for bug in Polyglossia that breaks `\familydefault` when `\setmainlanguage` is used.
-  % See https://github.com/Wandmalfarbe/pandoc-latex-template/issues/8
-  % See https://github.com/reutenauer/polyglossia/issues/186
-  % See https://github.com/reutenauer/polyglossia/issues/127
-  \renewcommand*\familydefault{\sfdefault}
-  $endif$
-  % load polyglossia as late as possible as it *could* call bidi if RTL lang (e.g. Hebrew or Arabic)
-  \usepackage{polyglossia}
-  \setmainlanguage[]{english}
-$for(polyglossia-otherlangs)$
-  \setotherlanguage[$polyglossia-otherlangs.options$]{$polyglossia-otherlangs.name$}
-$endfor$
-\fi
-$endif$
 
 $if(page-background)$
 \usepackage[pages=all]{background}
@@ -1009,11 +983,11 @@ $endif$
 }
 $endif$
 $endif$
-$if(lot)$
-\listoftables
-$endif$
 $if(lof)$
 \listoffigures
+$endif$
+$if(lot)$
+\listoftables
 $endif$
 $if(linestretch)$
 \setstretch{$linestretch$}
