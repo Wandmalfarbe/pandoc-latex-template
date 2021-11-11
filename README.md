@@ -140,9 +140,10 @@ This template defines some new variables to control the appearance of the result
 
     typeset as book
 
-  - `logo`
+  - `titlepage-logo` or `logo`
 
     path to an image that will be displayed on the title page. The path is always relative to where pandoc is executed. The option `--resource-path` has no effect.
+    Use `titlepage-logo` if you want the logo only in the Eisvogel rendering but not in other TeX formats (like Beamer). See [issue #265](https://github.com/Wandmalfarbe/pandoc-latex-template/issues/265).  
 
   - `logo-width` (defaults to `35mm`)
 
@@ -338,7 +339,7 @@ There will be one blank page before each chapter because the template is two-sid
 The following section lists common errors and their solutions when using the
 Eisvogel template.
 
-### LaTeX Errors `Missing endcsname inserted` or `File x not found` when using `titlepage-background` or `logo`
+### LaTeX Errors `Missing endcsname inserted` or `File x not found` when using `titlepage-background`, `logo`, or `titlepage-logo`.
 
 ``` latex
 Error producing PDF.
