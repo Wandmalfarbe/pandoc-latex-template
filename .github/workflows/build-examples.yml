@@ -27,6 +27,7 @@ jobs:
         TEXLIVE_DIR="/usr/local/texlive/${VERSION}"
         TEXBIN="/usr/local/texlive/${VERSION}/bin/${PLATFORM}"
         echo "${TEXBIN}" >> $GITHUB_PATH
+        sudo chown -hR $(whoami) "$TEXLIVE_DIR"
     - name: Initialization for tlmgr
       run: |
         sudo apt-get update -qq && sudo apt-get install xzdec -y
@@ -43,7 +44,6 @@ jobs:
         pip install pandoc-latex-environment
     - name: Install LaTeX packages
       run: | 
-        sudo chown -hR $(whoami) "$TEXLIVE_DIR"
         tlmgr install adjustbox background bidi csquotes footmisc footnotebackref fvextra mdframed pagecolor sourcecodepro sourcesanspro titling ulem upquote xurl
         # trial and error
         tlmgr install letltxmacro zref everypage framed collectbox
