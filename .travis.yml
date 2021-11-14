@@ -43,7 +43,7 @@ before_install:
 
   - sudo chown -hR $(whoami) "$TEXLIVE_DIR"
   # packages specified in the template
-  - tlmgr install adjustbox background bidi csquotes footmisc footnotebackref fvextra mdframed pagecolor sourcecodepro sourcesanspro titling ulem upquote xurl
+  - tlmgr install adjustbox background bidi csquotes footmisc footnotebackref fontspec fvextra mdframed pagecolor sourcecodepro sourcesanspro titling ulem upquote xurl
 
   # trial and error
   - tlmgr install letltxmacro zref everypage framed collectbox
@@ -52,7 +52,7 @@ before_install:
   - tlmgr install xecjk filehook unicode-math ucharcat pagecolor babel-german ly1 mweights sourcecodepro sourcesanspro mdframed needspace fvextra footmisc footnotebackref background
 
   # packages only needed for some examples (that include packages via header-includes)
-  - tlmgr install awesomebox fontawesome5 xcolor tools l3packages
+  - tlmgr install awesomebox fontawesome5 xcolor
 
   # packages only needed for some examples (example boxes-with-pandoc-latex-environment-and-tcolorbox)
   - tlmgr install tcolorbox pgf etoolbox environ trimspaces
