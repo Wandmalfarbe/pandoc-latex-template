@@ -52,7 +52,7 @@ before_install:
   - tlmgr install xecjk filehook unicode-math ucharcat pagecolor babel-german ly1 mweights sourcecodepro sourcesanspro mdframed needspace fvextra footmisc footnotebackref background
 
   # packages only needed for some examples (that include packages via header-includes)
-  - tlmgr install awesomebox fontawesome5
+  - tlmgr install awesomebox fontawesome5 xcolor tools l3packages
 
   # packages only needed for some examples (example boxes-with-pandoc-latex-environment-and-tcolorbox)
   - tlmgr install tcolorbox pgf etoolbox environ trimspaces
