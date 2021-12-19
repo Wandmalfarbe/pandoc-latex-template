@@ -10,7 +10,7 @@ titlepage: true
 titlepage-text-color: "7137C8"
 titlepage-rule-color: "7137C8"
 titlepage-rule-height: 2
-logo: "logo.pdf"
+titlepage-logo: "logo.pdf"
 logo-width: 30mm
 ...
 

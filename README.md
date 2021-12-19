@@ -72,6 +72,10 @@ This template defines some new variables to control the appearance of the result
 
     the height of the rule on the top of the title page (in points)
 
+  - `titlepage-logo`
+
+    path to an image that will be displayed on the title page. The path is always relative to where pandoc is executed. The option `--resource-path` has no effect.
+
   - `titlepage-background`
 
     the path to a background image for the title page. The background image is scaled to cover the entire page. In the examples folder under `titlepage-background` are a few example background images.
@@ -139,10 +143,6 @@ This template defines some new variables to control the appearance of the result
   - `book` (defaults to `false`)
 
     typeset as book
-
-  - `logo`
-
-    path to an image that will be displayed on the title page. The path is always relative to where pandoc is executed. The option `--resource-path` has no effect.
 
   - `logo-width` (defaults to `35mm`)
 
@@ -338,7 +338,7 @@ There will be one blank page before each chapter because the template is two-sid
 The following section lists common errors and their solutions when using the
 Eisvogel template.
 
-### LaTeX Errors `Missing endcsname inserted` or `File x not found` when using `titlepage-background` or `logo`
+### LaTeX Errors `Missing endcsname inserted` or `File x not found` when using `titlepage-background`, `logo`, or `titlepage-logo`.
 
 ``` latex
 Error producing PDF.

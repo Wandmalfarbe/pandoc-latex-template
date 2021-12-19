@@ -321,7 +321,7 @@ $else$
 \usepackage[margin=2.5cm,includehead=true,includefoot=true,centering,$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
 $endif$
 $endif$
-$if(logo)$
+$if(titlepage-logo)$
 \usepackage[export]{adjustbox}
 \usepackage{graphicx}
 $endif$
@@ -917,9 +917,9 @@ $else$
 }
 $endif$
 
-$if(logo)$
+$if(titlepage-logo)$
 \noindent
-\includegraphics[width=$if(logo-width)$$logo-width$$else$35mm$endif$, left]{$logo$}
+\includegraphics[width=$if(logo-width)$$logo-width$$else$35mm$endif$, left]{$titlepage-logo$}
 $endif$
 
 $if(titlepage-background)$
