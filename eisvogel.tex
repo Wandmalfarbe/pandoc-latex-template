@@ -324,9 +324,6 @@ $endif$
 $if(titlepage-logo)$
 \usepackage[export]{adjustbox}
 \usepackage{graphicx}
-$elseif(logo)$
-\usepackage[export]{adjustbox}
-\usepackage{graphicx}
 $endif$
 $if(beamer)$
 \newif\ifbibliography
@@ -923,9 +920,6 @@ $endif$
 $if(titlepage-logo)$
 \noindent
 \includegraphics[width=$if(logo-width)$$logo-width$$else$35mm$endif$, left]{$titlepage-logo$}
-$elseif(logo)$
-\noindent
-\includegraphics[width=$if(logo-width)$$logo-width$$else$35mm$endif$, left]{$logo$}
 $endif$
 
 $if(titlepage-background)$

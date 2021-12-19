@@ -72,6 +72,10 @@ This template defines some new variables to control the appearance of the result
 
     the height of the rule on the top of the title page (in points)
 
+  - `titlepage-logo`
+
+    path to an image that will be displayed on the title page. The path is always relative to where pandoc is executed. The option `--resource-path` has no effect.
+
   - `titlepage-background`
 
     the path to a background image for the title page. The background image is scaled to cover the entire page. In the examples folder under `titlepage-background` are a few example background images.
@@ -139,11 +143,6 @@ This template defines some new variables to control the appearance of the result
   - `book` (defaults to `false`)
 
     typeset as book
-
-  - `titlepage-logo` or `logo`
-
-    path to an image that will be displayed on the title page. The path is always relative to where pandoc is executed. The option `--resource-path` has no effect.
-    Use `titlepage-logo` if you want the logo only in the Eisvogel rendering but not in other TeX formats (like Beamer). See [issue #265](https://github.com/Wandmalfarbe/pandoc-latex-template/issues/265).  
 
   - `logo-width` (defaults to `35mm`)
 
