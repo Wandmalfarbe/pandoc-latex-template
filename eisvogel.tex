@@ -840,8 +840,10 @@ $else$
 }
 \pagestyle{eisvogel-header-footer}
 
+$if(book)$
 \deftripstyle{ChapterStyle}{}{}{}{}{\pagemark}{}
 \renewcommand*{\chapterpagestyle}{ChapterStyle}
+$endif$
 
 $if(page-background)$
 \backgroundsetup{
