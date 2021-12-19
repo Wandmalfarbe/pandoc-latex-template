@@ -839,6 +839,10 @@ $else$
   \addtokomafont{pageheadfoot}{\upshape}
 }
 \pagestyle{eisvogel-header-footer}
+
+\deftripstyle{ChapterStyle}{}{}{}{}{\pagemark}{}
+\renewcommand*{\chapterpagestyle}{ChapterStyle}
+
 $if(page-background)$
 \backgroundsetup{
 scale=1,
