@@ -977,7 +977,7 @@ $endfor$
 $if(vhistory)$
 \begin{versionhistory}
 $for(vhistory)$
-  \vhEntry{$it.version$}{$it.date$}{$it.authors$}{$it.change$}
+  \vhEntry{$it/first$}{$it/rest/first$}{$it/rest/rest/first$}{$it/rest/rest/rest/first$}
 $endfor$
 \end{versionhistory}
 $endif$
