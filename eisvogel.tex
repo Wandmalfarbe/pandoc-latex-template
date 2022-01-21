@@ -520,7 +520,7 @@ $endif$
 \subtitle{$subtitle$}
 $endif$
 \author{$for(author)$$author$$sep$ \and $endfor$}
-\date{$date$}
+\date{$if(date)$$date$$elseif(vhistory)$\vhCurrentDate$endif$$endif$}
 $if(beamer)$
 $if(institute)$
 \institute{$for(institute)$$institute$$sep$ \and $endfor$}
@@ -649,7 +649,7 @@ $else$
 \usepackage{titling}
 \title{$title$}
 \author{$for(author)$$author$$sep$, $endfor$}
-\date{$date$}
+\date{$if(date)$$date$$elseif(vhistory)$\vhCurrentDate$endif$$endif$}
 $endif$
 
 %
