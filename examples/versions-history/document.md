@@ -10,18 +10,9 @@ toc: true
 vhistory-options: "nochapter"
 vhistory-label: "Revision : "
 vhistory:
-    - version: "1.0"
-      date: "2017-01-22"
-      authors: "JPW|KW"
-      change: "created"
-    - version: "1.1"
-      date: "2017-01-23"
-      authors: "DP|JPW"
-      change: "correction"
-    - version: "1.2"
-      date: "2017-02-15"
-      authors: "DP|JPW"
-      change: "revised after review"
+    - ["1.0", "2017-01-22", "JPW|KW","created"]
+    - ["1.1", "2017-01-23", "DP|JPW", "correction"]
+    - ["1.2", "2017-02-15", "DP|JPW", "revised after review"]
 classoption: [oneside]
 ...
 
