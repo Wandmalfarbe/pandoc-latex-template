@@ -379,6 +379,9 @@ $else$
 \makesavenoteenv{longtable}
 $endif$
 $endif$
+$if(vhistory)$
+\usepackage[$vhistory-options$]{vhistory}
+$endif$
 % add backlinks to footnote references, cf. https://tex.stackexchange.com/questions/302266/make-footnote-clickable-both-ways
 $if(footnotes-disable-backlinks)$
 $else$
@@ -517,7 +520,7 @@ $endif$
 \subtitle{$subtitle$}
 $endif$
 \author{$for(author)$$author$$sep$ \and $endfor$}
-\date{$date$}
+\date{$if(date)$$date$$elseif(vhistory)$\vhCurrentDate$endif$}
 $if(beamer)$
 $if(institute)$
 \institute{$for(institute)$$institute$$sep$ \and $endfor$}
@@ -646,7 +649,7 @@ $else$
 \usepackage{titling}
 \title{$title$}
 \author{$for(author)$$author$$sep$, $endfor$}
-\date{$date$}
+\date{$if(date)$$date$$elseif(vhistory)$\vhCurrentDate$endif$}
 $endif$
 
 %
@@ -832,7 +835,7 @@ $else$
   \clearpairofpagestyles
   \ihead*{$if(header-left)$$header-left$$else$$title$$endif$}
   \chead*{$if(header-center)$$header-center$$else$$endif$}
-  \ohead*{$if(header-right)$$header-right$$else$$date$$endif$}
+  \ohead*{$if(header-right)$$header-right$$else$$if(date)$$date$$elseif(vhistory)$\vhCurrentDate$endif$$endif$}
   \ifoot*{$if(footer-left)$$footer-left$$else$$for(author)$$author$$sep$, $endfor$$endif$}
   \cfoot*{$if(footer-center)$$footer-center$$else$$endif$}
   \ofoot*{$if(footer-right)$$footer-right$$else$\thepage$endif$}
@@ -905,7 +908,8 @@ $if(titlepage-background)$
   {\Large \textsf{$subtitle$}}
   $endif$
   \vskip 2em
-  \noindent {\Large \textsf{$for(author)$$author$$sep$, $endfor$} \vskip 0.6em \textsf{$date$}}
+  \noindent {\Large \textsf{$for(author)$$author$$sep$, $endfor$} \vskip 0.6em \textsf{$if(date)$$date$$elseif(vhistory)$\vhCurrentDate$endif$}
+  $if(vhistory-label)$\vskip 0.6em \textsf{$vhistory-label$ \vhCurrentVersion}$endif$}
   \vfill
 }
 $else$
@@ -930,7 +934,11 @@ $endif$
 
 $if(titlepage-background)$
 $else$
-\textsf{$date$}
+\textsf{$if(date)$$date$$elseif(vhistory)$\vhCurrentDate$endif$}
+$if(vhistory-label)$
+\par
+$vhistory-label$ \vhCurrentVersion
+$endif$
 $endif$
 \end{flushleft}
 \end{titlepage}
@@ -966,6 +974,13 @@ $for(include-before)$
 $include-before$
 
 $endfor$
+$if(vhistory)$
+\begin{versionhistory}
+$for(vhistory)$
+  \vhEntry$for(it)${$it$}$endfor$  
+$endfor$
+\end{versionhistory}
+$endif$
 $if(toc)$
 $if(toc-title)$
 \renewcommand*\contentsname{$toc-title$}
