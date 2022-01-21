@@ -49,7 +49,7 @@ before_install:
   - tlmgr install letltxmacro zref everypage framed collectbox
 
   # packages needed for the template
-  - tlmgr install xecjk filehook unicode-math ucharcat pagecolor babel-german ly1 mweights sourcecodepro sourcesanspro mdframed needspace fvextra footmisc footnotebackref background
+  - tlmgr install xecjk filehook unicode-math ucharcat pagecolor babel-german ly1 mweights sourcecodepro sourcesanspro mdframed needspace fvextra footmisc footnotebackref background vhistory
 
   # packages only needed for some examples (that include packages via header-includes)
   - tlmgr install awesomebox fontawesome5
