@@ -908,8 +908,8 @@ $if(titlepage-background)$
   {\Large \textsf{$subtitle$}}
   $endif$
   \vskip 2em
-  \noindent {\Large \textsf{$for(author)$$author$$sep$, $endfor$} \vskip 0.6em \textsf{$if(date)$$date$$elseif(vhistory)$\vhCurrentDate$endif$}}
-  $if(vhistory-label)$\vskip 0.6em \textsf{$vhistory-label$ \vhCurrentVersion}$endif$
+  \noindent {\Large \textsf{$for(author)$$author$$sep$, $endfor$} \vskip 0.6em \textsf{$if(date)$$date$$elseif(vhistory)$\vhCurrentDate$endif$}
+  $if(vhistory-label)$\vskip 0.6em \textsf{$vhistory-label$ \vhCurrentVersion}$endif$}
   \vfill
 }
 $else$
@@ -977,7 +977,7 @@ $endfor$
 $if(vhistory)$
 \begin{versionhistory}
 $for(vhistory)$
-  \vhEntry{$it/first$}{$it/rest/first$}{$it/rest/rest/first$}{$it/rest/rest/rest/first$}
+  \vhEntry$for(it)${$it$}$endfor$  
 $endfor$
 \end{versionhistory}
 $endif$

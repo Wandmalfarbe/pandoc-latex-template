@@ -1,14 +1,13 @@
 ---
 title: "Example PDF"
 author: [Author]
-#date: "2017-02-20"
 subject: "Markdown"
 keywords: [Markdown, Example]
 book: true
 titlepage: true
 toc: true
 vhistory-options: "nochapter"
-vhistory-label: "Revision : "
+vhistory-label: "Revision :"
 vhistory:
     - ["1.0", "2017-01-22", "JPW|KW","created"]
     - ["1.1", "2017-01-23", "DP|JPW", "correction"]
