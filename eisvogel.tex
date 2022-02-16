@@ -994,7 +994,13 @@ $endif$
 $endif$
 $endif$
 $if(lof)$
+$if(lof-own-page)$
+\newpage
+$endif$
 \listoffigures
+$if(lof-own-page)$
+\newpage
+$endif$
 $endif$
 $if(lot)$
 \listoftables
