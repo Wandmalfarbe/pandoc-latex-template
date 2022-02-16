@@ -1003,7 +1003,13 @@ $if(lof-own-page)$
 $endif$
 $endif$
 $if(lot)$
+$if(lot-own-page)$
+\newpage
+$endif$
 \listoftables
+$if(lot-own-page)$
+\newpage
+$endif$
 $endif$
 $if(linestretch)$
 \setstretch{$linestretch$}
