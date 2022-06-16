@@ -1,10 +1,14 @@
 ---
 title: "Example PDF"
+subtitle: "Example PDF"
+institute: "my home office"
 author: [Author]
+theme: default
 date: "2019-06-16"
 subject: "Markdown"
 keywords: [Markdown, Example]
 lang: "en"
+section-titles: true
 ...
 
 # Vinaque sanguine metuenti cuiquam Alcyone fixus
@@ -33,7 +37,7 @@ public class Example implements LoremIpsum {
     <title>This is the title of the page.</title>
   </head>
   <body>
-    <img src="./image.jpg" alt="This is an image.">
+    <img src="./image.jpg" alt="This is an image." />
   </body>
 </html>
 ```
