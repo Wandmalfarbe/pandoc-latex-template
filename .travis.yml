@@ -43,7 +43,7 @@ before_install:
 
   - sudo chown -hR $(whoami) "$TEXLIVE_DIR"
   # packages specified in the template
-  - tlmgr install adjustbox background bidi csquotes footmisc footnotebackref fvextra mdframed pagecolor sourcecodepro sourcesanspro titling ulem upquote xurl hardwrap
+  - tlmgr install adjustbox background bidi csquotes footmisc footnotebackref fvextra mdframed pagecolor sourcecodepro sourcesanspro titling ulem upquote xurl hardwrap catchfile
 
   # trial and error
   - tlmgr install letltxmacro zref everypage framed collectbox

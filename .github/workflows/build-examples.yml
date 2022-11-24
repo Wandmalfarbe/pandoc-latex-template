@@ -44,7 +44,7 @@ jobs:
         pip install pandoc-latex-environment
     - name: Install LaTeX packages
       run: |
-        tlmgr install adjustbox background bidi csquotes footmisc footnotebackref fvextra mdframed pagecolor sourcecodepro sourcesanspro titling ulem upquote xurl hardwrap
+        tlmgr install adjustbox background bidi csquotes footmisc footnotebackref fvextra mdframed pagecolor sourcecodepro sourcesanspro titling ulem upquote xurl hardwrap catchfile
         # trial and error
         tlmgr install letltxmacro zref everypage framed collectbox
         # packages needed for the template
