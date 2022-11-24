@@ -128,8 +128,10 @@ $endif$
 $if(linestretch)$
 \usepackage{setspace}
 $else$
-% Use setspace anyway because the default line spacing is changed later
+% Use setspace anyway because we change the default line spacing.
+% The spacing is changed early to affect the titlepage and the TOC.
 \usepackage{setspace}
+\setstretch{1.2}
 $endif$
 \usepackage{iftex}
 \ifPDFTeX
@@ -1010,9 +1012,6 @@ $if(lot)$
 $endif$
 $if(linestretch)$
 \setstretch{$linestretch$}
-$else$
-% define a default line spacing
-\setstretch{1.2}
 $endif$
 $if(has-frontmatter)$
 \mainmatter
