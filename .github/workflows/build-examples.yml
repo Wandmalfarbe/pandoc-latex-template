@@ -43,8 +43,8 @@ jobs:
         python -m pip install --upgrade pip
         pip install pandoc-latex-environment
     - name: Install LaTeX packages
-      run: | 
-        tlmgr install adjustbox background bidi csquotes footmisc footnotebackref fvextra mdframed pagecolor sourcecodepro sourcesanspro titling ulem upquote xurl
+      run: |
+        tlmgr install adjustbox background bidi csquotes footmisc footnotebackref fvextra mdframed pagecolor sourcecodepro sourcesanspro titling ulem upquote xurl hardwrap
         # trial and error
         tlmgr install letltxmacro zref everypage framed collectbox
         # packages needed for the template
@@ -52,7 +52,7 @@ jobs:
         # packages only needed for some examples (that include packages via header-includes)
         tlmgr install awesomebox fontawesome5
         # packages only needed for some examples (example boxes-with-pandoc-latex-environment-and-tcolorbox)
-        tlmgr install tcolorbox pgf etoolbox environ trimspaces   
+        tlmgr install tcolorbox pgf etoolbox environ trimspaces
     - name: Build pdf files
       run: cd examples && bash build-examples.sh && cd ..
     - name: Archive production artifacts
