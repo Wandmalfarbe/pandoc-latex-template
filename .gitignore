@@ -5,6 +5,8 @@ private/
 # build folder
 dist/
 
+.idea
+
 # contains unit tests (incomplete at the moment, so don't include them)
 test/
 test/.idea/
