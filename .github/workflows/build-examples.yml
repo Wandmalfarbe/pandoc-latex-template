@@ -11,7 +11,7 @@ jobs:
         fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
     - name: Setup pandoc
       env:
-        PANDOC_VERSION: "2.11.2"
+        PANDOC_VERSION: "2.19.2"
       run: |
         wget -qO- https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-linux-amd64.tar.gz | sudo tar xzf - --strip-components 1 -C /usr/local/
     - name: Setup TexLive
@@ -43,8 +43,8 @@ jobs:
         python -m pip install --upgrade pip
         pip install pandoc-latex-environment
     - name: Install LaTeX packages
-      run: | 
-        tlmgr install adjustbox background bidi csquotes footmisc footnotebackref fvextra mdframed pagecolor sourcecodepro sourcesanspro titling ulem upquote xurl
+      run: |
+        tlmgr install adjustbox background bidi csquotes footmisc footnotebackref fvextra mdframed pagecolor sourcecodepro sourcesanspro titling ulem upquote xurl hardwrap catchfile
         # trial and error
         tlmgr install letltxmacro zref everypage framed collectbox
         # packages needed for the template
@@ -52,7 +52,7 @@ jobs:
         # packages only needed for some examples (that include packages via header-includes)
         tlmgr install awesomebox fontawesome5
         # packages only needed for some examples (example boxes-with-pandoc-latex-environment-and-tcolorbox)
-        tlmgr install tcolorbox pgf etoolbox environ trimspaces   
+        tlmgr install tcolorbox pgf etoolbox environ trimspaces
     - name: Build pdf files
       run: cd examples && bash build-examples.sh && cd ..
     - name: Archive production artifacts
