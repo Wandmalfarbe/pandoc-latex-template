@@ -2,6 +2,26 @@
 
 All notable changes to this project are documented in this file. On the [releases page](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/) you can see all released versions of the Eisvogel template and download the [latest version](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/latest).
 
+## [2.1.0] - 2022-12-04
+
+- Merge changes from the pandoc default LaTeX template (as of 2022-11-19, [144bf90ab9](https://github.com/jgm/pandoc/blob/144bf90ab92b517dd721baf80f121f86187ccd61/data/templates/default.latex)).
+- Restructure the examples. Any example folder now contains at least the following files:
+  - `document.md`: the Markdown document to convert to a PDF
+  - `document.pdf`: the resulting PDF document
+  - `build.sh`: a shell script to convert the document `document.md` with pandoc. This script might call pandoc with additional arguments (e.g. filters or template variables).
+  - `preview.png`: a PNG image of the resulting PDF document intended as a quick preview
+- Use the Koma-Script package `scrlayer-scrpage` for the headers and footers instead of the package `fancyhdr` (#174, khaveesh).
+  - Fix a header and footer bug when using `oneside` introduced by the migration to `scrlayer-scrpage` (#248, ret2src).
+  - Restore pagestyle `plain` for chapters (#275). Headers and footers are removed from chapter pages, as it has been before the migration to `scrlayer-scrpage`.
+- Correct the examples and documentation (#239, mprobson), (#261, supcik).
+- Exclude title page from page count (#230, shmalebx9).
+- Make code-block-font-size not affect inline listings (#229, LudvigHz).
+- Rename the Eisvogel template variable `logo` to `titlepage-logo`.
+  - `logo` is already used by beamer, and one might want to use both
+  formats (beamer and latex) without the logo appearing as a
+  background image on beamer slides.
+- Add an example for a table of contents (#283).
+
 ## [2.0.0] - 2021-01-31
 
 **This release includes breaking changes.**
@@ -118,6 +138,7 @@ All notable changes to this project are documented in this file. On the [release
 
 - First release of the template as a ZIP file with the examples.
 
+[2.1.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v1.6.1...v2.0.0
 [1.6.1]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v1.6.0...v1.6.1
 [1.6.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v1.5.0...v1.6.0
