@@ -14,14 +14,25 @@ A clean **pandoc LaTeX template** to convert your markdown files to PDF or LaTeX
 
 ## Installation
 
-1.  Install pandoc from <http://pandoc.org/>. You also need to install [LaTeX](https://en.wikibooks.org/wiki/LaTeX/Installation#Distributions).
-2.  Download the latest version of the Eisvogel template from [the release page](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/latest).
-3.  Extract the downloaded ZIP archive and open the folder.
-4.  Move the template `eisvogel.latex` to your pandoc templates folder. The location of the templates folder depends on your operating system:
-      - Unix, Linux, macOS: `/Users/USERNAME/.local/share/pandoc/templates/` or `/Users/USERNAME/.pandoc/templates/`
-      - Windows Vista or later: `C:\Users\USERNAME\AppData\Roaming\pandoc\templates\`
+### Requisites
 
-    If there are no folders called `templates` or `pandoc` you need to create them and put the template `eisvogel.latex` inside. You can find the default user data directory on your system by looking at the output of `pandoc --version`.
+- [Pandoc](http://pandoc.org/)
+- [LaTeX](https://en.wikibooks.org/wiki/LaTeX/Installation#Distributions)
+
+### Unix, Linux, macOS
+
+```sh
+PANDOC_HOME="$(pandoc --version | sed -n 's|^User data.*: \(.*\)$|\1|gp')"
+mkdir -p "$PANDOC_HOME/templates"
+curl -o "$PANDOC_HOME/templates/eisvogel.tex" "https://raw.githubusercontent.com/Wandmalfarbe/pandoc-latex-template/v2.1.0/eisvogel.tex"
+```
+
+### Windows (Powershell)
+
+```powershell
+mkdir "$home\AppData\Roaming\pandoc\templates"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Wandmalfarbe/pandoc-latex-template/v2.1.0/eisvogel.tex" -OutFile "$home\AppData\Roaming\pandoc\templates\eisvogel.tex"
+```
 
 ## Usage
 
