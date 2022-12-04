@@ -14,7 +14,7 @@ containsElement () {
 }
 
 # these examples are skipped because they don't run on travis (for now)
-skippedExamples=("language-chinese" "language-japanese" "language-persian")
+skippedExamples=("language-chinese" "language-japanese")
 
 # loop all files in the current folder
 for f in *; do
