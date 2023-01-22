@@ -4,7 +4,7 @@
 
 [![Build Status](https://travis-ci.com/Wandmalfarbe/pandoc-latex-template.svg?branch=master)](https://travis-ci.com/Wandmalfarbe/pandoc-latex-template)
 
-A clean **pandoc LaTeX template** to convert your markdown files to PDF or LaTeX. It is designed for lecture notes and exercises with a focus on computer science. The template is compatible with pandoc 2.
+A clean **pandoc LaTeX template** to convert your markdown files to PDF or LaTeX. It is designed for lecture notes and exercises with a focus on computer science. The template is compatible with pandoc 3.
 
 ## Preview
 
