@@ -1,6 +1,6 @@
 %%
-% Copyright (c) 2017 - 2022, Pascal Wagler;
-% Copyright (c) 2014 - 2022, John MacFarlane
+% Copyright (c) 2017 - 2023, Pascal Wagler;
+% Copyright (c) 2014 - 2023, John MacFarlane
 %
 % All rights reserved.
 %
@@ -383,6 +383,9 @@ $if(numbersections)$
 $else$
 \setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 $endif$
+$if(subfigure)$
+\usepackage{subcaption}
+$endif$
 $if(beamer)$
 $else$
 $if(block-headings)$
@@ -433,6 +436,12 @@ $if(lang)$
 \fi
 $if(babel-lang)$
 \babelprovide[main,import]{$babel-lang$}
+$if(mainfont)$
+\ifPDFTeX
+\else
+\babelfont[$babel-lang$]{rm}{$mainfont$}
+\fi
+$endif$
 $endif$
 $for(babel-otherlangs)$
 \babelprovide[import]{$babel-otherlangs$}
