@@ -26,14 +26,14 @@ science. The template is compatible with pandoc 3.
 ```sh
 PANDOC_HOME="$(pandoc --version | sed -n 's|^User data.*: \(.*\)$|\1|gp')"
 mkdir -p "$PANDOC_HOME/templates"
-curl -o "$PANDOC_HOME/templates/eisvogel.tex" "https://raw.githubusercontent.com/Wandmalfarbe/pandoc-latex-template/v2.2.0/eisvogel.tex"
+curl -o "$PANDOC_HOME/templates/eisvogel.latex" "https://raw.githubusercontent.com/Wandmalfarbe/pandoc-latex-template/v2.2.0/eisvogel.tex"
 ```
 
 ### Windows (Powershell)
 
 ```powershell
 mkdir "$home\AppData\Roaming\pandoc\templates"
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Wandmalfarbe/pandoc-latex-template/v2.2.0/eisvogel.tex" -OutFile "$home\AppData\Roaming\pandoc\templates\eisvogel.tex"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Wandmalfarbe/pandoc-latex-template/v2.2.0/eisvogel.tex" -OutFile "$home\AppData\Roaming\pandoc\templates\eisvogel.latex"
 ```
 
 ## Usage
