@@ -26,22 +26,29 @@ A clean **pandoc LaTeX template** to convert your markdown files to PDF or LaTeX
 
 ### Docker image
 
-Alternatively, if you don't want to install [LaTeX], you can use the docker 
-image named [pandoc/extra]. A common use of the image looks like this 
-(linebreaks for readability):
+Alternatively, if you don't want to install LaTeX, you can use the Docker 
+image named [pandoc/extra]. The image contains pandoc, LaTeX and a curated
+selection of components such as the eisvogel template, pandoc filters and
+open source fonts. A common use of the image looks like this 
+(line breaks for readability):
 
 ``` bash
 docker run --rm \
        --volume "$(pwd):/data" \
        --user $(id -u):$(id -g) \
-       pandoc/extra example.md -o example.pdf --template=eisvogel 
+       pandoc/extra example.md -o example.pdf --template eisvogel --listings
 ```
 
 For frequent command line use, you can define the following shell alias:
 
 ``` bash
-alias pandock=\
-'docker run --rm -v "$(pwd):/data" -u $(id -u):$(id -g) pandoc/extra'
+alias pandock='docker run --rm -v "$(pwd):/data" -u $(id -u):$(id -g) pandoc/extra'
+```
+
+The example invocation with Docker from above now looks like this:
+
+``` bash
+pandock example.md -o example.pdf --template eisvogel --listings
 ```
 
 [pandoc/extra]: https://hub.docker.com/r/pandoc/extra
