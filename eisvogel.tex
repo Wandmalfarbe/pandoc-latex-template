@@ -223,6 +223,18 @@ $if(CJKmainfont)$
     \setmainjfont[$for(CJKoptions)$$CJKoptions$$sep$,$endfor$]{$CJKmainfont$}
   \fi
 $endif$
+$if(CJKsansfont)$
+  \ifXeTeX
+    \usepackage{xeCJK}
+    \setCJKsansfont[$for(CJKoptions)$$CJKoptions$$sep$,$endfor$]{$CJKsansfont$}
+  \fi
+$endif$
+$if(CJKmonofont)$
+  \ifXeTeX
+    \usepackage{xeCJK}
+    \setCJKmonofont[$for(CJKoptions)$$CJKoptions$$sep$,$endfor$]{$CJKmonofont$}
+  \fi
+$endif$
 \fi
 $if(zero-width-non-joiner)$
 %% Support for zero-width non-joiner characters.
