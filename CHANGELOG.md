@@ -2,6 +2,19 @@
 
 All notable changes to this project are documented in this file. On the [releases page](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/) you can see all released versions of the Eisvogel template and download the [latest version](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/latest).
 
+## [2.3.0] - 2023-03-13
+
+The Eisvogel template is now available in the Docker image [pandoc/extra](https://hub.docker.com/r/pandoc/extra)!
+For more Information refer to the [documentation in the Readme](https://github.com/Wandmalfarbe/pandoc-latex-template#docker-image) or
+the [documentation on docker hub](https://hub.docker.com/r/pandoc/extra).
+
+- Merge changes from the pandoc default LaTeX template (as of 2023-03-10, [9b04036](https://github.com/jgm/pandoc/blob/9b04036f6b0745c6ce0cb027683e94b648da3a9c/data/templates/default.latex)).
+  - Add `CJKsansfont` and `CJKmonofont` for XeLaTeX. `CJKsansfont` and `CJKmonofont` will be set
+    for XeLaTeX only if `CJKmainfont` is also provided (#328, Yudong Jin).
+- Add documentation in the README on how to use the `pandoc/extra` docker image (#319, damien clochard).
+- Fix wrong literate of characters `è` and `È` in listings. The chracter `è` was wrongly
+  converted to `é` and `È` to `É` (#324, damien clochard).
+
 ## [2.2.0] - 2023-01-22
 
 - Merge changes from the pandoc default LaTeX template (as of 2023-01-13, [909ced5](https://github.com/jgm/pandoc/blob/909ced5153e2c7cefd5018c39f83231824940fb8/data/templates/default.latex)).
@@ -143,6 +156,7 @@ All notable changes to this project are documented in this file. On the [release
 
 - First release of the template as a ZIP file with the examples.
 
+[2.3.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v2.2.0...v2.3.0
 [2.2.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v2.1.0...v2.2.0
 [2.1.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v1.6.1...v2.0.0
