@@ -13,7 +13,7 @@ containsElement () {
   return 1
 }
 
-# these examples are skipped because they don't run on travis (for now)
+# these examples are skipped because they don't run in CI builds (for now)
 skippedExamples=()
 
 # loop all files in the current folder
