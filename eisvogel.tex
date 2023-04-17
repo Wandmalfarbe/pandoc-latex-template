@@ -374,7 +374,10 @@ $if(graphics)$
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 % Set default figure placement to htbp
 \makeatletter
-\def\fps@figure{htbp}
+% Make use of float-package and set default placement for figures to H.
+% The option H means 'PUT IT HERE' (as  opposed to the standard h option which means 'You may put it here if you like').
+\usepackage{float}
+\floatplacement{figure}{$if(float-placement-figure)$$float-placement-figure$$else$H$endif$}
 \makeatother
 $endif$
 $if(svg)$
