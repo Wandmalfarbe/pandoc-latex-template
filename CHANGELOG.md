@@ -2,6 +2,15 @@
 
 All notable changes to this project are documented in this file. On the [releases page](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/) you can see all released versions of the Eisvogel template and download the [latest version](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/latest).
 
+## [2.4.0] - 2023-04-17
+
+- Merge changes from the pandoc default LaTeX template (as of 2023-03-29, [a5159c2](https://github.com/jgm/pandoc/blob/a5159c2c505cd9a87856877b3287aa0b88e4e0ba/data/templates/default.latex)).
+- Fix placement of float figures (tables, images, etc.). Float figures should now appear
+  exactly where they are included. The option `float-placement-figure` is also restored.
+- Remove Travis CI build
+- Fix wrong font sizes on the title page. The problem went away on its own, likely because
+  of an updated LaTeX package.
+
 ## [2.3.0] - 2023-03-13
 
 The Eisvogel template is now available in the Docker image [pandoc/extra](https://hub.docker.com/r/pandoc/extra)!
@@ -156,6 +165,7 @@ the [documentation on docker hub](https://hub.docker.com/r/pandoc/extra).
 
 - First release of the template as a ZIP file with the examples.
 
+[2.4.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v2.3.0...v2.4.0
 [2.3.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v2.2.0...v2.3.0
 [2.2.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v2.1.0...v2.2.0
 [2.1.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v2.0.0...v2.1.0
