@@ -2,6 +2,10 @@
 
 All notable changes to this project are documented in this file. On the [releases page](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/) you can see all released versions of the Eisvogel template and download the [latest version](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/latest).
 
+## [2.4.1] - 2023-09-06
+
+- Merge changes from the pandoc default LaTeX template from Version 3.1.7 (as of 2023-08-31, [8a5b381](https://github.com/jgm/pandoc-templates/blob/8a5b381c156c974b485197208c6dc86fce94b5c3/default.latex)).
+
 ## [2.4.0] - 2023-04-17
 
 - Merge changes from the pandoc default LaTeX template (as of 2023-03-29, [a5159c2](https://github.com/jgm/pandoc/blob/a5159c2c505cd9a87856877b3287aa0b88e4e0ba/data/templates/default.latex)).

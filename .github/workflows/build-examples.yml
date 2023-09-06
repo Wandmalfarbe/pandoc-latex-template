@@ -11,7 +11,7 @@ jobs:
         fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
     - name: Setup pandoc
       env:
-        PANDOC_VERSION: "3.1.1"
+        PANDOC_VERSION: "3.1.7"
       run: |
         wget -qO- https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-linux-amd64.tar.gz | sudo tar xzf - --strip-components 1 -C /usr/local/
     - name: Setup TexLive
@@ -37,7 +37,7 @@ jobs:
     - name: Setup Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.9'
+        python-version: '3.11'
     - name: Install python filters
       run: |
         python -m pip install --upgrade pip
