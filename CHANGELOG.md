@@ -2,9 +2,15 @@
 
 All notable changes to this project are documented in this file. On the [releases page](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/) you can see all released versions of the Eisvogel template and download the [latest version](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/latest).
 
+## [2.4.2] - 2023-11-25
+
+- Merge changes from the pandoc default LaTeX template from version 3.1.9 ([f7d8b62](https://github.com/jgm/pandoc-templates/commit/f7d8b629330074a4400d1f2795b101d14491c968)).
+- Merge changes from the pandoc default LaTeX template from version 3.1.8 ([2d42e04](https://github.com/jgm/pandoc-templates/commit/2d42e04cbd65dd36c4469156b00f636e7f31623e)) (#364, David Mehren).
+- Add fix for `table-use-row-colors` which previously stopped working (#301, Chris Fenner).
+
 ## [2.4.1] - 2023-09-06
 
-- Merge changes from the pandoc default LaTeX template from Version 3.1.7 (as of 2023-08-31, [8a5b381](https://github.com/jgm/pandoc-templates/blob/8a5b381c156c974b485197208c6dc86fce94b5c3/default.latex)).
+- Merge changes from the pandoc default LaTeX template from version 3.1.7 (as of 2023-08-31, [8a5b381](https://github.com/jgm/pandoc-templates/blob/8a5b381c156c974b485197208c6dc86fce94b5c3/default.latex)).
 
 ## [2.4.0] - 2023-04-17
 
@@ -25,7 +31,7 @@ the [documentation on docker hub](https://hub.docker.com/r/pandoc/extra).
   - Add `CJKsansfont` and `CJKmonofont` for XeLaTeX. `CJKsansfont` and `CJKmonofont` will be set
     for XeLaTeX only if `CJKmainfont` is also provided (#328, Yudong Jin).
 - Add documentation in the README on how to use the `pandoc/extra` docker image (#319, damien clochard).
-- Fix wrong literate of characters `è` and `È` in listings. The chracter `è` was wrongly
+- Fix wrong literate of characters `è` and `È` in listings. The character `è` was wrongly
   converted to `é` and `È` to `É` (#324, damien clochard).
 
 ## [2.2.0] - 2023-01-22
@@ -169,6 +175,7 @@ the [documentation on docker hub](https://hub.docker.com/r/pandoc/extra).
 
 - First release of the template as a ZIP file with the examples.
 
+[2.4.2]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v2.4.1...v2.4.2
 [2.4.1]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v2.4.0...v2.4.1
 [2.4.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v2.3.0...v2.4.0
 [2.3.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v2.2.0...v2.3.0
