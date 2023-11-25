@@ -718,11 +718,6 @@ $if(tables)$
 \renewcommand{\arraystretch}{1.3}     % spacing (padding)
 
 $if(table-use-row-colors)$
-% TODO: This doesn't work anymore. I don't know why.
-% Reset rownum counter so that each table
-% starts with the same row colors.
-% https://tex.stackexchange.com/questions/170637/restarting-rowcolors
-%
 % Unfortunately the colored cells extend beyond the edge of the
 % table because pandoc uses @-expressions (@{}) like so:
 %
@@ -730,13 +725,11 @@ $if(table-use-row-colors)$
 % \end{longtable}
 %
 % https://en.wikibooks.org/wiki/LaTeX/Tables#.40-expressions
-\let\oldlongtable\longtable
-\let\endoldlongtable\endlongtable
-\renewenvironment{longtable}{
-\rowcolors{3}{}{table-row-color!100}  % row color
-\oldlongtable} {
-\endoldlongtable
-\global\rownum=0\relax}
+\usepackage{etoolbox}
+\AtBeginEnvironment{longtable}{\rowcolors{2}{}{table-row-color!100}}
+\preto{\toprule}{\hiderowcolors}{}{}
+\appto{\endhead}{\showrowcolors}{}{}
+\appto{\endfirsthead}{\showrowcolors}{}{}
 $endif$
 $endif$
 
