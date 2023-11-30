@@ -123,6 +123,14 @@ This template defines some new variables to control the appearance of the result
   - `toc-own-page` (defaults to `false`)
 
     begin new page after table of contents, when `true`
+  
+  - `lof-own-page` (defaults to `false`)
+
+    begin new page after list of figures, when `true`
+  
+  - `lot-own-page` (defaults to `false`)
+
+    begin new page after list of tables, when `true`
 
   - `listings-disable-line-numbers` (defaults to `false`)
 
