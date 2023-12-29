@@ -170,7 +170,7 @@ This template defines some new variables to control the appearance of the result
 
   - `bookmarks-numbered` (defaults to `false`)
 
-    Use numbered bookmarks for sections and chapters. Required pandoc argument `--number-sections`.
+    Use numbered bookmarks for sections and chapters. Requires the pandoc argument `--number-sections`.
 
 ## Required LaTeX Packages
 
