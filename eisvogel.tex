@@ -529,6 +529,9 @@ $if(verbatim-in-note)$
 \VerbatimFootnotes % allow verbatim text in footnotes
 $endif$
 \hypersetup{
+$if(bookmarks-numbered)$
+  bookmarksnumbered,
+$endif$
 $if(title-meta)$
   pdftitle={$title-meta$},
 $endif$
