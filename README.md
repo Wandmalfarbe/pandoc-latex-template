@@ -2,9 +2,7 @@
 
 # Eisvogel
 
-[![Build Status](https://travis-ci.com/Wandmalfarbe/pandoc-latex-template.svg?branch=master)](https://travis-ci.com/Wandmalfarbe/pandoc-latex-template)
-
-A clean **pandoc LaTeX template** to convert your markdown files to PDF or LaTeX. It is designed for lecture notes and exercises with a focus on computer science. The template is compatible with pandoc 2.
+A clean **pandoc LaTeX template** to convert your markdown files to PDF or LaTeX. It is designed for lecture notes and exercises with a focus on computer science. The template is compatible with pandoc 3.
 
 ## Preview
 
@@ -23,6 +21,36 @@ A clean **pandoc LaTeX template** to convert your markdown files to PDF or LaTeX
 
     If there are no folders called `templates` or `pandoc` you need to create them and put the template `eisvogel.latex` inside. You can find the default user data directory on your system by looking at the output of `pandoc --version`.
 
+
+### Docker image
+
+Alternatively, if you don't want to install LaTeX, you can use the Docker 
+image named [pandoc/extra]. The image contains pandoc, LaTeX and a curated
+selection of components such as the eisvogel template, pandoc filters and
+open source fonts. A common use of the image looks like this 
+(line breaks for readability):
+
+``` bash
+docker run --rm \
+       --volume "$(pwd):/data" \
+       --user $(id -u):$(id -g) \
+       pandoc/extra example.md -o example.pdf --template eisvogel --listings
+```
+
+For frequent command line use, you can define the following shell alias:
+
+``` bash
+alias pandock='docker run --rm -v "$(pwd):/data" -u $(id -u):$(id -g) pandoc/extra'
+```
+
+The example invocation with Docker from above now looks like this:
+
+``` bash
+pandock example.md -o example.pdf --template eisvogel --listings
+```
+
+[pandoc/extra]: https://hub.docker.com/r/pandoc/extra
+
 ## Usage
 
 1.  Open the terminal and navigate to the folder where your markdown file is located.
@@ -35,7 +63,7 @@ A clean **pandoc LaTeX template** to convert your markdown files to PDF or LaTeX
 
     where `example.md` is the markdown file you want to convert to PDF.
 
-In order to have nice headers and footers you need to supply metadata to your document. You can do that with a [YAML metadata block](http://pandoc.org/MANUAL.html#extension-yaml_metadata_block) at the top of your markdown document (see the [example markdown file](examples/basic-example/basic-example.md)). Your markdown document may look like the following:
+In order to have nice headers and footers you need to supply metadata to your document. You can do that with a [YAML metadata block](http://pandoc.org/MANUAL.html#extension-yaml_metadata_block) at the top of your markdown document (see the [example markdown file](examples/basic-example/document.md)). Your markdown document may look like the following:
 
 ``` markdown
 ---
@@ -71,6 +99,10 @@ This template defines some new variables to control the appearance of the result
   - `titlepage-rule-height` (defaults to `4`)
 
     the height of the rule on the top of the title page (in points)
+
+  - `titlepage-logo`
+
+    path to an image that will be displayed on the title page. The path is always relative to where pandoc is executed. The option `--resource-path` has no effect.
 
   - `titlepage-background`
 
@@ -139,10 +171,6 @@ This template defines some new variables to control the appearance of the result
   - `book` (defaults to `false`)
 
     typeset as book
-
-  - `logo`
-
-    path to an image that will be displayed on the title page. The path is always relative to where pandoc is executed. The option `--resource-path` has no effect.
 
   - `logo-width` (defaults to `35mm`)
 
@@ -338,7 +366,7 @@ There will be one blank page before each chapter because the template is two-sid
 The following section lists common errors and their solutions when using the
 Eisvogel template.
 
-### LaTeX Errors `Missing endcsname inserted` or `File x not found` when using `titlepage-background` or `logo`
+### LaTeX Errors `Missing endcsname inserted` or `File x not found` when using `titlepage-background`, `logo`, or `titlepage-logo`.
 
 ``` latex
 Error producing PDF.

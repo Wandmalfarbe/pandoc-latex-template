@@ -2,6 +2,63 @@
 
 All notable changes to this project are documented in this file. On the [releases page](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/) you can see all released versions of the Eisvogel template and download the [latest version](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/latest).
 
+## [2.4.2] - 2023-11-25
+
+- Merge changes from the pandoc default LaTeX template from version 3.1.9 ([f7d8b62](https://github.com/jgm/pandoc-templates/commit/f7d8b629330074a4400d1f2795b101d14491c968)).
+- Merge changes from the pandoc default LaTeX template from version 3.1.8 ([2d42e04](https://github.com/jgm/pandoc-templates/commit/2d42e04cbd65dd36c4469156b00f636e7f31623e)) (#364, David Mehren).
+- Add fix for `table-use-row-colors` which previously stopped working (#301, Chris Fenner).
+
+## [2.4.1] - 2023-09-06
+
+- Merge changes from the pandoc default LaTeX template from version 3.1.7 (as of 2023-08-31, [8a5b381](https://github.com/jgm/pandoc-templates/blob/8a5b381c156c974b485197208c6dc86fce94b5c3/default.latex)).
+
+## [2.4.0] - 2023-04-17
+
+- Merge changes from the pandoc default LaTeX template (as of 2023-03-29, [a5159c2](https://github.com/jgm/pandoc/blob/a5159c2c505cd9a87856877b3287aa0b88e4e0ba/data/templates/default.latex)).
+- Fix placement of float figures (tables, images, etc.). Float figures should now appear
+  exactly where they are included. The option `float-placement-figure` is also restored.
+- Remove Travis CI build
+- Fix wrong font sizes on the title page. The problem went away on its own, likely because
+  of an updated LaTeX package.
+
+## [2.3.0] - 2023-03-13
+
+The Eisvogel template is now available in the Docker image [pandoc/extra](https://hub.docker.com/r/pandoc/extra)!
+For more Information refer to the [documentation in the Readme](https://github.com/Wandmalfarbe/pandoc-latex-template#docker-image) or
+the [documentation on docker hub](https://hub.docker.com/r/pandoc/extra).
+
+- Merge changes from the pandoc default LaTeX template (as of 2023-03-10, [9b04036](https://github.com/jgm/pandoc/blob/9b04036f6b0745c6ce0cb027683e94b648da3a9c/data/templates/default.latex)).
+  - Add `CJKsansfont` and `CJKmonofont` for XeLaTeX. `CJKsansfont` and `CJKmonofont` will be set
+    for XeLaTeX only if `CJKmainfont` is also provided (#328, Yudong Jin).
+- Add documentation in the README on how to use the `pandoc/extra` docker image (#319, damien clochard).
+- Fix wrong literate of characters `è` and `È` in listings. The character `è` was wrongly
+  converted to `é` and `È` to `É` (#324, damien clochard).
+
+## [2.2.0] - 2023-01-22
+
+- Merge changes from the pandoc default LaTeX template (as of 2023-01-13, [909ced5](https://github.com/jgm/pandoc/blob/909ced5153e2c7cefd5018c39f83231824940fb8/data/templates/default.latex)).
+  - This change adds support for pandoc 3.
+
+## [2.1.0] - 2022-12-04
+
+- Merge changes from the pandoc default LaTeX template (as of 2022-11-19, [144bf90ab9](https://github.com/jgm/pandoc/blob/144bf90ab92b517dd721baf80f121f86187ccd61/data/templates/default.latex)).
+- Restructure the examples. Any example folder now contains at least the following files:
+  - `document.md`: the Markdown document to convert to a PDF
+  - `document.pdf`: the resulting PDF document
+  - `build.sh`: a shell script to convert the document `document.md` with pandoc. This script might call pandoc with additional arguments (e.g. filters or template variables).
+  - `preview.png`: a PNG image of the resulting PDF document intended as a quick preview
+- Use the Koma-Script package `scrlayer-scrpage` for the headers and footers instead of the package `fancyhdr` (#174, khaveesh).
+  - Fix a header and footer bug when using `oneside` introduced by the migration to `scrlayer-scrpage` (#248, ret2src).
+  - Restore pagestyle `plain` for chapters (#275). Headers and footers are removed from chapter pages, as it has been before the migration to `scrlayer-scrpage`.
+- Correct the examples and documentation (#239, mprobson), (#261, supcik).
+- Exclude title page from page count (#230, shmalebx9).
+- Make code-block-font-size not affect inline listings (#229, LudvigHz).
+- Rename the Eisvogel template variable `logo` to `titlepage-logo`.
+  - `logo` is already used by beamer, and one might want to use both
+  formats (beamer and latex) without the logo appearing as a
+  background image on beamer slides.
+- Add an example for a table of contents (#283).
+
 ## [2.0.0] - 2021-01-31
 
 **This release includes breaking changes.**
@@ -118,6 +175,12 @@ All notable changes to this project are documented in this file. On the [release
 
 - First release of the template as a ZIP file with the examples.
 
+[2.4.2]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v2.4.1...v2.4.2
+[2.4.1]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v2.4.0...v2.4.1
+[2.4.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v2.3.0...v2.4.0
+[2.3.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v2.2.0...v2.3.0
+[2.2.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v2.1.0...v2.2.0
+[2.1.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v1.6.1...v2.0.0
 [1.6.1]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v1.6.0...v1.6.1
 [1.6.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v1.5.0...v1.6.0
