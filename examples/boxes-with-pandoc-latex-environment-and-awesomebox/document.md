@@ -21,7 +21,7 @@ pandoc-latex-environment:
 
 # Boxes with `pandoc-latex-environment` and `awesomebox`
 
-This example demonstrates the use of the filter [`pandoc-latex-environments`] to create custom boxes with the [`awesomebox`] package. *pandoc-latex-environment* is a pandoc filter for adding LaTeX environement on specific HTML div tags.
+This example demonstrates the use of the filter [`pandoc-latex-environments`] to create custom boxes with the [`awesomebox`] package. *pandoc-latex-environment* is a pandoc filter for adding LaTeX environment on specific HTML div tags.
 
 
 ## Box Types

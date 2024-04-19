@@ -26,7 +26,7 @@ pandoc-latex-environment:
 
 This example demonstrates the use of the filter [`pandoc-latex-environments`]
 to create custom boxes with the [`tcolorbox`] package.
-*pandoc-latex-environment* is a pandoc filter for adding LaTeX environement on
+*pandoc-latex-environment* is a pandoc filter for adding LaTeX environment on
 specific HTML div tags. For a list of all available options visit the
 [`tcolorbox` documentation](https://ctan.org/pkg/tcolorbox).
 
