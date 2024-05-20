@@ -1,4 +1,4 @@
-markdownCopy code<img src="icon.png" align="right" height="110"/>
+<img src="icon.png" align="right" height="110"/>
 
 # Eisvogel
 
@@ -70,7 +70,7 @@ pandock example.md -o example.pdf --template eisvogel --listings
 In order to have nice headers and footers you need to supply metadata to your document. You can do that with a [YAML metadata block](http://pandoc.org/MANUAL.html#extension-yaml_metadata_block) at the top of your markdown document (see the [example markdown file](https://chatgpt.com/c/examples/basic-example/document.md)). Your markdown document may look like the following:
 
 ```
-markdownCopy code---
+---
 title: "The Document Title"
 author: [Example Author, Another Author]
 date: "2017-02-20"
