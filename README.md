@@ -41,7 +41,7 @@ For frequent command line use, you can define the following shell alias:
 
 ```
 bash
-Copy code
+
 alias pandock='docker run --rm -v "$(pwd):/data" -u $(id -u):$(id -g) pandoc/extra'
 ```
 
@@ -49,7 +49,7 @@ The example invocation with Docker from above now looks like this:
 
 ```
 bash
-Copy code
+
 pandock example.md -o example.pdf --template eisvogel --listings
 ```
 
@@ -61,7 +61,7 @@ pandock example.md -o example.pdf --template eisvogel --listings
 
    ```
    bash
-   Copy code
+   
    pandoc example.md -o example.pdf --from markdown --template eisvogel --listings
    ```
 
@@ -222,7 +222,7 @@ This template defines some new variables to control the appearance of the result
 LaTeX manages addons and additional functionality in so called packages. You might get the following error when compiling a document with the Eisvogel template:
 
 ```
-shCopy code! LaTeX Error: File `footnotebackref.sty' not found.
+sh! LaTeX Error: File `footnotebackref.sty' not found.
 
 Type X to quit or <RETURN> to proceed,
 or enter new name. (Default extension: sty)
@@ -241,7 +241,7 @@ Eisvogel requires a full texlive distribution that can be installed by running `
 A smaller texlive bundle is `texlive-latex-extra`. With `texlive-latex-extra` you also need to install these packages manually:
 
 ```
-arduinoCopy codeadjustbox babel-german background bidi collectbox csquotes everypage filehook
+arduinoadjustbox babel-german background bidi collectbox csquotes everypage filehook
 footmisc footnotebackref framed fvextra letltxmacro ly1 mdframed mweights
 needspace pagecolor sourcecodepro sourcesanspro titling ucharcat ulem
 unicode-math upquote xecjk xurl zref
@@ -251,7 +251,7 @@ Install them with the following command:
 
 ```
 sh
-Copy code
+
 tlmgr install adjustbox babel-german background bidi collectbox csquotes everypage filehook footmisc footnotebackref framed fvextra letltxmacro ly1 mdframed mweights needspace pagecolor sourcecodepro sourcesanspro titling ucharcat ulem unicode-math upquote xecjk xurl zref
 ```
 
@@ -278,7 +278,7 @@ For PDFs with [numbered sections](http://pandoc.org/MANUAL.html#options-affectin
 
 ```
 bash
-Copy code
+
 pandoc example.md -o example.pdf --template eisvogel --number-sections
 ```
 
@@ -288,7 +288,7 @@ You can get syntax highlighting of delimited code blocks by using the LaTeX pack
 
 ```
 bash
-Copy code
+
 pandoc example.md -o example.pdf --template eisvogel --listings
 ```
 
@@ -298,16 +298,16 @@ The following examples show [syntax highlighting of delimited code blocks](http:
 
 ```
 bash
-Copy code
+
 pandoc example.md -o example.pdf --template eisvogel --highlight-style pygments
 bash
-Copy code
+
 pandoc example.md -o example.pdf --template eisvogel --highlight-style kate
 bash
-Copy code
+
 pandoc example.md -o example.pdf --template eisvogel --highlight-style espresso
 bash
-Copy code
+
 pandoc example.md -o example.pdf --template eisvogel --highlight-style tango
 ```
 
@@ -317,7 +317,7 @@ To produce a standalone LaTeX document for compiling with any LaTeX editor use `
 
 ```
 bash
-Copy code
+
 pandoc example.md -o example.tex --template eisvogel
 ```
 
@@ -327,7 +327,7 @@ The default language of this template is American English. The `lang` variable i
 
 ```
 bash
-Copy code
+
 pandoc example.md -o example.pdf --template eisvogel -V lang=en-GB
 ```
 
@@ -335,7 +335,7 @@ The following example changes the language to German:
 
 ```
 bash
-Copy code
+
 pandoc example.md -o example.pdf --template eisvogel -V lang=de
 ```
 
@@ -372,11 +372,11 @@ The following section lists common errors and their solutions when using the Eis
 ### LaTeX Errors `Missing endcsname inserted` or `File x not found` when using `titlepage-background`, `logo`, or `titlepage-logo`.
 
 ```
-latexCopy codeError producing PDF.
+latexError producing PDF.
 ! Missing endcsname inserted.
 <to be read again>
                    protect
-latexCopy codeError producing PDF.
+latexError producing PDF.
 ! Package pdftex.def Error: File `logo\T1\textunderscoreimage.pdf' not fou
 nd: using draft setting.
 
@@ -390,7 +390,7 @@ A quick fix would be to replace all underscores in the filename of the image wit
 
 ```
 yaml
-Copy code
+
 titlepage-background: "background_image.pdf"
 ```
 
@@ -398,7 +398,7 @@ you can advise pandoc to interpret this as LaTeX and include it in the document 
 
 ```
 yaml
-Copy code
+
 titlepage-background: "`background_image.pdf`{=latex}"
 ```
 
@@ -406,7 +406,7 @@ The same fix can be used for the logo image as well:
 
 ```
 yaml
-Copy code
+
 logo: "`logo_image.pdf`{=latex}"
 ```
 
@@ -418,7 +418,7 @@ Corresponding issues:
 ### LaTeX Error `Missing \begin{document}`
 
 ```
-javascriptCopy code! LaTeX Error: Missing \begin{document}.
+javascript! LaTeX Error: Missing \begin{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
@@ -434,7 +434,7 @@ This error indicates that you try to use some text file for conversion that is n
 ### LaTeX Error `auto expansion is only possible with scalable fonts`
 
 ```
-latexCopy codeError producing PDF.
+latexError producing PDF.
 ! pdfTeX error (font expansion): auto expansion is only possible with scalable
 fonts.
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox
@@ -453,7 +453,7 @@ Corresponding issue:
 ### LaTeX Error `cannot find image file`
 
 ```
-latexCopy codeError producing PDF.
+latexError producing PDF.
 ! error:  (file "/tmp/tex2pdf.-be734e802ef6d0c3/""fdcfc29edcf252186f1b0a52f18f50
 43abaeb2d0".png) (pdf backend): cannot find image file '"/tmp/tex2pdf.-be734e802
 ef6d0c3/""fdcfc29edcf252186f1b0a52f18f5043abaeb2d0".png'
