@@ -12,13 +12,18 @@ All notable changes to this project are documented in this file. On the [release
 - Support for custom background images on title pages and all pages.
 - Flexible geometry settings for title page layout.
 - Enhanced handling of paragraph and list spacing.
+- New variables for header and footer customization: 'header-left','header-center', 'header-right', `footer-center`, `footer-left`, and `footer-right`.
+- Customizable copyright text (default usage for footer-left) through a new `\copyrighttext` macro.
 
 ### Changed
 - Updated README.md to include detailed instructions on using and customizing the template.
 - Integrated custom styling options directly into the template for better user experience.
+- Enhanced flexibility for setting date values via the `date` variable.
+- Default behavior for `footer-right` now includes the total page count (`\thepage{} / \pageref{LastPage}`).
 
 ### Fixed
 - Minor formatting issues and improved compatibility with various LaTeX distributions.
+- Corrected handling of page numbers in the footer to prevent duplication.
 
 ## [2.4.2] - 2023-11-25
 
