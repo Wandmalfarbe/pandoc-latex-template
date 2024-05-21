@@ -151,15 +151,15 @@ $if(mathspec)$
 $else$
   \usepackage{unicode-math} % this also loads fontspec
 $endif$
-  \defaultfontfeatures{Scale=MatchLowercase}$-- must come before Beamer theme
+  \defaultfontfeatures{Scale=MatchLowercase}% must come before Beamer theme
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
 \fi
 $if(fontfamily)$
 $else$
-$-- Set default font before Beamer theme so the theme can override it
+% Set default font before Beamer theme so the theme can override it
 \usepackage{lmodern}
 $endif$
-$-- Set Beamer theme before user font settings so they can override theme
+% Set Beamer theme before user font settings so they can override theme
 $if(beamer)$
 $if(theme)$
 \usetheme[$for(themeoptions)$$themeoptions$$sep$,$endfor$]{$theme$}
@@ -180,7 +180,7 @@ $if(outertheme)$
 \useoutertheme{$outertheme$}
 $endif$
 $endif$
-$-- User font settings (must come after default font and Beamer theme)
+% User font settings (must come after default font and Beamer theme)
 $if(fontfamily)$
 \usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
 $endif$
@@ -384,7 +384,7 @@ $if(svg)$
 \usepackage{svg}
 $endif$
 $if(strikeout)$
-$-- also used for underline
+% also used for underline
 \ifLuaTeX
   \usepackage{luacolor}
   \usepackage[soul]{lua-ul}
@@ -497,9 +497,9 @@ $if(dir)$
 \ifPDFTeX
   \TeXXeTstate=1
   \newcommand{\RL}[1]{\beginR #1\endR}
-  \newcommand{\LR}[1]{\beginL #1\endL}
+  \newcommand{\LR}[1]{\beginL #1\endR}
   \newenvironment{RTL}{\beginR}{\endR}
-  \newenvironment{LTR}{\beginL}{\endL}
+  \newenvironment{LTR}{\beginL}{\endR}
 \fi
 $endif$
 $if(natbib)$
@@ -570,7 +570,7 @@ $else$
 $endif$
 \subtitle{$subtitle$}
 $endif$
-\author{$for(author)$$author$$sep$ \and $endfor$}
+\author{$for(author)$$author$$sep$, $endfor$}
 \date{$date$}
 $if(beamer)$
 $if(institute)$
@@ -584,19 +584,11 @@ $if(logo)$
 $endif$
 $endif$
 
-
-
-%%
-%% added
-%%
-
 $if(page-background)$
 \usepackage[pages=all]{background}
 $endif$
 
-%
 % for the background color of the title page
-%
 $if(titlepage)$
 \usepackage{pagecolor}
 \usepackage{afterpage}
@@ -609,20 +601,14 @@ $else$
 $endif$
 $endif$
 
-%
 % break urls
-%
 \PassOptionsToPackage{hyphens}{url}
 
-%
 % When using babel or polyglossia with biblatex, loading csquotes is recommended
 % to ensure that quoted texts are typeset according to the rules of your main language.
-%
 \usepackage{csquotes}
 
-%
 % captions
-%
 \definecolor{caption-color}{HTML}{777777}
 $if(beamer)$
 $else$
@@ -630,9 +616,7 @@ $else$
 \setcapindent{0em}
 $endif$
 
-%
 % blockquote
-%
 \definecolor{blockquote-border}{RGB}{221,221,221}
 \definecolor{blockquote-text}{RGB}{119,119,119}
 \usepackage{mdframed}
@@ -640,13 +624,10 @@ $endif$
 \renewenvironment{quote}{\begin{customblockquote}\list{}{\rightmargin=0em\leftmargin=0em}%
 \item\relax\color{blockquote-text}\ignorespaces}{\unskip\unskip\endlist\end{customblockquote}}
 
-%
 % Source Sans Pro as the default font family
 % Source Code Pro for monospace text
-%
 % 'default' option sets the default
 % font family to Source Sans Pro, not \sfdefault.
-%
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   $if(fontfamily)$
   $else$
@@ -671,18 +652,16 @@ $endif$
         Extension = .otf }
     \setmonofont
       [ UprightFont    = *-\sourcecodepro@regstyle,
-        ItalicFont     = *-\sourcecodepro@regstyle It,
-        BoldFont       = *-\sourcecodepro@boldstyle,
-        BoldItalicFont = *-\sourcecodepro@boldstyle It ]
+        ItalicFont     = *-\regstyle It,
+        BoldFont       = *-\boldstyle,
+        BoldItalicFont = *-\boldstyle It ]
       {SourceCodePro}
     \makeatother
   \fi
   $endif$
 \fi
 
-%
 % heading color
-%
 \definecolor{heading-color}{RGB}{40,40,40}
 $if(beamer)$
 $else$
@@ -692,9 +671,7 @@ $endif$
 % scrbook or memoir, uncomment the following line.
 %\addtokomafont{chapter}{\color{heading-color}}
 
-%
 % variables for title, author and date
-%
 $if(beamer)$
 $else$
 \usepackage{titling}
@@ -703,11 +680,8 @@ $else$
 \date{$date$}
 $endif$
 
-%
 % tables
-%
 $if(tables)$
-
 \definecolor{table-row-color}{HTML}{F5F5F5}
 \definecolor{table-rule-color}{HTML}{999999}
 
@@ -732,24 +706,14 @@ $if(table-use-row-colors)$
 $endif$
 $endif$
 
-%
 % remove paragraph indentation
-%
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{6pt plus 2pt minus 1pt}
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 
-%
-%
 % Listings
-%
-%
-
 $if(listings)$
-
-%
 % general listing colors
-%
 \definecolor{listing-background}{HTML}{F7F7F7}
 \definecolor{listing-rule}{HTML}{B3B2B3}
 \definecolor{listing-numbers}{HTML}{B3B2B3}
@@ -799,8 +763,8 @@ $endif$
   literate         =
   {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
   {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
-  {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
-  {À}{{\`A}}1 {È}{{\`E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+  {à}{{\`a}}1 {è}{{\'e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+  {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
   {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
   {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
   {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
@@ -814,9 +778,7 @@ $endif$
 }
 \lstset{style=eisvogel_listing_style}
 
-%
-% Java (Java SE 12, 2019-06-22)
-%
+% Java (Java SE 12, 9, 2022-09-22)
 \lstdefinelanguage{Java}{
   morekeywords={
     % normal keywords (without data types)
@@ -866,23 +828,26 @@ $endif$
 }
 $endif$
 
-%
 % header and footer
-%
 $if(beamer)$
 $else$
 $if(disable-header-and-footer)$
 $else$
 \usepackage[headsepline,footsepline]{scrlayer-scrpage}
+\usepackage{lastpage}  % Add this line to include the lastpage package
+
+\newcommand{\authors}{$for(author)$$author$$sep$, $endfor$}
+\newcommand{\copyyear}{$date$}
+\newcommand{\copyrighttext}{$if(copyright)$$copyright$$else$© \copyyear{} by \authors. All rights reserved.$endif$}
 
 \newpairofpagestyles{eisvogel-header-footer}{
   \clearpairofpagestyles
   \ihead*{$if(header-left)$$header-left$$else$$title$$endif$}
   \chead*{$if(header-center)$$header-center$$else$$endif$}
   \ohead*{$if(header-right)$$header-right$$else$$date$$endif$}
-  \ifoot*{$if(footer-left)$$footer-left$$else$$for(author)$$author$$sep$, $endfor$$endif$}
+  \ifoot*{$if(footer-left)$$footer-left$$else$\copyrighttext$endif$}
   \cfoot*{$if(footer-center)$$footer-center$$else$$endif$}
-  \ofoot*{$if(footer-right)$$footer-right$$else$\thepage$endif$}
+  \ofoot*{$if(footer-right)$$footer-right$$else$\thepage{} / \pageref{LastPage}$endif$}
   \addtokomafont{pageheadfoot}{\upshape}
 }
 \pagestyle{eisvogel-header-footer}
@@ -905,10 +870,6 @@ contents={%
 $endif$
 $endif$
 $endif$
-
-%%
-%% end added
-%%
 
 \begin{document}
 
@@ -996,9 +957,8 @@ $endif$
 $if(title)$
 $if(beamer)$
 \frame{\titlepage}
-% don't generate the default title
-% $else$
-% \maketitle
+$else$
+% \maketitle  % Comment or remove this line to avoid printing title, subtitle, author, and date on the first page after the title page.
 $endif$
 $if(abstract)$
 \begin{abstract}
