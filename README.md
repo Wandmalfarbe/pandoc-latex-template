@@ -41,7 +41,7 @@ For frequent command line use, you can define the following shell alias:
 
 ```
 bash
-
+Copy code
 alias pandock='docker run --rm -v "$(pwd):/data" -u $(id -u):$(id -g) pandoc/extra'
 ```
 
@@ -49,7 +49,7 @@ The example invocation with Docker from above now looks like this:
 
 ```
 bash
-
+Copy code
 pandock example.md -o example.pdf --template eisvogel --listings
 ```
 
@@ -61,23 +61,21 @@ pandock example.md -o example.pdf --template eisvogel --listings
 
    ```
    bash
-   
+   Copy code
    pandoc example.md -o example.pdf --from markdown --template eisvogel --listings
    ```
 
    where `example.md` is the markdown file you want to convert to PDF.
 
-In order to have nice headers and footers you need to supply metadata to your document. You can do that with a [YAML metadata block](http://pandoc.org/MANUAL.html#extension-yaml_metadata_block) at the top of your markdown document (see the [example markdown file](https://chatgpt.com/c/examples/basic-example/document.md)). Your markdown document may look like the following:
+In order to have nice headers and footers you need to supply metadata to your document. You can do that with a [YAML metadata block](http://pandoc.org/MANUAL.html#extension-yaml_metadata_block) at the top of your markdown document (see the [example markdown file](https://github.com/Wandmalfarbe/pandoc-latex-template/blob/master/examples/basic-example/document.md)). Your markdown document may look like the following:
 
 ```
----
+yamlCopy code---
 title: "The Document Title"
 author: [Example Author, Another Author]
 date: "2017-02-20"
 keywords: [Markdown, Example]
 ...
-
-Here is the actual document text...
 ```
 
 ### Custom Template Variables
@@ -136,7 +134,7 @@ This template defines some new variables to control the appearance of the result
 
   avoid page break inside listings
 
-- `disable-header-and-footer` (default to `false`)
+- `disable-header-and-footer` (defaults to `false`)
 
   disables the header and footer completely on all pages
 
@@ -222,7 +220,7 @@ This template defines some new variables to control the appearance of the result
 LaTeX manages addons and additional functionality in so called packages. You might get the following error when compiling a document with the Eisvogel template:
 
 ```
-sh! LaTeX Error: File `footnotebackref.sty' not found.
+shCopy code! LaTeX Error: File `footnotebackref.sty' not found.
 
 Type X to quit or <RETURN> to proceed,
 or enter new name. (Default extension: sty)
@@ -241,17 +239,8 @@ Eisvogel requires a full texlive distribution that can be installed by running `
 A smaller texlive bundle is `texlive-latex-extra`. With `texlive-latex-extra` you also need to install these packages manually:
 
 ```
-arduinoadjustbox babel-german background bidi collectbox csquotes everypage filehook
-footmisc footnotebackref framed fvextra letltxmacro ly1 mdframed mweights
-needspace pagecolor sourcecodepro sourcesanspro titling ucharcat ulem
-unicode-math upquote xecjk xurl zref
-```
-
-Install them with the following command:
-
-```
 sh
-
+Copy code
 tlmgr install adjustbox babel-german background bidi collectbox csquotes everypage filehook footmisc footnotebackref framed fvextra letltxmacro ly1 mdframed mweights needspace pagecolor sourcecodepro sourcesanspro titling ucharcat ulem unicode-math upquote xecjk xurl zref
 ```
 
@@ -278,7 +267,7 @@ For PDFs with [numbered sections](http://pandoc.org/MANUAL.html#options-affectin
 
 ```
 bash
-
+Copy code
 pandoc example.md -o example.pdf --template eisvogel --number-sections
 ```
 
@@ -288,7 +277,7 @@ You can get syntax highlighting of delimited code blocks by using the LaTeX pack
 
 ```
 bash
-
+Copy code
 pandoc example.md -o example.pdf --template eisvogel --listings
 ```
 
@@ -297,17 +286,9 @@ pandoc example.md -o example.pdf --template eisvogel --listings
 The following examples show [syntax highlighting of delimited code blocks](http://pandoc.org/MANUAL.html#syntax-highlighting) without using listings. To see a list of all the supported highlight styles, type `pandoc --list-highlight-styles`.
 
 ```
-bash
-
-pandoc example.md -o example.pdf --template eisvogel --highlight-style pygments
-bash
-
+bashCopy codepandoc example.md -o example.pdf --template eisvogel --highlight-style pygments
 pandoc example.md -o example.pdf --template eisvogel --highlight-style kate
-bash
-
 pandoc example.md -o example.pdf --template eisvogel --highlight-style espresso
-bash
-
 pandoc example.md -o example.pdf --template eisvogel --highlight-style tango
 ```
 
@@ -317,7 +298,7 @@ To produce a standalone LaTeX document for compiling with any LaTeX editor use `
 
 ```
 bash
-
+Copy code
 pandoc example.md -o example.tex --template eisvogel
 ```
 
@@ -327,7 +308,7 @@ The default language of this template is American English. The `lang` variable i
 
 ```
 bash
-
+Copy code
 pandoc example.md -o example.pdf --template eisvogel -V lang=en-GB
 ```
 
@@ -335,7 +316,7 @@ The following example changes the language to German:
 
 ```
 bash
-
+Copy code
 pandoc example.md -o example.pdf --template eisvogel -V lang=de
 ```
 
@@ -351,19 +332,19 @@ There will be one blank page before each chapter because the template is two-sid
 
 |                      A green title page                      |             A background image on the title page             |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| [![A green title page](https://chatgpt.com/c/examples/title-page-green/preview.png)](https://chatgpt.com/c/examples/title-page-green/document.pdf) | [![A background image on the title page](https://chatgpt.com/c/examples/title-page-background/preview.png)](https://chatgpt.com/c/examples/title-page-background/document.pdf) |
+| [![A green title page](https://github.com/Wandmalfarbe/pandoc-latex-template/raw/master/examples/title-page-green/preview.png)](https://github.com/Wandmalfarbe/pandoc-latex-template/raw/master/examples/title-page-green/document.pdf) | [![A background image on the title page](https://github.com/Wandmalfarbe/pandoc-latex-template/raw/master/examples/title-page-background/preview.png)](https://github.com/Wandmalfarbe/pandoc-latex-template/raw/master/examples/title-page-background/document.pdf) |
 
 |                      images and tables                       |             Code blocks styled without listings              |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| [![images and tables](https://chatgpt.com/c/examples/images-and-tables/preview.png)](https://chatgpt.com/c/examples/images-and-tables/document.pdf) | [![Code blocks styled without listings](https://chatgpt.com/c/examples/code-blocks-without-listings/preview.png)](https://chatgpt.com/c/examples/code-blocks-without-listings/document.pdf) |
+| [![images and tables](https://github.com/Wandmalfarbe/pandoc-latex-template/raw/master/examples/images-and-tables/preview.png)](https://github.com/Wandmalfarbe/pandoc-latex-template/raw/master/examples/images-and-tables/document.pdf) | [![Code blocks styled without listings](https://github.com/Wandmalfarbe/pandoc-latex-template/raw/master/examples/code-blocks-without-listings/preview.png)](https://github.com/Wandmalfarbe/pandoc-latex-template/raw/master/examples/code-blocks-without-listings/document.pdf) |
 
 |                            A book                            |               Code blocks styled with listings               |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| [![A book](https://chatgpt.com/c/examples/book/preview.png)](https://chatgpt.com/c/examples/book/document.pdf) | [![Code blocks styled with listings](https://chatgpt.com/c/examples/code-blocks-listings/preview.png)](https://chatgpt.com/c/examples/code-blocks-listings/document.pdf) |
+| [![A book](https://github.com/Wandmalfarbe/pandoc-latex-template/raw/master/examples/book/preview.png)](https://github.com/Wandmalfarbe/pandoc-latex-template/raw/master/examples/book/document.pdf) | [![Code blocks styled with listings](https://github.com/Wandmalfarbe/pandoc-latex-template/raw/master/examples/code-blocks-listings/preview.png)](https://github.com/Wandmalfarbe/pandoc-latex-template/raw/master/examples/code-blocks-listings/document.pdf) |
 
 |               A background images on all pages               |               CJK Support (when using XeLaTeX)               |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| [![A background images on all pages](https://chatgpt.com/c/examples/page-background/preview.png)](https://chatgpt.com/c/examples/page-background/document.pdf) | [![CJK Support (when using XeLaTeX)](https://chatgpt.com/c/examples/language-japanese/preview.png)](https://chatgpt.com/c/examples/language-japanese/document.pdf) |
+| [![A background images on all pages](https://github.com/Wandmalfarbe/pandoc-latex-template/raw/master/examples/page-background/preview.png)](https://github.com/Wandmalfarbe/pandoc-latex-template/raw/master/examples/page-background/document.pdf) | [![CJK Support (when using XeLaTeX)](https://github.com/Wandmalfarbe/pandoc-latex-template/raw/master/examples/language-japanese/preview.png)](https://github.com/Wandmalfarbe/pandoc-latex-template/raw/master/examples/language-japanese/document.pdf) |
 
 ## Common Errors / Issues
 
@@ -372,7 +353,7 @@ The following section lists common errors and their solutions when using the Eis
 ### LaTeX Errors `Missing endcsname inserted` or `File x not found` when using `titlepage-background`, `logo`, or `titlepage-logo`.
 
 ```
-latexError producing PDF.
+vbnetCopy codelatexError producing PDF.
 ! Missing endcsname inserted.
 <to be read again>
                    protect
@@ -390,7 +371,7 @@ A quick fix would be to replace all underscores in the filename of the image wit
 
 ```
 yaml
-
+Copy code
 titlepage-background: "background_image.pdf"
 ```
 
@@ -398,7 +379,7 @@ you can advise pandoc to interpret this as LaTeX and include it in the document 
 
 ```
 yaml
-
+Copy code
 titlepage-background: "`background_image.pdf`{=latex}"
 ```
 
@@ -406,7 +387,7 @@ The same fix can be used for the logo image as well:
 
 ```
 yaml
-
+Copy code
 logo: "`logo_image.pdf`{=latex}"
 ```
 
@@ -418,7 +399,7 @@ Corresponding issues:
 ### LaTeX Error `Missing \begin{document}`
 
 ```
-javascript! LaTeX Error: Missing \begin{document}.
+javascriptCopy code! LaTeX Error: Missing \begin{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
@@ -434,8 +415,7 @@ This error indicates that you try to use some text file for conversion that is n
 ### LaTeX Error `auto expansion is only possible with scalable fonts`
 
 ```
-latexError producing PDF.
-! pdfTeX error (font expansion): auto expansion is only possible with scalable
+latexCopy code! pdfTeX error (font expansion): auto expansion is only possible with scalable
 fonts.
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox
                                                   \fi \fi
@@ -453,8 +433,7 @@ Corresponding issue:
 ### LaTeX Error `cannot find image file`
 
 ```
-latexError producing PDF.
-! error:  (file "/tmp/tex2pdf.-be734e802ef6d0c3/""fdcfc29edcf252186f1b0a52f18f50
+latexCopy code! error:  (file "/tmp/tex2pdf.-be734e802ef6d0c3/""fdcfc29edcf252186f1b0a52f18f50
 43abaeb2d0".png) (pdf backend): cannot find image file '"/tmp/tex2pdf.-be734e802
 ef6d0c3/""fdcfc29edcf252186f1b0a52f18f5043abaeb2d0".png'
 !  ==> Fatal error occurred, no output PDF file produced!
@@ -475,4 +454,4 @@ Corresponding issues:
 
 ## License
 
-This project is open source licensed under the BSD 3-Clause License. Please see the [LICENSE file](https://chatgpt.com/c/LICENSE) for more information.
+This project is open source licensed under the BSD 3-Clause License. Please see the [LICENSE file](https://github.com/Wandmalfarbe/pandoc-latex-template/blob/master/LICENSE) for more information.
