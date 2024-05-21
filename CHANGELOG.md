@@ -2,6 +2,29 @@
 
 All notable changes to this project are documented in this file. On the [releases page](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/) you can see all released versions of the Eisvogel template and download the [latest version](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/latest).
 
+## [Unreleased]
+
+## [2024-05-20]
+
+### Added
+- Custom colors for headings, captions, blockquotes, and listings.
+- Custom commands `\customheading` and `\customcaption` for flexible styling.
+- Support for custom background images on title pages and all pages.
+- Flexible geometry settings for title page layout.
+- Enhanced handling of paragraph and list spacing.
+- New variables for header and footer customization: 'header-left','header-center', 'header-right', `footer-center`, `footer-left`, and `footer-right`.
+- Customizable copyright text (default usage for footer-left) through a new `\copyrighttext` macro.
+
+### Changed
+- Updated README.md to include detailed instructions on using and customizing the template.
+- Integrated custom styling options directly into the template for better user experience.
+- Enhanced flexibility for setting date values via the `date` variable.
+- Default behavior for `footer-right` now includes the total page count (`\thepage{} / \pageref{LastPage}`).
+
+### Fixed
+- Minor formatting issues and improved compatibility with various LaTeX distributions.
+- Corrected handling of page numbers in the footer to prevent duplication.
+
 ## [2.4.2] - 2023-11-25
 
 - Merge changes from the pandoc default LaTeX template from version 3.1.9 ([f7d8b62](https://github.com/jgm/pandoc-templates/commit/f7d8b629330074a4400d1f2795b101d14491c968)).
