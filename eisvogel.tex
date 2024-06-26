@@ -887,6 +887,9 @@ $else$
 }
 \pagestyle{eisvogel-header-footer}
 
+\let\oldsection\section
+\renewcommand{\section}{\clearpage\oldsection}
+
 $if(book)$
 \deftripstyle{ChapterStyle}{}{}{}{}{\pagemark}{}
 \renewcommand*{\chapterpagestyle}{ChapterStyle}
