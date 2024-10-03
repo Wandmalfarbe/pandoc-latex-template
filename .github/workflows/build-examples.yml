@@ -11,7 +11,7 @@ jobs:
         fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
     - name: Setup pandoc
       env:
-        PANDOC_VERSION: "3.1.7"
+        PANDOC_VERSION: "3.4"
       run: |
         wget -qO- https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-linux-amd64.tar.gz | sudo tar xzf - --strip-components 1 -C /usr/local/
     - name: Setup TexLive
