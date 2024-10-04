@@ -651,6 +651,10 @@ $if(page-background)$
 \usepackage[pages=all]{background}
 $endif$
 
+$if(page-logo)$
+\usepackage[pages=all]{background}
+$endif$
+
 %
 % for the background color of the title page
 %
@@ -960,6 +964,22 @@ contents={%
   }%
 }
 $endif$
+
+$if(page-logo)$
+\backgroundsetup{
+scale=1,
+color=black,
+opacity=$if(page-logo-opacity)$$page-logo-opacity$$else$0.5$endif$,
+angle=0,
+position=current page.south east,
+nodeanchor=south east,
+hshift=-$if(page-logo-hshift)$$page-logo-hshift$$else$2.5cm$endif$,
+contents={%
+  \ifnum\value{page}=1 \else \includegraphics[height=$if(page-logo-high)$$page-logo-high$$else$2cm$endif$]{$page-logo$} \fi
+  }%
+}
+$endif$
+
 $endif$
 $endif$
 
