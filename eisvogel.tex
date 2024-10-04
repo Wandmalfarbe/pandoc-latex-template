@@ -659,6 +659,9 @@ $if(titlepage)$
 \usepackage{afterpage}
 $if(titlepage-background)$
 \usepackage{tikz}
+\makeatletter
+\global\let\tikz@ensure@dollar@catcode=\relax
+\makeatother
 $endif$
 $if(geometry)$
 $else$
