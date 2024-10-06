@@ -1040,6 +1040,16 @@ $endif$
 \end{titlepage}
 \restoregeometry
 \pagenumbering{arabic}
+$else$
+$if(maketitle)$
+\vspace*{-3\baselineskip}
+\begin{center}
+  {\LARGE \thetitle}\\
+  \vspace{0.7\baselineskip}
+  {\large \theauthor}
+\end{center}
+\thispagestyle{plain}
+$endif$
 $endif$
 $endif$
 
