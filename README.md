@@ -236,6 +236,10 @@ This template defines some new variables to control the appearance of the result
 
     LaTeX command to change the font size for code blocks. The available values are `\tiny`, `\scriptsize`, `\footnotesize`, `\small`, `\normalsize`, `\large`, `\Large`, `\LARGE`, `\huge` and `\Huge`. This option will change the font size for default code blocks using the verbatim environment and for code blocks generated with listings.
 
+  - `draft` (defaults to none)
+
+    Displays the text provided as watermak on each page. Useful to express that a document is work in progress, a draft.
+
 ## Required LaTeX Packages
 
 LaTeX manages addons and additional functionality in so-called packages. You
