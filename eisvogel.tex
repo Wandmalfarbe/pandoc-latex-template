@@ -359,6 +359,7 @@ $highlighting-macros$
 % pandoc includes fvextra in the default template.
 \usepackage{fvextra}
 \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,fontsize=$if(code-block-font-size)$$code-block-font-size$$else$\small$endif$,commandchars=\\\{\}}
+\renewcommand{\DataTypeTok}[1]{\underline{\texttt{#1}}}
 
 $endif$
 $if(tables)$
