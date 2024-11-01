@@ -6,12 +6,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
       with:
         fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
     - name: Setup pandoc
       env:
-        PANDOC_VERSION: "3.4"
+        PANDOC_VERSION: "3.5"
       run: |
         wget -qO- https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-linux-amd64.tar.gz | sudo tar xzf - --strip-components 1 -C /usr/local/
     - name: Setup TexLive
@@ -35,9 +35,9 @@ jobs:
     - name: Setup fonts and image convertion tool
       run: sudo apt-get update -qq && sudo apt-get install fonts-noto-cjk poppler-utils -y
     - name: Setup Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v5
       with:
-        python-version: '3.12'
+        python-version: '3.13'
     - name: Install python filters
       run: |
         python -m pip install --upgrade pip
