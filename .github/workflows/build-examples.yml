@@ -16,7 +16,7 @@ jobs:
         wget -qO- https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-linux-amd64.tar.gz | sudo tar xzf - --strip-components 1 -C /usr/local/
     - name: Setup TexLive
       env:
-        REMOTE: http://mirror.ctan.org/systems/texlive/tlnet
+        REMOTE: https://mirror.ctan.org/systems/texlive/tlnet
         INSTALL: '/tmp/install-texlive'
       run: |
         mkdir -p ${INSTALL}

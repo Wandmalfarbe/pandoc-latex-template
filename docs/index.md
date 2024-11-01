@@ -12,7 +12,7 @@ A clean **pandoc LaTeX template** to convert your markdown files to PDF or LaTeX
 
 ## Installation
 
-1.  Install pandoc from <http://pandoc.org/>. You also need to install [LaTeX](https://en.wikibooks.org/wiki/LaTeX/Installation#Distributions).
+1.  Install pandoc from <https://pandoc.org/>. You also need to install [LaTeX](https://en.wikibooks.org/wiki/LaTeX/Installation#Distributions).
 2.  Download the latest version of the Eisvogel template from [the release page](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/latest).
 3.  Extract the downloaded ZIP archive and open the folder.
 4.  Move the template `eisvogel.tex` to your pandoc templates folder and rename the file to `eisvogel.latex`. The location of the templates folder depends on your operating system:
@@ -33,7 +33,7 @@ A clean **pandoc LaTeX template** to convert your markdown files to PDF or LaTeX
 
     where `example.md` is the markdown file you want to convert to PDF.
 
-In order to have nice headers and footers you need to supply metadata to your document. You can do that with a [YAML metadata block](http://pandoc.org/MANUAL.html#extension-yaml_metadata_block) at the top of your markdown document (see the [example markdown file](../examples/basic-example/basic-example.md)). Your markdown document may look like the following:
+In order to have nice headers and footers you need to supply metadata to your document. You can do that with a [YAML metadata block](https://pandoc.org/MANUAL.html#extension-yaml_metadata_block) at the top of your markdown document (see the [example markdown file](../examples/basic-example/basic-example.md)). Your markdown document may look like the following:
 
 ``` markdown
 ---
@@ -234,7 +234,7 @@ an alternative](https://miktex.org/howto/miktex-console).
 
 ### Numbered Sections
 
-For PDFs with [numbered sections](http://pandoc.org/MANUAL.html#options-affecting-specific-writers) use the `--number-sections` or `-N` option.
+For PDFs with [numbered sections](https://pandoc.org/MANUAL.html#options-affecting-specific-writers) use the `--number-sections` or `-N` option.
 
 ``` bash
 pandoc example.md -o example.pdf --template eisvogel --number-sections
@@ -250,7 +250,7 @@ pandoc example.md -o example.pdf --template eisvogel --listings
 
 ### Syntax Highlighting Without Listings
 
-The following examples show [syntax highlighting of delimited code blocks](http://pandoc.org/MANUAL.html#syntax-highlighting) without using listings. To see a list of all the supported highlight styles, type `pandoc --list-highlight-styles`.
+The following examples show [syntax highlighting of delimited code blocks](https://pandoc.org/MANUAL.html#syntax-highlighting) without using listings. To see a list of all the supported highlight styles, type `pandoc --list-highlight-styles`.
 
 ``` bash
 pandoc example.md -o example.pdf --template eisvogel --highlight-style pygments
@@ -278,7 +278,7 @@ pandoc example.md -o example.tex --template eisvogel
 
 ### Changing the Document Language
 
-The default language of this template is American English. The `lang` variable identifies the main language of the document, using a code according to [BCP 47](https://tools.ietf.org/html/bcp47) (e.g. `en` or `en-GB`). For an incomplete list of the supported language codes see [the documentation for the hyph-utf8 package (Section 2)](http://mirrors.ctan.org/language/hyph-utf8/doc/generic/hyph-utf8/hyph-utf8.pdf). The following example changes the language to British English:
+The default language of this template is American English. The `lang` variable identifies the main language of the document, using a code according to [BCP 47](https://tools.ietf.org/html/bcp47) (e.g. `en` or `en-GB`). For an incomplete list of the supported language codes see [the documentation for the hyph-utf8 package (Section 2)](https://mirrors.ctan.org/language/hyph-utf8/doc/generic/hyph-utf8/hyph-utf8.pdf). The following example changes the language to British English:
 
 ``` bash
 pandoc example.md -o example.pdf --template eisvogel -V lang=en-GB
@@ -332,8 +332,8 @@ Error producing PDF.
 
 ``` latex
 Error producing PDF.
-! Package pdftex.def Error: File `logo\T1\textunderscoreimage.pdf' not fou
-nd: using draft setting.
+! Package pdftex.def Error: File `logo\T1\textunderscoreimage.pdf' not found:
+using draft setting.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
