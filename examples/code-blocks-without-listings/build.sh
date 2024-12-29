@@ -1,1 +1,1 @@
-pandoc "document.md" -o "document.pdf" --from markdown --template "../../eisvogel.tex" --highlight-style kate
+pandoc "document.md" -o "document.pdf" --from markdown --template "../../template/eisvogel.latex" --highlight-style kate
