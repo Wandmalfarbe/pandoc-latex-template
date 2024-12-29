@@ -1,5 +1,3 @@
-$if(beamer)$
-$else$
 $if(titlepage)$
 \begin{titlepage}
 $if(titlepage-background)$
@@ -66,5 +64,4 @@ $endif$
 \end{titlepage}
 \restoregeometry
 \pagenumbering{arabic}
-$endif$
 $endif$
