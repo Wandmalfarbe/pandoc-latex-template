@@ -118,7 +118,7 @@ $eisvogel-added.latex()$
 
 \begin{document}
 
-$eisvogel-titlepage.latex()$
+$eisvogel-title-page.latex()$
 
 $if(has-frontmatter)$
 \frontmatter
