@@ -8,29 +8,40 @@ rm -rf "${distFolderName}"
 mkdir "${distFolderName}"
 mkdir "${distFolderName}/${archiveFolderName}"
 
+# Use sed differently on macOS than on other systems
+#
+# macos:        sed -i ''
+# other system: sed
+#
+# see https://stackoverflow.com/a/66763713
+SEDOPTION=
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  SEDOPTION="-i ''"
+fi
+
 # create single template file for latex
 cp "template-multi-file/eisvogel.latex" "${distFolderName}/eisvogel.latex"
 
 # replace partials (latex)
-sed -e '/\$fonts\.latex()\$/ {' -e 'r template-multi-file/fonts.latex' -e 'd' -e '}' -i '' "${distFolderName}/eisvogel.latex"
-sed -e '/\$common\.latex()\$/ {' -e 'r template-multi-file/common.latex' -e 'd' -e '}' -i '' "${distFolderName}/eisvogel.latex"
-sed -e '/\$eisvogel-added\.latex()\$/ {' -e 'r template-multi-file/eisvogel-added.latex' -e 'd' -e '}' -i '' "${distFolderName}/eisvogel.latex"
-sed -e '/\$eisvogel-title-page\.latex()\$/ {' -e 'r template-multi-file/eisvogel-title-page.latex' -e 'd' -e '}' -i '' "${distFolderName}/eisvogel.latex"
-sed -e '/\$after-header-includes\.latex()\$/ {' -e 'r template-multi-file/after-header-includes.latex' -e 'd' -e '}' -i '' "${distFolderName}/eisvogel.latex"
-sed -e '/\$hypersetup\.latex()\$/ {' -e 'r template-multi-file/hypersetup.latex' -e 'd' -e '}' -i '' "${distFolderName}/eisvogel.latex"
-sed -e '/\$passoptions\.latex()\$/ {' -e 'r template-multi-file/passoptions.latex' -e 'd' -e '}' -i '' "${distFolderName}/eisvogel.latex"
+sed $SEDOPTION -e '/\$fonts\.latex()\$/ {' -e 'r template-multi-file/fonts.latex' -e 'd' -e '}' "${distFolderName}/eisvogel.latex"
+sed $SEDOPTION -e '/\$common\.latex()\$/ {' -e 'r template-multi-file/common.latex' -e 'd' -e '}' "${distFolderName}/eisvogel.latex"
+sed $SEDOPTION -e '/\$eisvogel-added\.latex()\$/ {' -e 'r template-multi-file/eisvogel-added.latex' -e 'd' -e '}' "${distFolderName}/eisvogel.latex"
+sed $SEDOPTION -e '/\$eisvogel-title-page\.latex()\$/ {' -e 'r template-multi-file/eisvogel-title-page.latex' -e 'd' -e '}' "${distFolderName}/eisvogel.latex"
+sed $SEDOPTION -e '/\$after-header-includes\.latex()\$/ {' -e 'r template-multi-file/after-header-includes.latex' -e 'd' -e '}' "${distFolderName}/eisvogel.latex"
+sed $SEDOPTION -e '/\$hypersetup\.latex()\$/ {' -e 'r template-multi-file/hypersetup.latex' -e 'd' -e '}' "${distFolderName}/eisvogel.latex"
+sed $SEDOPTION -e '/\$passoptions\.latex()\$/ {' -e 'r template-multi-file/passoptions.latex' -e 'd' -e '}' "${distFolderName}/eisvogel.latex"
 
 # create single template file for beamer
 cp "template-multi-file/eisvogel.beamer" "${distFolderName}/eisvogel.beamer"
 
 # replace partials (beamer)
-sed -e '/\$fonts\.latex()\$/ {' -e 'r template-multi-file/fonts.latex' -e 'd' -e '}' -i '' "${distFolderName}/eisvogel.beamer"
-sed -e '/\$common\.latex()\$/ {' -e 'r template-multi-file/common.latex' -e 'd' -e '}' -i '' "${distFolderName}/eisvogel.beamer"
+sed $SEDOPTION -e '/\$fonts\.latex()\$/ {' -e 'r template-multi-file/fonts.latex' -e 'd' -e '}' "${distFolderName}/eisvogel.beamer"
+sed $SEDOPTION -e '/\$common\.latex()\$/ {' -e 'r template-multi-file/common.latex' -e 'd' -e '}' "${distFolderName}/eisvogel.beamer"
 # The beamer template has no eisvogel block $eisvogel-added.latex()$
 # The beamer template has no eisvogel titlepage $eisvogel-titlepage.latex()$
-sed -e '/\$after-header-includes\.latex()\$/ {' -e 'r template-multi-file/after-header-includes.latex' -e 'd' -e '}' -i '' "${distFolderName}/eisvogel.beamer"
-sed -e '/\$hypersetup\.latex()\$/ {' -e 'r template-multi-file/hypersetup.latex' -e 'd' -e '}' -i '' "${distFolderName}/eisvogel.beamer"
-sed -e '/\$passoptions\.latex()\$/ {' -e 'r template-multi-file/passoptions.latex' -e 'd' -e '}' -i '' "${distFolderName}/eisvogel.beamer"
+sed $SEDOPTION -e '/\$after-header-includes\.latex()\$/ {' -e 'r template-multi-file/after-header-includes.latex' -e 'd' -e '}' "${distFolderName}/eisvogel.beamer"
+sed $SEDOPTION -e '/\$hypersetup\.latex()\$/ {' -e 'r template-multi-file/hypersetup.latex' -e 'd' -e '}' "${distFolderName}/eisvogel.beamer"
+sed $SEDOPTION -e '/\$passoptions\.latex()\$/ {' -e 'r template-multi-file/passoptions.latex' -e 'd' -e '}' "${distFolderName}/eisvogel.beamer"
 
 
 # create folder for the release eisvogel (ZIP and tar.gz)
