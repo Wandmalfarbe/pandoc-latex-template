@@ -8,7 +8,7 @@ All notable changes to this project are documented in this file. On the [release
 
 - Merge changes from the pandoc default LaTeX template from version 3.5 ([1cbd2d1](https://github.com/jgm/pandoc-templates/commit/1cbd2d185efa262c35bd0c0c37f9692905231bf9)).
 
-  Since commit [2a6268d](2a6268de67b883cd814358111d764d330f100d9b) the default pandoc template has been split into
+  Since commit [2a6268d](https://github.com/jgm/pandoc/commit/2a6268de67b883cd814358111d764d330f100d9b) the default pandoc template has been split into
   multiple files (partials). The default LaTeX template has also been split into `default.latex` and `default.beamer`.
   
   For easy integration of upstream changes, the Eisvogel template has also been split and resides in the
