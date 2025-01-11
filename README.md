@@ -238,7 +238,7 @@ This template defines some new variables to control the appearance of the result
 
 ## Required LaTeX Packages
 
-LaTeX manages addons and additional functionality in so called packages. You
+LaTeX manages addons and additional functionality in so-called packages. You
 might get the following error when compiling a document with the Eisvogel
 template:
 
@@ -270,14 +270,14 @@ you also need to install these packages manually:
 ```
 adjustbox babel-german background bidi collectbox csquotes everypage filehook
 footmisc footnotebackref framed fvextra letltxmacro ly1 mdframed mweights
-needspace pagecolor sourcecodepro sourcesanspro titling ucharcat ulem
+needspace pagecolor sourcecodepro sourcesanspro titling ucharcat
 unicode-math upquote xecjk xurl zref
 ```
 
 Install them with the following command:
 
 ``` sh
-tlmgr install soul adjustbox babel-german background bidi collectbox csquotes everypage filehook footmisc footnotebackref framed fvextra letltxmacro ly1 mdframed mweights needspace pagecolor sourcecodepro sourcesanspro titling ucharcat ulem unicode-math upquote xecjk xurl zref
+tlmgr install soul adjustbox babel-german background bidi collectbox csquotes everypage filehook footmisc footnotebackref framed fvextra letltxmacro ly1 mdframed mweights needspace pagecolor sourcecodepro sourcesanspro titling ucharcat unicode-math upquote xecjk xurl zref
 ```
 
 Additional information about the different texlive packages can be found at
