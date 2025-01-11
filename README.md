@@ -15,12 +15,35 @@ A clean **pandoc LaTeX template** to convert your markdown files to PDF or LaTeX
 1.  Install pandoc from <http://pandoc.org/>. You also need to install [LaTeX](https://en.wikibooks.org/wiki/LaTeX/Installation#Distributions).
 2.  Download the latest version of the Eisvogel template from [the release page](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/latest).
 3.  Extract the downloaded ZIP archive and open the folder.
-4.  Move the template `eisvogel.latex` to your pandoc templates folder. The location of the templates folder depends on your operating system:
+4.  Move the two template files `eisvogel.latex` and `eisvogel.beamer` to your
+    pandoc templates folder. The location of the templates folder depends on your operating system:
       - Unix, Linux, macOS: `/Users/USERNAME/.local/share/pandoc/templates/` or `/Users/USERNAME/.pandoc/templates/`
       - Windows Vista or later: `C:\Users\USERNAME\AppData\Roaming\pandoc\templates\`
 
-    If there are no folders called `templates` or `pandoc` you need to create them and put the template `eisvogel.latex` inside. You can find the default user data directory on your system by looking at the output of `pandoc --version`.
+    If there are no folders called `templates` or `pandoc` you need to create them and put the two template files inside. You can find the default user data directory on your system by looking at the output of `pandoc --version`.
 
+## Eisvogel versions
+
+The Eisvogel template is distributed in three different versions inside the compressed archives:
+
+1. `eisvogel.latex`
+
+    A standalone single file version for normal documents (articles, books, notes). The LaTeX and beamer templates used to be in a single file but are now separated.
+
+    > [!IMPORTANT]  
+    > This file is NOT present in this Git repository and has to be obtained from a released version of the template.
+
+2. `eisvogel.beamer`
+
+    A standalone single file version for use with *beamer* to produce slides. The LaTeX and beamer templates used to be in a single file but are now separated.
+
+    > [!IMPORTANT]  
+    > This file is NOT present in this Git repository and has to be obtained from a released version of the template.
+
+3. `template-multi-file`
+
+    This folder contains the original template (LaTeX and Beamer), split into several files. At release, the one-file versions are
+    generated from this folder.
 
 ### Docker image
 

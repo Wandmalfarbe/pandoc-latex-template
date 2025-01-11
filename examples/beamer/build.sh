@@ -1,1 +1,1 @@
-pandoc "document.md" -o "document.pdf" --from markdown --to beamer --template "../../eisvogel.tex" --listings
+pandoc "document.md" -o "document.pdf" --from markdown --to beamer --template "../../dist/eisvogel.beamer" --listings
