@@ -2,6 +2,28 @@
 
 All notable changes to this project are documented in this file. On the [releases page](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/) you can see all released versions of the Eisvogel template and download the [latest version](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/latest).
 
+## [3.0.0] - 2025-01-11
+
+**This release contains breaking changes.**
+
+- Merge changes from the pandoc default LaTeX template from version 3.5 ([1cbd2d1](https://github.com/jgm/pandoc-templates/commit/1cbd2d185efa262c35bd0c0c37f9692905231bf9)).
+
+  Since commit [2a6268d](2a6268de67b883cd814358111d764d330f100d9b) the default pandoc template has been split into
+  multiple files (partials). The default LaTeX template has also been split into `default.latex` and `default.beamer`.
+  
+  For easy integration of upstream changes, the Eisvogel template has also been split and resides in the
+  folder `template-multi-file`
+  
+  - `template-multi-file/eisvogel.latex` corresponds to `default.latex`
+  - `template-multi-file/eisvogel.beamer` corresponds to `default.beamer`
+  
+  Upon release of the Eisvogel template, standalone (one-file) versions are created for LaTeX and Beamer. Refer to the readme section [Eisvogel versions](https://github.com/Wandmalfarbe/pandoc-latex-template?tab=readme-ov-file#eisvogel-versions) for more information.
+
+- The released compressed archives (`.zip` and `.tar.gz`) always contain a root folder that is named after the template
+  and the version number e.g. `Eisvogel-3.0.0`.
+
+- The single file version of the template (`eisvogel.tex`) is no longer part of this repository
+
 ## [2.5.0] - 2024-10-03
 
 - Merge changes from the pandoc default LaTeX template from version 3.4 ([7e8aafa](https://github.com/jgm/pandoc-templates/commit/7e8aafa049700a849b41c53cf1afeb17324040c7)).
@@ -65,7 +87,7 @@ the [documentation on docker hub](https://hub.docker.com/r/pandoc/extra).
 
 ## [2.0.0] - 2021-01-31
 
-**This release includes breaking changes.**
+**This release contains breaking changes.**
 
 - Merged changes from the pandoc default LaTeX template.
 - Fix broken travis build by modifying the `--resource-path`
@@ -179,6 +201,7 @@ the [documentation on docker hub](https://hub.docker.com/r/pandoc/extra).
 
 - First release of the template as a ZIP file with the examples.
 
+[3.0.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v2.5.0...v3.0.0
 [2.5.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v2.4.2...v2.5.0
 [2.4.2]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v2.4.1...v2.4.2
 [2.4.1]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v2.4.0...v2.4.1
