@@ -212,6 +212,7 @@ the [documentation on docker hub](https://hub.docker.com/r/pandoc/extra).
 
 - First release of the template as a ZIP file with the examples.
 
+[3.1.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v3.0.0...v3.1.0
 [3.0.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v2.5.0...v3.0.0
 [2.5.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v2.4.2...v2.5.0
 [2.4.2]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v2.4.1...v2.4.2
