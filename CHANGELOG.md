@@ -2,6 +2,18 @@
 
 All notable changes to this project are documented in this file. On the [releases page](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/) you can see all released versions of the Eisvogel template and download the [latest version](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/latest).
 
+## [3.1.0] - 2025-01-18
+
+- feat: Merge changes from the pandoc default LaTeX template from version 3.6 ([f1c01b0](https://github.com/jgm/pandoc-templates/commit/f1c01b0ee3562f54bfe7730939e7ec0a48769953)).
+- feat: Merge changes from the pandoc default LaTeX template from version 3.6.1 ([b033aa1](https://github.com/jgm/pandoc-templates/commit/b033aa1ff304a87b15866517938fc87a20077a16)).
+- docs: add example `twoside` for a two-sided document (#412)
+- docs: add example `columns` for a two column document (#411)
+- docs: remove unneeded package `ulem` from the section *Required LaTeX Packages* in the README and from ci
+- docs: fix typos and convert links to HTTPS (#400, deining)
+- chore: update copyright year in LICENSE
+- ci: bump GitHub action workflows to avoid deprecation warnings (#401, deining)
+- fix: correct link to commit 2a6268d in CHANGELOG.md
+
 ## [3.0.0] - 2025-01-11
 
 **This release contains breaking changes.**
@@ -201,6 +213,7 @@ the [documentation on docker hub](https://hub.docker.com/r/pandoc/extra).
 
 - First release of the template as a ZIP file with the examples.
 
+[3.1.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v3.0.0...v3.1.0
 [3.0.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v2.5.0...v3.0.0
 [2.5.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v2.4.2...v2.5.0
 [2.4.2]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v2.4.1...v2.4.2

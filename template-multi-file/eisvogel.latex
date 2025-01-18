@@ -92,6 +92,7 @@ $else$
 \setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 $endif$
 $fonts.latex()$
+$font-settings.latex()$
 $common.latex()$
 $for(header-includes)$
 $header-includes$
@@ -173,6 +174,9 @@ $body$
 
 $if(has-frontmatter)$
 \backmatter
+$endif$
+$if(nocite-ids)$
+\nocite{$for(nocite-ids)$$it$$sep$, $endfor$}
 $endif$
 $if(natbib)$
 $if(bibliography)$
