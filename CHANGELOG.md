@@ -5,6 +5,7 @@ All notable changes to this project are documented in this file. On the [release
 ## [3.1.0] - 2025-01-18
 
 - feat: Merge changes from the pandoc default LaTeX template from version 3.6 ([f1c01b0](https://github.com/jgm/pandoc-templates/commit/f1c01b0ee3562f54bfe7730939e7ec0a48769953)).
+- feat: Merge changes from the pandoc default LaTeX template from version 3.6.1 ([b033aa1](https://github.com/jgm/pandoc-templates/commit/b033aa1ff304a87b15866517938fc87a20077a16)).
 - docs: add example `twoside` for a two-sided document (#412)
 - docs: add example `columns` for a two column document (#411)
 - docs: remove unneeded package `ulem` from the section *Required LaTeX Packages* in the README and from ci
