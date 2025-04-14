@@ -1,6 +1,12 @@
 $if(titlepage)$
 \begin{titlepage}
+\def\titlepagebackground{$titlepage-background$}$if(titlepage.background)$\def\titlepagebackground{$titlepage.background$}$endif$
+\def\titlepagetextcolor{$titlepage-text-color$}$if(titlepage.text-color)$\def\titlepagetextcolor{$titlepage.text-color$}$endif$
+\def\titlepagerulecolor{$titlepage-rule-color$}$if(titlepage.rule-color)$\def\titlepagerulecolor{$titlepage.rule-color$}$endif$
+\def\titlepageruleheight{$titlepage-rule-height$}$if(titlepage.rule-height)$\def\titlepageruleheight{$titlepage.rule-height$}$endif$
 $if(titlepage-background)$
+\newgeometry{top=2cm, right=4cm, bottom=3cm, left=4cm}
+$elseif(titlepage.background)$
 \newgeometry{top=2cm, right=4cm, bottom=3cm, left=4cm}
 $else$
 \newgeometry{left=6cm}
@@ -8,48 +14,61 @@ $endif$
 $if(titlepage-color)$
 \definecolor{titlepage-color}{HTML}{$titlepage-color$}
 \newpagecolor{titlepage-color}\afterpage{\restorepagecolor}
+$elseif(titlepage.color)$
+\definecolor{titlepage-color}{HTML}{$titlepage.color$}
+\newpagecolor{titlepage-color}\afterpage{\restorepagecolor}
 $endif$
-$if(titlepage-background)$
-\tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{$titlepage-background$}};
-$endif$
+$if(titlepage.logo)$\iffalse$else$\ifx\titlepagebackground\empty$endif$\else
+\begin{tikzpicture}[remember picture,overlay]
+  \ifx\titlepagebackground\empty\else
+    % Background layer
+    \node[inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{\titlepagebackground}};
+  \fi
+$for(titlepage.logo)$
+  $if(titlepage.logo.path)$
+  \setAnchorParams{$if(titlepage.logo.anchor)$$titlepage.logo.anchor$$else$north east$endif$}
+    \node[inner sep=0pt,
+    anchor=$if(titlepage.logo.anchor)$$titlepage.logo.anchor$$else$north east$endif$,%
+    xshift=\signX$if(titlepage.logo.xshift)$$titlepage.logo.xshift$$else$\defaultX$endif$,%
+    yshift=\signY$if(titlepage.logo.yshift)$$titlepage.logo.yshift$$else$\defaultY$endif$%
+    ] at (current page.$if(titlepage.logo.anchor)$$titlepage.logo.anchor$$else$north east$endif$)
+    {\includegraphics[
+      $if(titlepage.logo.width)$width=$titlepage.logo.width$,$endif$%
+      $if(titlepage.logo.height)$height=$titlepage.logo.height$$endif$%
+      ]{$titlepage.logo.path$}};
+  $endif$
+$endfor$
+\end{tikzpicture}
+\fi
+
 \newcommand{\colorRule}[3][black]{\textcolor[HTML]{#1}{\rule{#2}{#3}}}
 \begin{flushleft}
 \noindent
 \\[-1em]
-\color[HTML]{$if(titlepage-text-color)$$titlepage-text-color$$else$5F5F5F$endif$}
-\makebox[0pt][l]{\colorRule[$if(titlepage-rule-color)$$titlepage-rule-color$$else$435488$endif$]{1.3\textwidth}{$if(titlepage-rule-height)$$titlepage-rule-height$$else$4$endif$pt}}
+\color[HTML]{\ifx\titlepagetextcolor\empty5F5F5F\else\titlepagetextcolor\fi}
+\makebox[0pt][l]{\colorRule[\ifx\titlepagerulecolor\empty435488\else\titlepagerulecolor\fi]{1.3\textwidth}{\ifx\titlepageruleheight\empty4\else\titlepageruleheight\fi pt}}
 \par
 \noindent
 
-$if(titlepage-background)$
 % The titlepage with a background image has other text spacing and text size
 {
-  \setstretch{2}
+  % Use a larger stretch value when either background variable is set
+  \setstretch{$if(titlepage-background)$2$elseif(titlepage.background)$2$else$1.4$endif$}
   \vfill
-  \vskip -8em
+  % When a background is present, add a negative vertical skip
+  $if(titlepage-background)$\vskip -8em$elseif(titlepage.background)$\vskip -8em$endif$
   \noindent {\huge \textbf{\textsf{$title$}}}
   $if(subtitle)$
   \vskip 1em
   {\Large \textsf{$subtitle$}}
   $endif$
   \vskip 2em
-  \noindent {\Large \textsf{$for(author)$$author$$sep$, $endfor$} \vskip 0.6em \textsf{$date$}}
+  \noindent {\Large \textsf{$for(author)$$author$$sep$, $endfor$}
+  % When a background is present, include the date with extra spacing.
+  $if(titlepage-background)$\vskip 0.6em \textsf{$date$}$elseif(titlepage.background)$\vskip 0.6em \textsf{$date$}$endif$
+  }
   \vfill
 }
-$else$
-{
-  \setstretch{1.4}
-  \vfill
-  \noindent {\huge \textbf{\textsf{$title$}}}
-  $if(subtitle)$
-  \vskip 1em
-  {\Large \textsf{$subtitle$}}
-  $endif$
-  \vskip 2em
-  \noindent {\Large \textsf{$for(author)$$author$$sep$, $endfor$}}
-  \vfill
-}
-$endif$
 
 $if(titlepage-logo)$
 \noindent
@@ -57,6 +76,7 @@ $if(titlepage-logo)$
 $endif$
 
 $if(titlepage-background)$
+$elseif(titlepage.background)$
 $else$
 \textsf{$date$}
 $endif$

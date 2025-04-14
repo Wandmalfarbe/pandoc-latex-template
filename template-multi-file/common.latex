@@ -287,3 +287,22 @@ $--
 $if(csquotes)$
 \usepackage{csquotes}
 $endif$
+
+$if(titlepage.logo)$
+\ExplSyntaxOn
+\cs_new_eq:NN \strcompare \str_if_eq:eeTF
+\ExplSyntaxOff
+\newcommand{\setAnchorParams}[1]{%
+  % Set default values
+  \def\signX{+}\def\signY{+}\def\defaultX{15mm}\def\defaultY{15mm}%
+  % Adjust parameters based on anchor point
+  \strcompare{#1}{center}{\def\defaultX{0mm}\def\defaultY{0mm}}{}%
+  \strcompare{#1}{north west}{\def\signY{-}}{}%
+  \strcompare{#1}{north}{\def\signY{-}\def\defaultX{0mm}}{}%
+  \strcompare{#1}{south}{\def\defaultX{0mm}}{}%
+  \strcompare{#1}{north east}{\def\signX{-}\def\signY{-}}{}%
+  \strcompare{#1}{east}{\def\signX{-}\def\defaultY{0mm}}{}%
+  \strcompare{#1}{west}{\def\defaultY{0mm}}{}%
+  \strcompare{#1}{south east}{\def\signX{-}}{}%
+}
+$endif$
