@@ -103,34 +103,6 @@ Here is the actual document text...
 
 This template defines some new variables to control the appearance of the resulting PDF document. The existing template variables from pandoc are all supported and their documentation can be found in [the pandoc manual](https://pandoc.org/MANUAL.html#variables-for-latex).
 
-  - `titlepage` (defaults to `false`)
-
-    turns on the title page when `true`
-
-  - `titlepage-color`
-
-    the background color of the title page. The color value must be given as an HTML hex color like `D8DE2C` without the leading number sign (`#`). When specifying the color in YAML, it is advisable to enclose it in quotes like so `titlepage-color: "D8DE2C"` to avoid the truncation of the color (e.g. `000000` becoming `0`).
-
-  - `titlepage-text-color` (defaults to `5F5F5F`)
-
-    the text color of the title page
-
-  - `titlepage-rule-color` (defaults to `435488`)
-
-    the color of the rule on the top of the title page
-
-  - `titlepage-rule-height` (defaults to `4`)
-
-    the height of the rule on the top of the title page (in points)
-
-  - `titlepage-logo`
-
-    path to an image that will be displayed on the title page. The path is always relative to where pandoc is executed. The option `--resource-path` has no effect.
-
-  - `titlepage-background`
-
-    the path to a background image for the title page. The background image is scaled to cover the entire page. In the examples folder under `titlepage-background` are a few example background images.
-
   - `page-background`
 
     the path to a background image for any page. The background image is scaled to cover the entire page. In the examples folder under `page-background` are a few example background images.
@@ -235,6 +207,120 @@ This template defines some new variables to control the appearance of the result
   - `code-block-font-size` (defaults to `\small`)
 
     LaTeX command to change the font size for code blocks. The available values are `\tiny`, `\scriptsize`, `\footnotesize`, `\small`, `\normalsize`, `\large`, `\Large`, `\LARGE`, `\huge` and `\Huge`. This option will change the font size for default code blocks using the verbatim environment and for code blocks generated with listings.
+
+### Titlepage customization
+
+You can customize the titlepage by setting attributes to the titlepage key:
+
+``` markdown
+---
+title: "The Document Title"
+author: [Example Author, Another Author]
+date: "2017-02-20"
+keywords: [Markdown, Example]
+titlepage:
+  text-color: "FFFFFF"
+  rule-height: 0
+  background: "background.pdf"
+  logo:
+    - path: "first-logo.pdf"
+      anchor: "north east"
+      xshift: 15mm
+      yshift: 15mm
+      width: 65mm
+    - path: "second-logo.pdf"
+      anchor: "south east"
+...
+
+Here is the actual document text...
+```
+
+For backwards compatibility, all keys except the floating logos, can be set as root-variables as well (both headers result in the same PDF):
+
+``` markdown
+---
+title: "The Document Title"
+author: [Example Author, Another Author]
+date: "2017-02-20"
+keywords: [Markdown, Example]
+titlepage-text-color: "FFFFFF"
+titlepage-rule-height: 0
+titlepage-background: "background.pdf"
+titlepage:
+  logo:
+    - path: "first-logo.pdf"
+      anchor: "north east"
+      xshift: 15mm
+      yshift: 15mm
+      width: 65mm
+    - path: "second-logo.pdf"
+      anchor: "south east"
+...
+
+Here is the actual document text...
+```
+
+The following variables can be set to customize the titlepage:
+
+- `titlepage` (defaults to `false`)
+
+  turns on the title page when `true`. This key is implicitly set to `true` when setting attributes to the `titlepage` parent attribute.
+
+- `color` / `titlepage-color`
+
+  the background color of the title page. The color value must be given as an HTML hex color like `D8DE2C` without the leading number sign (`#`). When specifying the color in YAML, it is advisable to enclose it in quotes like so `titlepage-color: "D8DE2C"` to avoid the truncation of the color (e.g. `000000` becoming `0`).
+
+- `text-color` / `titlepage-text-color` (defaults to `5F5F5F`)
+
+  the text color of the title page
+
+- `rule-color` / `titlepage-rule-color` (defaults to `435488`)
+
+  the color of the rule on the top of the title page
+
+- `rule-height` / `titlepage-rule-height` (defaults to `4`)
+
+  the height of the rule on the top of the title page (in points)
+
+- `titlepage-logo`
+
+  path to an image that will be displayed on the title page. The path is always relative to where pandoc is executed. The option `--resource-path` has no effect. This only allows one logo to be placed above the date on the title page. Use the logo key as attribute to the `titlepage` key to set multiple floating logos (see below).
+
+- `logo`
+
+  This field allows you to set multiple floating logos / images on the title page. You can adjust the location and size of each logo. Check out the example in `examples/title-page-logo-multi` for more details.
+
+  **Mandatory attributes:**
+  
+  - `path` the path to an image to be displayed on the title page. Relative to where pandoc is executed. You can add as many logos as you like by following the yaml list syntax for the path attribute.
+
+  **Optional attributes:**
+  
+  - `anchor` (defaults to `north east`)
+
+      the anchor point of the page where the image is anchored to, as well as the anchor point on the image.
+      Can be one of: `north west`, `north`, `north east`, `west` `center`, `east`, `south west`, `south`, `south east`.
+
+  - `xshift` (defaults to `15mm` in corners, else `0mm`)
+
+      shifts the image horizontally towards the center. You will rarely need to set negative values here, as the value is relative to the anchor point. You will need to provide the unit of measurement e.g. `pt` or `mm` (see above).
+
+  - `yshift` (defaults to `15mm` in corners, else `0mm`)
+
+      shifts the image vertically towards the center. You will rarely need to set negative values here, as the value is relative to the anchor point. You will need to provide the unit of measurement e.g. `pt` or `mm` (see above).
+
+  - `width`
+
+      set the width of the image. If set in combination with `height`, this may change the aspect ratio of the image. You will need to provide the unit of measurement e.g. `pt` or `mm` (see above).
+
+  - `height`
+
+      set the height of the image. If set in combination with `width`, this may change the aspect ratio of the image. You will need to provide the unit of measurement e.g. `pt` or `mm` (see above).
+
+- `background` / `titlepage-background`
+
+  the path to a background image for the title page. The background image is scaled to cover the entire page. In the examples folder under `titlepage-background` are a few example background images.
+
 
 ## Required LaTeX Packages
 

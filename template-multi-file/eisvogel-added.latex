@@ -8,9 +8,7 @@ $endif$
 $if(titlepage)$
 \usepackage{pagecolor}
 \usepackage{afterpage}
-$if(titlepage-background)$
 \usepackage{tikz}
-$endif$
 $if(geometry)$
 $else$
 \usepackage[margin=2.5cm,includehead=true,includefoot=true,centering]{geometry}
