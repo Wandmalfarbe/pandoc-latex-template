@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. On the [releases page](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/) you can see all released versions of the Eisvogel template and download the [latest version](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/latest).
 
+## [3.2.0] - 2025-04-26
+
+- feat: merge changes from the pandoc default LaTeX template from version 3.6.4 ([f365e85](https://github.com/jgm/pandoc-templates/commit/f365e85b94e4d2b2e901900ff1ad48d3c514a327)).
+- feat: Allow watermarking the pages with a specific text (#397, danielleberre)
+- docs: fix `hyph-utf8` link README.md (#423, danielburgmann)
+
 ## [3.1.0] - 2025-01-18
 
 - feat: Merge changes from the pandoc default LaTeX template from version 3.6 ([f1c01b0](https://github.com/jgm/pandoc-templates/commit/f1c01b0ee3562f54bfe7730939e7ec0a48769953)).
@@ -213,6 +219,7 @@ the [documentation on docker hub](https://hub.docker.com/r/pandoc/extra).
 
 - First release of the template as a ZIP file with the examples.
 
+[3.2.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v3.1.0...v3.2.0
 [3.1.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v3.0.0...v3.1.0
 [3.0.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v2.5.0...v3.0.0
 [2.5.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v2.4.2...v2.5.0
