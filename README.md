@@ -275,13 +275,13 @@ you also need to install these packages manually:
 adjustbox babel-german background bidi collectbox csquotes everypage filehook
 footmisc footnotebackref framed fvextra letltxmacro ly1 mdframed mweights
 needspace pagecolor sourcecodepro sourcesanspro titling ucharcat
-unicode-math upquote xecjk xurl zref
+unicode-math upquote xecjk xurl zref draftwatermark
 ```
 
 Install them with the following command:
 
 ``` sh
-tlmgr install soul adjustbox babel-german background bidi collectbox csquotes everypage filehook footmisc footnotebackref framed fvextra letltxmacro ly1 mdframed mweights needspace pagecolor sourcecodepro sourcesanspro titling ucharcat unicode-math upquote xecjk xurl zref
+tlmgr install soul adjustbox babel-german background bidi collectbox csquotes everypage filehook footmisc footnotebackref framed fvextra letltxmacro ly1 mdframed mweights needspace pagecolor sourcecodepro sourcesanspro titling ucharcat unicode-math upquote xecjk xurl zref draftwatermark
 ```
 
 Additional information about the different texlive packages can be found at
