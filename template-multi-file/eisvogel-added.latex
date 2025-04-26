@@ -303,10 +303,10 @@ $endif$
 $endif$
 
 %
-% Define draft watermark
+% Define watermark
 %
-$if(draft)$
+$if(watermark)$
 \usepackage{draftwatermark}
-\SetWatermarkText{$draft$}
+\SetWatermarkText{$watermark$}
 \SetWatermarkScale{.5}
 $endif$
