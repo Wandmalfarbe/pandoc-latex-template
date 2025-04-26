@@ -53,6 +53,8 @@ jobs:
         tlmgr install awesomebox fontawesome5
         # packages only needed for some examples (example boxes-with-pandoc-latex-environment-and-tcolorbox)
         tlmgr install tcolorbox pgf etoolbox environ trimspaces
+        # for the example `watermark`
+        tlmgr install draftwatermark
     - name: Generate a temporary release with single file template versions
       run: bash ./tools/release.sh 0.0.0
     - name: Build examples
