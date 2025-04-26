@@ -236,6 +236,10 @@ This template defines some new variables to control the appearance of the result
 
     LaTeX command to change the font size for code blocks. The available values are `\tiny`, `\scriptsize`, `\footnotesize`, `\small`, `\normalsize`, `\large`, `\Large`, `\LARGE`, `\huge` and `\Huge`. This option will change the font size for default code blocks using the verbatim environment and for code blocks generated with listings.
 
+  - `watermark` (defaults to none)
+
+    Displays the text provided as a watermark on each page. Useful to express that a document is work in progress, a draft, or that the document is confidential.
+
 ## Required LaTeX Packages
 
 LaTeX manages addons and additional functionality in so-called packages. You
@@ -271,13 +275,13 @@ you also need to install these packages manually:
 adjustbox babel-german background bidi collectbox csquotes everypage filehook
 footmisc footnotebackref framed fvextra letltxmacro ly1 mdframed mweights
 needspace pagecolor sourcecodepro sourcesanspro titling ucharcat
-unicode-math upquote xecjk xurl zref
+unicode-math upquote xecjk xurl zref draftwatermark
 ```
 
 Install them with the following command:
 
 ``` sh
-tlmgr install soul adjustbox babel-german background bidi collectbox csquotes everypage filehook footmisc footnotebackref framed fvextra letltxmacro ly1 mdframed mweights needspace pagecolor sourcecodepro sourcesanspro titling ucharcat unicode-math upquote xecjk xurl zref
+tlmgr install soul adjustbox babel-german background bidi collectbox csquotes everypage filehook footmisc footnotebackref framed fvextra letltxmacro ly1 mdframed mweights needspace pagecolor sourcecodepro sourcesanspro titling ucharcat unicode-math upquote xecjk xurl zref draftwatermark
 ```
 
 Additional information about the different texlive packages can be found at

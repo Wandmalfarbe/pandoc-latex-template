@@ -301,3 +301,12 @@ contents={%
 }
 $endif$
 $endif$
+
+%
+% Define watermark
+%
+$if(watermark)$
+\usepackage{draftwatermark}
+\SetWatermarkText{$watermark$}
+\SetWatermarkScale{.5}
+$endif$
