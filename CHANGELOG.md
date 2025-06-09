@@ -2,6 +2,10 @@
 
 All notable changes to this project are documented in this file. On the [releases page](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/) you can see all released versions of the Eisvogel template and download the [latest version](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/latest).
 
+## Unreleased
+
+- fix: apply consistent heading colors. Previously, only the first-level heading color (`\section`) was changed to `#282828` (RGB `40, 40, 40`). Now all the headings (`\chapter`, `\part`, `\subsubsection`, etc.) are changed, even when using `book: true`.
+
 ## [3.2.0] - 2025-04-26
 
 - feat: merge changes from the pandoc default LaTeX template from version 3.6.4 ([f365e85](https://github.com/jgm/pandoc-templates/commit/f365e85b94e4d2b2e901900ff1ad48d3c514a327)).
