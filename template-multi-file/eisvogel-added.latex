@@ -89,10 +89,17 @@ $endif$
 % heading color
 %
 \definecolor{heading-color}{RGB}{40,40,40}
-\addtokomafont{section}{\color{heading-color}}
+$if(book)$
 % When using the classes report, scrreprt, book,
-% scrbook or memoir, uncomment the following line.
-%\addtokomafont{chapter}{\color{heading-color}}
+% scrbook or memoir
+\addtokomafont{part}{\color{heading-color}}
+\addtokomafont{chapter}{\color{heading-color}}
+$endif$
+\addtokomafont{section}{\color{heading-color}}
+\addtokomafont{subsection}{\color{heading-color}}
+\addtokomafont{subsubsection}{\color{heading-color}}
+\addtokomafont{paragraph}{\color{heading-color}}
+\addtokomafont{subparagraph}{\color{heading-color}}
 
 %
 % variables for title, author and date
