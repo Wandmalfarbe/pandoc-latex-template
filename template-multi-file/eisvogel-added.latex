@@ -89,17 +89,10 @@ $endif$
 % heading color
 %
 \definecolor{heading-color}{RGB}{40,40,40}
-$if(book)$
-% When using the classes report, scrreprt, book,
-% scrbook or memoir
-\addtokomafont{part}{\color{heading-color}}
-\addtokomafont{chapter}{\color{heading-color}}
-$endif$
-\addtokomafont{section}{\color{heading-color}}
-\addtokomafont{subsection}{\color{heading-color}}
-\addtokomafont{subsubsection}{\color{heading-color}}
-\addtokomafont{paragraph}{\color{heading-color}}
-\addtokomafont{subparagraph}{\color{heading-color}}
+% By default, the KOMA-Script classes will typeset sectioning headings in
+% sans-serif. Use the normal body font for headings.
+\renewcommand*\sectfont{\normalfont\bfseries} % removed \sffamily
+\addtokomafont{disposition}{\color{heading-color}}
 
 %
 % variables for title, author and date
