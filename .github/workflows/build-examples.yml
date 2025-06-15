@@ -33,7 +33,20 @@ jobs:
         sudo apt-get update -qq && sudo apt-get install xzdec -y
         tlmgr init-usertree
     - name: setup fonts and image convertion tool
-      run: sudo apt-get update -qq && sudo apt-get install fonts-noto-cjk poppler-utils -y
+      run: sudo apt-get update -qq && sudo apt-get install fonts-noto-color-emoji fonts-noto-cjk poppler-utils -y
+    - name: install fonts
+      run: |
+        sudo mkdir /usr/local/share/fonts/eisvogel-examples-fonts
+        cd eisvogel-examples-fonts
+        sudo cp examples/unicode-emoji-noto-color-emoji/Noto_Color_Emoji/NotoColorEmoji_WindowsCompatible.ttf /usr/local/share/fonts/eisvogel-examples-fonts
+        sudo cp examples/unicode-emoji-noto-color-emoji/Noto_Sans/static/*.ttf /usr/local/share/fonts/eisvogel-examples-fonts
+        sudo cp examples/unicode-emoji-openmoji/OpenMoji/OpenMoji-color-glyf_colr_0.ttf /usr/local/share/fonts/eisvogel-examples-fonts
+        sudo cp examples/unicode-font-fallback/Noto_Sans_Cuneiform/NotoSansCuneiform-Regular.ttf /usr/local/share/fonts/eisvogel-examples-fonts
+        sudo cp examples/unicode-font-fallback/Noto_Sans_Egyptian_Hieroglyphs/NotoSansEgyptianHieroglyphs-Regular.ttf /usr/local/share/fonts/eisvogel-examples-fonts
+        sudo cp examples/unicode-font-fallback/Noto_Sans_Myanmar/NotoSansMyanmar-Regular.ttf /usr/local/share/fonts/eisvogel-examples-fonts
+        sudo cp examples/unicode-font-fallback/Noto_Sans_Oriya/NotoSansOriya-Regular.ttf /usr/local/share/fonts/eisvogel-examples-fonts
+        sudo chmod -R --reference=/usr/share/fonts/opentype /usr/local/share/fonts/eisvogel-examples-fonts
+        sudo fc-cache -fv
     - name: setup Python
       uses: actions/setup-python@v5
       with:
@@ -57,20 +70,6 @@ jobs:
         tlmgr install draftwatermark
     - name: generate a temporary release with single file template versions
       run: bash ./tools/release.sh 0.0.0
-    - name: install fonts
-      run: |
-        cd /usr/local/share/fonts
-        sudo mkdir eisvogel-examples-fonts
-        cd eisvogel-examples-fonts
-        sudo cp examples/unicode-emoji-noto-color-emoji/Noto_Color_Emoji/NotoColorEmoji_WindowsCompatible.ttf .
-        sudo cp examples/unicode-emoji-noto-color-emoji/Noto_Sans/static/*.ttf .
-        sudo cp examples/unicode-emoji-openmoji/OpenMoji/OpenMoji-color-glyf_colr_0.ttf .
-        sudo cp examples/unicode-font-fallback/Noto_Sans_Cuneiform/NotoSansCuneiform-Regular.ttf .
-        sudo cp examples/unicode-font-fallback/Noto_Sans_Egyptian_Hieroglyphs/NotoSansEgyptianHieroglyphs-Regular.ttf .
-        sudo cp examples/unicode-font-fallback/Noto_Sans_Myanmar/NotoSansMyanmar-Regular.ttf .
-        sudo cp examples/unicode-font-fallback/Noto_Sans_Oriya/NotoSansOriya-Regular.ttf .
-        sudo chmod -R --reference=/usr/share/fonts/opentype .
-        sudo fc-cache -fv
     - name: build examples
       run: cd examples && bash build-examples.sh && cd ..
     - name: add generated example files
