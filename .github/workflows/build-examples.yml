@@ -37,7 +37,6 @@ jobs:
     - name: install fonts
       run: |
         sudo mkdir /usr/local/share/fonts/eisvogel-examples-fonts
-        cd eisvogel-examples-fonts
         sudo cp examples/unicode-emoji-noto-color-emoji/Noto_Color_Emoji/NotoColorEmoji_WindowsCompatible.ttf /usr/local/share/fonts/eisvogel-examples-fonts
         sudo cp examples/unicode-emoji-noto-color-emoji/Noto_Sans/static/*.ttf /usr/local/share/fonts/eisvogel-examples-fonts
         sudo cp examples/unicode-emoji-openmoji/OpenMoji/OpenMoji-color-glyf_colr_0.ttf /usr/local/share/fonts/eisvogel-examples-fonts
