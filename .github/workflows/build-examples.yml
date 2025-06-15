@@ -9,12 +9,12 @@ jobs:
     - uses: actions/checkout@v4
       with:
         fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
-    - name: Setup pandoc
+    - name: setup pandoc
       env:
         PANDOC_VERSION: "3.5"
       run: |
         wget -qO- https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-linux-amd64.tar.gz | sudo tar xzf - --strip-components 1 -C /usr/local/
-    - name: Setup TexLive
+    - name: setup TexLive
       env:
         REMOTE: https://mirror.ctan.org/systems/texlive/tlnet
         INSTALL: '/tmp/install-texlive'
@@ -28,21 +28,21 @@ jobs:
         TEXBIN="/usr/local/texlive/${VERSION}/bin/${PLATFORM}"
         echo "${TEXBIN}" >> $GITHUB_PATH
         sudo chown -hR $(whoami) "$TEXLIVE_DIR"
-    - name: Initialization for tlmgr
+    - name: initialization for tlmgr
       run: |
         sudo apt-get update -qq && sudo apt-get install xzdec -y
         tlmgr init-usertree
-    - name: Setup fonts and image convertion tool
+    - name: setup fonts and image convertion tool
       run: sudo apt-get update -qq && sudo apt-get install fonts-noto-cjk poppler-utils -y
-    - name: Setup Python
+    - name: setup Python
       uses: actions/setup-python@v5
       with:
         python-version: '3.13'
-    - name: Install python filters
+    - name: install python filters
       run: |
         python -m pip install --upgrade pip
         pip install pandoc-latex-environment
-    - name: Install LaTeX packages
+    - name: install LaTeX packages
       run: |
         tlmgr install adjustbox background bidi csquotes footmisc footnotebackref fvextra mdframed pagecolor sourcecodepro sourcesanspro titling upquote xurl hardwrap catchfile
         # trial and error
@@ -55,23 +55,36 @@ jobs:
         tlmgr install tcolorbox pgf etoolbox environ trimspaces
         # for the example `watermark`
         tlmgr install draftwatermark
-    - name: Generate a temporary release with single file template versions
+    - name: generate a temporary release with single file template versions
       run: bash ./tools/release.sh 0.0.0
-    - name: Build examples
+    - name: install fonts
+      run: |
+        cd /usr/local/share/fonts
+        sudo mkdir eisvogel-examples-fonts
+        cd mkdir eisvogel-examples-fonts
+        sudo cp examples/unicode-emoji-noto-color-emoji/Noto_Color_Emoji/NotoColorEmoji_WindowsCompatible.ttf .
+        sudo cp examples/unicode-emoji-openmoji/OpenMoji/OpenMoji-color-glyf_colr_0.ttf .
+        sudo cp examples/unicode-font-fallback/Noto_Sans_Cuneiform/NotoSansCuneiform-Regular.ttf .
+        sudo cp examples/unicode-font-fallback/Noto_Sans_Egyptian_Hieroglyphs/NotoSansEgyptianHieroglyphs-Regular.ttf .
+        sudo cp examples/unicode-font-fallback/Noto_Sans_Myanmar/NotoSansMyanmar-Regular.ttf .
+        sudo cp examples/unicode-font-fallback/Noto_Sans_Oriya/NotoSansOriya-Regular.ttf .
+        sudo chmod -R --reference=/usr/share/fonts/opentype .
+        sudo fc-cache -fv
+    - name: build examples
       run: cd examples && bash build-examples.sh && cd ..
-    - name: Add generated example files
+    - name: add generated example files
       uses: actions/upload-artifact@v4
       with:
         name: build-files
         path: |
           examples/*/document.pdf
           examples/*/preview.png
-    - name: Commit files
+    - name: commit files
       run: |
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
         git commit -m "Add generated example files" -a
-    - name: Push changes
+    - name: push changes
       uses: ad-m/github-push-action@master
       if: github.event_name == 'push' && github.ref == 'refs/heads/master'
       with:
