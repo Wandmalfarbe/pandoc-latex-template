@@ -9,18 +9,18 @@ jobs:
     - uses: actions/checkout@v4
       with:
         fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
-    - name: setup pandoc
+    - name: install pandoc
       env:
         PANDOC_VERSION: "3.5"
       run: |
         wget -qO- https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-linux-amd64.tar.gz | sudo tar xzf - --strip-components 1 -C /usr/local/
-    - name: Setup TeX Live
+    - name: install TeX Live and install packages
       run: bash .github/scripts/setup-texlive.sh
-    - name: setup fonts and image conversion tool
-      run: sudo apt-get update -qq && sudo apt-get install fonts-noto-color-emoji fonts-noto-cjk poppler-utils -y
+    - name: install PDF conversion tool poppler
+      run: sudo apt-get update -qq && sudo apt-get install poppler-utils -y
     - name: install fonts
       run: bash .github/scripts/install-fonts.sh
-    - name: setup Python
+    - name: install Python
       uses: actions/setup-python@v5
       with:
         python-version: '3.13'
@@ -28,19 +28,6 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install pandoc-latex-environment
-    - name: install LaTeX packages
-      run: |
-        tlmgr install adjustbox background bidi csquotes footmisc footnotebackref fvextra mdframed pagecolor sourcecodepro sourcesanspro titling upquote xurl hardwrap catchfile
-        # trial and error
-        tlmgr install letltxmacro zref everypage framed collectbox
-        # packages needed for the template
-        tlmgr install xecjk filehook unicode-math ucharcat pagecolor babel-german ly1 mweights sourcecodepro sourcesanspro mdframed needspace fvextra footmisc footnotebackref background
-        # packages only needed for some examples (that include packages via header-includes)
-        tlmgr install awesomebox fontawesome5
-        # packages only needed for some examples (example boxes-with-pandoc-latex-environment-and-tcolorbox)
-        tlmgr install tcolorbox pgf etoolbox environ trimspaces
-        # for the example `watermark`
-        tlmgr install draftwatermark
     - name: generate a temporary release with single file template versions
       run: bash ./tools/release.sh 0.0.0
     - name: build examples
