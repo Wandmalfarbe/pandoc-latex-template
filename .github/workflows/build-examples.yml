@@ -15,7 +15,7 @@ jobs:
       run: |
         wget -qO- https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-linux-amd64.tar.gz | sudo tar xzf - --strip-components 1 -C /usr/local/
     - name: install TeX Live and install packages
-      run: bash .github/scripts/setup-texlive.sh
+      run: bash .github/scripts/install-texlive.sh
     - name: install PDF conversion tool poppler
       run: sudo apt-get update -qq && sudo apt-get install poppler-utils -y
     - name: install fonts
