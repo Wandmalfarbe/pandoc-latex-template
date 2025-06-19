@@ -14,25 +14,9 @@ jobs:
         PANDOC_VERSION: "3.5"
       run: |
         wget -qO- https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-linux-amd64.tar.gz | sudo tar xzf - --strip-components 1 -C /usr/local/
-    - name: setup Tex Live
-      env:
-        REMOTE: https://mirror.ctan.org/systems/texlive/tlnet
-        INSTALL: '/tmp/install-texlive'
-      run: |
-        mkdir -p ${INSTALL}
-        curl -sSL ${REMOTE}/install-tl-unx.tar.gz | tar -xzv -C $INSTALL --strip-components=1
-        sudo ${INSTALL}/install-tl -no-gui -profile texlive.profile
-        VERSION=$($INSTALL/install-tl --version | grep 'version' | grep -o '[0-9]\{4\}')
-        PLATFORM=$($INSTALL/install-tl --print-platform)
-        TEXLIVE_DIR="/usr/local/texlive/${VERSION}"
-        TEXBIN="/usr/local/texlive/${VERSION}/bin/${PLATFORM}"
-        echo "${TEXBIN}" >> $GITHUB_PATH
-        sudo chown -hR $(whoami) "$TEXLIVE_DIR"
-    - name: initialization for tlmgr
-      run: |
-        sudo apt-get update -qq && sudo apt-get install xzdec -y
-        tlmgr init-usertree
-    - name: setup fonts and image convertion tool
+    - name: Setup TeX Live
+      run: .github/scripts/setup-texlive.sh
+    - name: setup fonts and image conversion tool
       run: sudo apt-get update -qq && sudo apt-get install fonts-noto-color-emoji fonts-noto-cjk poppler-utils -y
     - name: install fonts
       run: |
