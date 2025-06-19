@@ -15,21 +15,11 @@ jobs:
       run: |
         wget -qO- https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-linux-amd64.tar.gz | sudo tar xzf - --strip-components 1 -C /usr/local/
     - name: Setup TeX Live
-      run: .github/scripts/setup-texlive.sh
+      run: bash .github/scripts/setup-texlive.sh
     - name: setup fonts and image conversion tool
       run: sudo apt-get update -qq && sudo apt-get install fonts-noto-color-emoji fonts-noto-cjk poppler-utils -y
     - name: install fonts
-      run: |
-        sudo mkdir /usr/local/share/fonts/eisvogel-examples-fonts
-        sudo cp examples/unicode-emoji-noto-color-emoji/Noto_Color_Emoji/NotoColorEmoji_WindowsCompatible.ttf /usr/local/share/fonts/eisvogel-examples-fonts
-        sudo cp examples/unicode-emoji-noto-color-emoji/Noto_Sans/static/*.ttf /usr/local/share/fonts/eisvogel-examples-fonts
-        sudo cp examples/unicode-emoji-openmoji/OpenMoji/OpenMoji-color-glyf_colr_0.ttf /usr/local/share/fonts/eisvogel-examples-fonts
-        sudo cp examples/unicode-font-fallback/Noto_Sans_Cuneiform/NotoSansCuneiform-Regular.ttf /usr/local/share/fonts/eisvogel-examples-fonts
-        sudo cp examples/unicode-font-fallback/Noto_Sans_Egyptian_Hieroglyphs/NotoSansEgyptianHieroglyphs-Regular.ttf /usr/local/share/fonts/eisvogel-examples-fonts
-        sudo cp examples/unicode-font-fallback/Noto_Sans_Myanmar/NotoSansMyanmar-Regular.ttf /usr/local/share/fonts/eisvogel-examples-fonts
-        sudo cp examples/unicode-font-fallback/Noto_Sans_Oriya/NotoSansOriya-Regular.ttf /usr/local/share/fonts/eisvogel-examples-fonts
-        sudo chmod -R --reference=/usr/share/fonts/opentype /usr/local/share/fonts/eisvogel-examples-fonts
-        sudo fc-cache -fv
+      run: bash .github/scripts/install-fonts.sh
     - name: setup Python
       uses: actions/setup-python@v5
       with:
