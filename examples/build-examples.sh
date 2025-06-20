@@ -15,6 +15,7 @@ containsElement () {
 
 # these examples are skipped because they don't run in CI builds (for now)
 skippedExamples=("language-chinese" "language-japanese")
+java_available=$(command -v java >/dev/null 2>&1 && echo true || echo false)
 
 # loop all files in the current folder
 for f in *; do
@@ -27,10 +28,10 @@ for f in *; do
         echo "building '$f'"
         cd "$f"
 
-        #if [ -f "GenerateMarkdownDocument.java" ]; then
-        #  echo "    - generating markdown document"
-        #  java GenerateMarkdownDocument.java
-        #fi
+        if [ "$java_available" = true ] && [ -f "./GenerateMarkdownDocument.java" ]; then
+          echo "    - generating markdown document"
+          java GenerateMarkdownDocument.java
+        fi
 
         echo "    - running pandoc build script"
           bash "$PWD/build.sh"
