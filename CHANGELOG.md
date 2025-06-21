@@ -4,6 +4,12 @@ All notable changes to this project are documented in this file. On the [release
 
 ## Unreleased
 
+- feat: add 3 examples for changing the document font
+  - `font-emoji-noto-color-emoji`: renders emojis with *Noto Color Emoji*
+  - `font-emoji-openmoji`: renders emojis with *OpenMoji*
+  - `font-unicode-font-fallback`: renders missing glyphs with various *Noto* fonts
+- ci: install *luatex* for rendering examples with `--pdf-engine lualatex`
+- ci: allow (optional) example document creation with Java
 - fix: apply consistent heading colors. Previously, only the first-level heading color (`\section`) was changed to `#282828` (RGB `40, 40, 40`). Now all the headings (`\chapter`, `\part`, `\subsubsection`, etc.) are changed, even when using `book: true`.
 
 ## [3.2.0] - 2025-04-26

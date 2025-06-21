@@ -52,6 +52,11 @@ $endif$
 % 'default' option sets the default
 % font family to Source Sans Pro, not \sfdefault.
 %
+% Note that the font has been officially renamed to `Source Sans 3`, and
+% the version provided by the `sourcesanspro` package is slightly outdated.
+% You can install the newer version locally and use it, for example, with
+% `mainfont: "Source Sans 3"` in the YAML metadata (requires XeTeX or LuaTeX).
+%
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   $if(fontfamily)$
   $else$
@@ -89,17 +94,9 @@ $endif$
 % heading color
 %
 \definecolor{heading-color}{RGB}{40,40,40}
-$if(book)$
-% When using the classes report, scrreprt, book,
-% scrbook or memoir
-\addtokomafont{part}{\color{heading-color}}
-\addtokomafont{chapter}{\color{heading-color}}
-$endif$
-\addtokomafont{section}{\color{heading-color}}
-\addtokomafont{subsection}{\color{heading-color}}
-\addtokomafont{subsubsection}{\color{heading-color}}
-\addtokomafont{paragraph}{\color{heading-color}}
-\addtokomafont{subparagraph}{\color{heading-color}}
+% By default, the KOMA-Script classes will typeset sectioning headings in
+% sans-serif. Use the normal body font for headings.
+\addtokomafont{disposition}{\normalfont\color{heading-color}\bfseries}
 
 %
 % variables for title, author and date

@@ -9,69 +9,42 @@ jobs:
     - uses: actions/checkout@v4
       with:
         fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
-    - name: Setup pandoc
+    - name: install pandoc
       env:
         PANDOC_VERSION: "3.5"
       run: |
         wget -qO- https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-linux-amd64.tar.gz | sudo tar xzf - --strip-components 1 -C /usr/local/
-    - name: Setup TexLive
-      env:
-        REMOTE: https://mirror.ctan.org/systems/texlive/tlnet
-        INSTALL: '/tmp/install-texlive'
-      run: |
-        mkdir -p ${INSTALL}
-        curl -sSL ${REMOTE}/install-tl-unx.tar.gz | tar -xzv -C $INSTALL --strip-components=1
-        sudo ${INSTALL}/install-tl -no-gui -profile .texlife.profile
-        VERSION=$($INSTALL/install-tl --version | grep 'version' | grep -o '[0-9]\{4\}')
-        PLATFORM=$($INSTALL/install-tl --print-platform)
-        TEXLIVE_DIR="/usr/local/texlive/${VERSION}"
-        TEXBIN="/usr/local/texlive/${VERSION}/bin/${PLATFORM}"
-        echo "${TEXBIN}" >> $GITHUB_PATH
-        sudo chown -hR $(whoami) "$TEXLIVE_DIR"
-    - name: Initialization for tlmgr
-      run: |
-        sudo apt-get update -qq && sudo apt-get install xzdec -y
-        tlmgr init-usertree
-    - name: Setup fonts and image convertion tool
-      run: sudo apt-get update -qq && sudo apt-get install fonts-noto-cjk poppler-utils -y
-    - name: Setup Python
+    - name: install TeX Live and install packages
+      run: bash .github/scripts/install-texlive.sh
+    - name: install PDF conversion tool poppler
+      run: sudo apt-get update -qq && sudo apt-get install poppler-utils -y
+    - name: install fonts
+      run: bash .github/scripts/install-fonts.sh
+    - name: install Python
       uses: actions/setup-python@v5
       with:
         python-version: '3.13'
-    - name: Install python filters
+    - name: install python filters
       run: |
         python -m pip install --upgrade pip
         pip install pandoc-latex-environment
-    - name: Install LaTeX packages
-      run: |
-        tlmgr install adjustbox background bidi csquotes footmisc footnotebackref fvextra mdframed pagecolor sourcecodepro sourcesanspro titling upquote xurl hardwrap catchfile
-        # trial and error
-        tlmgr install letltxmacro zref everypage framed collectbox
-        # packages needed for the template
-        tlmgr install xecjk filehook unicode-math ucharcat pagecolor babel-german ly1 mweights sourcecodepro sourcesanspro mdframed needspace fvextra footmisc footnotebackref background
-        # packages only needed for some examples (that include packages via header-includes)
-        tlmgr install awesomebox fontawesome5
-        # packages only needed for some examples (example boxes-with-pandoc-latex-environment-and-tcolorbox)
-        tlmgr install tcolorbox pgf etoolbox environ trimspaces
-        # for the example `watermark`
-        tlmgr install draftwatermark
-    - name: Generate a temporary release with single file template versions
+    - name: generate a temporary release with single file template versions
       run: bash ./tools/release.sh 0.0.0
-    - name: Build examples
+    - name: build examples
       run: cd examples && bash build-examples.sh && cd ..
-    - name: Add generated example files
+    - name: add generated example files
       uses: actions/upload-artifact@v4
       with:
         name: build-files
         path: |
           examples/*/document.pdf
           examples/*/preview.png
-    - name: Commit files
+    - name: commit files
       run: |
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
         git commit -m "Add generated example files" -a
-    - name: Push changes
+    - name: push changes
       uses: ad-m/github-push-action@master
       if: github.event_name == 'push' && github.ref == 'refs/heads/master'
       with:
