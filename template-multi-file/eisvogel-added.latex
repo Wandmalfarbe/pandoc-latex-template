@@ -96,7 +96,7 @@ $endif$
 \definecolor{heading-color}{RGB}{40,40,40}
 % By default, the KOMA-Script classes will typeset sectioning headings in
 % sans-serif. Use the normal body font for headings.
-\addtokomafont{disposition}{\rmfamily\color{heading-color}}
+\addtokomafont{disposition}{\normalfont\color{heading-color}\bfseries}
 
 %
 % variables for title, author and date

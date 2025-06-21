@@ -16,7 +16,7 @@ mainfontfallback:
 
 # Font: Unicode Font Fallback
 
-This example document demonstrates the usage of `mainfontfallback` for various characters that are
+This example document demonstrates the use of `mainfontfallback` for various characters that are
 not present in the regular document font. LuaTeX must be used as the PDF engine in combination
 with `mainfont` for `mainfontfallback` to take effect.
 
