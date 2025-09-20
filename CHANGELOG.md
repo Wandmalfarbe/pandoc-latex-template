@@ -2,9 +2,9 @@
 
 All notable changes to this project are documented in this file. On the [releases page](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/) you can see all released versions of the Eisvogel template and download the [latest version](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/latest).
 
-## Unreleased
+## [3.2.1] - 2025-09-20
 
-- feat: add 3 examples for changing the document font
+- docs: add three examples for changing the document font
   - `font-emoji-noto-color-emoji`: renders emojis with *Noto Color Emoji*
   - `font-emoji-openmoji`: renders emojis with *OpenMoji*
   - `font-unicode-font-fallback`: renders missing glyphs with various *Noto* fonts
@@ -229,6 +229,7 @@ the [documentation on docker hub](https://hub.docker.com/r/pandoc/extra).
 
 - First release of the template as a ZIP file with the examples.
 
+[3.2.1]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v3.2.0...v3.2.1
 [3.2.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v3.1.0...v3.2.0
 [3.1.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v3.0.0...v3.1.0
 [3.0.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v2.5.0...v3.0.0
