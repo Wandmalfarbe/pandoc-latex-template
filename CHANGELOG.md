@@ -2,6 +2,11 @@
 
 All notable changes to this project are documented in this file. On the [releases page](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/) you can see all released versions of the Eisvogel template and download the [latest version](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/latest).
 
+## [3.3.0] - 2025-11-22
+
+- feat: merge changes from the pandoc default LaTeX template from version 3.8.2.1 ([8baa07f](https://github.com/jgm/pandoc-templates/commit/8baa07f0ebb69cd2df10302e4f1f056a828ecb59)).
+    - This resolves an incompatibility between Eisvogel and pandoc >= 3.8.2.1 because of the introduction of `\newcounter{none}` in [jgm/pandoc#11201](https://github.com/jgm/pandoc/issues/11201)
+
 ## [3.2.1] - 2025-09-20
 
 - docs: add three examples for changing the document font
@@ -229,6 +234,7 @@ the [documentation on docker hub](https://hub.docker.com/r/pandoc/extra).
 
 - First release of the template as a ZIP file with the examples.
 
+[3.3.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v3.2.1...v3.3.0
 [3.2.1]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v3.2.0...v3.2.1
 [3.2.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v3.1.0...v3.2.0
 [3.1.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v3.0.0...v3.1.0
