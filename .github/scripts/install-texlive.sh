@@ -41,3 +41,5 @@ tlmgr install awesomebox fontawesome5
 tlmgr install tcolorbox pgf etoolbox environ trimspaces
 # for the example `watermark`
 tlmgr install draftwatermark
+# for the example `landscape-pdflscape`
+tlmgr install pdflscape
