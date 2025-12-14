@@ -8,6 +8,7 @@ All notable changes to this project are documented in this file. On the [release
 - feat: replace deprecated option `--highlight-style` with `--syntax-highlighting` in examples and documentation
 - fix: remove unused and outdated `docs` folder
 - fix: remove unused `tests` folder
+- ci: use [pandoc 3.8.3](https://github.com/jgm/pandoc/releases/tag/3.8.3) for CI build
 
 ## [3.3.0] - 2025-11-22
 
