@@ -57,7 +57,7 @@ open source fonts. A common use of the image looks like this
 docker run --rm \
        --volume "$(pwd):/data" \
        --user $(id -u):$(id -g) \
-       pandoc/extra example.md -o example.pdf --template eisvogel --listings
+       pandoc/extra example.md -o example.pdf --template eisvogel --syntax-highlighting idiomatic
 ```
 
 For frequent command line use, you can define the following shell alias:
@@ -69,7 +69,7 @@ alias pandock='docker run --rm -v "$(pwd):/data" -u $(id -u):$(id -g) pandoc/ext
 The example invocation with Docker from above now looks like this:
 
 ``` bash
-pandock example.md -o example.pdf --template eisvogel --listings
+pandock example.md -o example.pdf --template eisvogel --syntax-highlighting idiomatic
 ```
 
 [pandoc/extra]: https://hub.docker.com/r/pandoc/extra
@@ -81,7 +81,7 @@ pandock example.md -o example.pdf --template eisvogel --listings
 2.  Execute the following command
 
     ``` bash
-    pandoc example.md -o example.pdf --from markdown --template eisvogel --listings
+    pandoc example.md -o example.pdf --from markdown --template eisvogel --syntax-highlighting idiomatic
     ```
 
     where `example.md` is the markdown file you want to convert to PDF.
@@ -314,30 +314,30 @@ pandoc example.md -o example.pdf --template eisvogel --number-sections
 
 ### Syntax Highlighting with Listings
 
-You can get syntax highlighting of delimited code blocks by using the LaTeX package listings with the option `--listings`. This example will produce the same syntax highlighting as in the example PDF.
+You can get syntax highlighting of delimited code blocks by using the LaTeX package listings with the option `--syntax-highlighting idiomatic`. This example will produce the same syntax highlighting as in the example PDF.
 
 ``` bash
-pandoc example.md -o example.pdf --template eisvogel --listings
+pandoc example.md -o example.pdf --template eisvogel --syntax-highlighting idiomatic
 ```
 
 ### Syntax Highlighting Without Listings
 
-The following examples show [syntax highlighting of delimited code blocks](https://pandoc.org/MANUAL.html#syntax-highlighting) without using listings. To see a list of all the supported highlight styles, type `pandoc --list-highlight-styles`.
+The following examples show [syntax highlighting of delimited code blocks](https://pandoc.org/MANUAL.html#option--syntax-highlighting) without using listings. To see a list of all the supported highlight styles, type `pandoc --list-highlight-styles`.
 
 ``` bash
-pandoc example.md -o example.pdf --template eisvogel --highlight-style pygments
+pandoc example.md -o example.pdf --template eisvogel --syntax-highlighting pygments
 ```
 
 ``` bash
-pandoc example.md -o example.pdf --template eisvogel --highlight-style kate
+pandoc example.md -o example.pdf --template eisvogel --syntax-highlighting kate
 ```
 
 ``` bash
-pandoc example.md -o example.pdf --template eisvogel --highlight-style espresso
+pandoc example.md -o example.pdf --template eisvogel --syntax-highlighting espresso
 ```
 
 ``` bash
-pandoc example.md -o example.pdf --template eisvogel --highlight-style tango
+pandoc example.md -o example.pdf --template eisvogel --syntax-highlighting tango
 ```
 
 ### Standalone LaTeX Document
