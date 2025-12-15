@@ -1,0 +1,349 @@
+%%
+% LaTeX Template for "Epistemología e Historia de la Ciencia" Journal
+%
+% Based on the Eisvogel pandoc LaTeX template
+% https://github.com/Wandmalfarbe/pandoc-latex-template
+%
+% Customized for academic philosophy and history of science papers
+%%
+
+\PassOptionsToPackage{unicode$for(hyperrefoptions)$,$hyperrefoptions$$endfor$}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+$if(colorlinks)$
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+$endif$
+
+\documentclass[
+  spanish,
+$if(fontsize)$
+  $fontsize$,
+$else$
+  11pt,
+$endif$
+$if(papersize)$
+  $papersize$paper,
+$else$
+  a4paper,
+$endif$
+$for(classoption)$
+  $classoption$$sep$,
+$endfor$
+  captions=tableheading
+]{scrartcl}
+
+% Essential packages
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{graphicx}
+
+% Spanish language support
+\usepackage[spanish,es-tabla]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Typography - Use Palatino for a classic academic look
+\usepackage{mathpazo}
+\usepackage[scaled=0.95]{helvet}
+\usepackage{courier}
+\linespread{1.05}
+
+% Page geometry
+$if(geometry)$
+\usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
+$else$
+\usepackage[
+  top=2.5cm,
+  bottom=2.5cm,
+  left=2.5cm,
+  right=2.5cm,
+  includehead=true,
+  includefoot=true
+]{geometry}
+$endif$
+
+% Hyperlinks
+\usepackage{hyperref}
+\hypersetup{
+  pdftitle={$if(title)$$title$$endif$},
+  pdfauthor={$for(author)$$author$$sep$, $endfor$},
+  pdfkeywords={$for(keywords)$$keywords$$sep$, $endfor$},
+  colorlinks=true,
+  linkcolor={ehc-blue},
+  citecolor={ehc-green},
+  urlcolor={ehc-blue},
+  pdfcreator={LaTeX via pandoc - EHC Journal Template}
+}
+
+% Journal colors
+\definecolor{ehc-blue}{RGB}{0,51,102}
+\definecolor{ehc-green}{RGB}{0,102,51}
+\definecolor{ehc-gray}{RGB}{102,102,102}
+\definecolor{ehc-lightgray}{RGB}{240,240,240}
+\definecolor{ehc-rule}{RGB}{0,51,102}
+
+% Captions
+\usepackage[
+  font={small,stretch=1.1},
+  labelfont={bf,color=ehc-blue},
+  textfont={color=ehc-gray},
+  position=bottom,
+  skip=4mm,
+  singlelinecheck=false,
+  justification=justified
+]{caption}
+\setcapindent{0em}
+
+% Blockquotes - styled for philosophical texts
+\usepackage{mdframed}
+\definecolor{blockquote-border}{RGB}{0,51,102}
+\definecolor{blockquote-text}{RGB}{64,64,64}
+\newmdenv[
+  rightline=false,
+  bottomline=false,
+  topline=false,
+  linewidth=2pt,
+  linecolor=blockquote-border,
+  skipabove=\parskip,
+  skipbelow=\parskip,
+  innerleftmargin=1em,
+  innerrightmargin=0em
+]{customblockquote}
+\renewenvironment{quote}{%
+  \begin{customblockquote}%
+  \list{}{\rightmargin=0em\leftmargin=0em}%
+  \item\relax\color{blockquote-text}\small\itshape\ignorespaces
+}{%
+  \unskip\unskip\endlist\end{customblockquote}%
+}
+
+% Section headings
+\addtokomafont{disposition}{\normalfont\color{ehc-blue}\bfseries}
+\addtokomafont{section}{\Large}
+\addtokomafont{subsection}{\large}
+\addtokomafont{subsubsection}{\normalsize}
+
+% Paragraph settings
+\setlength{\parindent}{1.5em}
+\setlength{\parskip}{0pt plus 1pt}
+\setlength{\emergencystretch}{3em}
+
+% Section numbering
+$if(numbersections)$
+\setcounter{secnumdepth}{$if(secnumdepth)$$secnumdepth$$else$3$endif$}
+$else$
+\setcounter{secnumdepth}{3}
+$endif$
+
+% Tables
+$if(tables)$
+\usepackage{longtable,booktabs,array}
+\definecolor{table-row-color}{HTML}{F5F5F5}
+\definecolor{table-rule-color}{RGB}{0,51,102}
+\arrayrulecolor{table-rule-color}
+\setlength\heavyrulewidth{0.4ex}
+\renewcommand{\arraystretch}{1.3}
+$endif$
+
+% Lists
+\usepackage{enumitem}
+\setlist[itemize]{topsep=0pt,itemsep=2pt,parsep=0pt}
+\setlist[enumerate]{topsep=0pt,itemsep=2pt,parsep=0pt}
+
+% Footnotes - important for philosophical texts
+\usepackage[hang,flushmargin,bottom,multiple]{footmisc}
+\setlength{\footnotemargin}{0.8em}
+\setlength{\footnotesep}{\baselineskip}
+\setlength{\skip\footins}{1cm}
+\renewcommand{\footnoterule}{%
+  \kern -3pt
+  {\color{ehc-blue}\hrule width 2in height 0.4pt}
+  \kern 2.6pt
+}
+
+% Bibliography support
+$if(natbib)$
+\usepackage[$natbiboptions$]{natbib}
+\bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
+$endif$
+$if(biblatex)$
+\usepackage[$if(biblio-style)$style=$biblio-style$,$endif$$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$]{biblatex}
+$for(bibliography)$
+\addbibresource{$bibliography$}
+$endfor$
+$endif$
+
+% Quotes package for proper Spanish quotation marks
+\usepackage{csquotes}
+
+% Header includes
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+% Header and footer
+\usepackage[headsepline,footsepline]{scrlayer-scrpage}
+\newpairofpagestyles{ehc-header-footer}{
+  \clearpairofpagestyles
+  \ihead*{\small\textit{$if(header-left)$$header-left$$else$Epistemología e Historia de la Ciencia$endif$}}
+  \chead*{}
+  \ohead*{\small\textit{$if(header-right)$$header-right$$else$$if(shorttitle)$$shorttitle$$else$$title$$endif$$endif$}}
+  \ifoot*{\small$if(footer-left)$$footer-left$$else$$if(volume)$Vol. $volume$$if(number)$($number$)$endif$$if(year)$, $year$$endif$$endif$$endif$}
+  \cfoot*{}
+  \ofoot*{\small\thepage}
+  \addtokomafont{pageheadfoot}{\upshape\color{ehc-gray}}
+  \setkomafont{headsepline}{\color{ehc-blue}}
+  \setkomafont{footsepline}{\color{ehc-blue}}
+}
+\pagestyle{ehc-header-footer}
+
+% Title information
+\usepackage{titling}
+\title{$if(title)$$title$$endif$}
+\author{$for(author)$$author$$sep$, $endfor$}
+\date{$if(date)$$date$$endif$}
+
+% Custom title page command
+\newcommand{\ehcmaketitle}{%
+  \begin{center}
+    % Journal header
+    {\color{ehc-blue}\rule{\textwidth}{1pt}}
+    \vspace{0.3cm}
+
+    {\Large\scshape\color{ehc-blue} Epistemología e Historia de la Ciencia}
+
+    \vspace{0.2cm}
+
+    $if(volume)$
+    {\small Vol. $volume$$if(number)$, N.º $number$$endif$$if(year)$ ($year$)$endif$$if(pages)$, pp. $pages$$endif$}
+    $endif$
+
+    $if(issn)$
+    {\small ISSN: $issn$}
+    $endif$
+
+    \vspace{0.2cm}
+    {\color{ehc-blue}\rule{\textwidth}{1pt}}
+
+    \vspace{1.5cm}
+
+    % Article title
+    {\LARGE\bfseries\color{ehc-blue} $title$\par}
+
+    $if(subtitle)$
+    \vspace{0.5cm}
+    {\Large\color{ehc-gray} $subtitle$\par}
+    $endif$
+
+    \vspace{1cm}
+
+    % Authors
+    $for(author)$
+    $if(author.name)$
+    {\large\bfseries $author.name$}\\
+    $if(author.affiliation)$
+    {\small\color{ehc-gray} $author.affiliation$}\\
+    $endif$
+    $if(author.email)$
+    {\small\color{ehc-blue}\href{mailto:$author.email$}{$author.email$}}\\
+    $endif$
+    $if(author.orcid)$
+    {\small\color{ehc-gray} ORCID: \href{https://orcid.org/$author.orcid$}{$author.orcid$}}\\
+    $endif$
+    \vspace{0.3cm}
+    $else$
+    {\large\bfseries $author$}\\
+    \vspace{0.3cm}
+    $endif$
+    $endfor$
+
+    \vspace{0.5cm}
+
+    $if(received)$
+    {\small\color{ehc-gray} Recibido: $received$$if(accepted)$ | Aceptado: $accepted$$endif$$if(published)$ | Publicado: $published$$endif$}
+    $endif$
+
+  \end{center}
+
+  \vspace{1cm}
+
+  % Abstract
+  $if(abstract)$
+  \begin{center}
+  \begin{minipage}{0.9\textwidth}
+    \noindent{\small\bfseries\color{ehc-blue} Resumen}\\[0.3em]
+    {\small $abstract$}
+
+    $if(keywords)$
+    \vspace{0.5em}
+    \noindent{\small\bfseries\color{ehc-blue} Palabras clave:} {\small $for(keywords)$$keywords$$sep$; $endfor$}
+    $endif$
+  \end{minipage}
+  \end{center}
+  $endif$
+
+  % English abstract if provided
+  $if(abstract-en)$
+  \vspace{0.5cm}
+  \begin{center}
+  \begin{minipage}{0.9\textwidth}
+    \noindent{\small\bfseries\color{ehc-blue} Abstract}\\[0.3em]
+    {\small $abstract-en$}
+
+    $if(keywords-en)$
+    \vspace{0.5em}
+    \noindent{\small\bfseries\color{ehc-blue} Keywords:} {\small $for(keywords-en)$$keywords-en$$sep$; $endfor$}
+    $endif$
+  \end{minipage}
+  \end{center}
+  $endif$
+
+  \vspace{1cm}
+  {\color{ehc-blue}\rule{\textwidth}{0.5pt}}
+  \vspace{0.5cm}
+}
+
+\begin{document}
+
+% Generate title page
+\ehcmaketitle
+
+$for(include-before)$
+$include-before$
+$endfor$
+
+% Table of contents (optional)
+$if(toc)$
+{
+\hypersetup{linkcolor=ehc-blue}
+\setcounter{tocdepth}{$if(toc-depth)$$toc-depth$$else$3$endif$}
+\renewcommand*\contentsname{Índice}
+\tableofcontents
+\newpage
+}
+$endif$
+
+% Line stretch for body
+$if(linestretch)$
+\setstretch{$linestretch$}
+$endif$
+
+% Main content
+$body$
+
+% Bibliography
+$if(natbib)$
+$if(bibliography)$
+\renewcommand\refname{Referencias}
+\bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
+$endif$
+$endif$
+$if(biblatex)$
+\renewcommand\bibname{Referencias}
+\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
+$endif$
+
+$for(include-after)$
+$include-after$
+$endfor$
+
+\end{document}
