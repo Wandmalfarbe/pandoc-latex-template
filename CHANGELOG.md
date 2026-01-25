@@ -4,6 +4,7 @@ All notable changes to this project are documented in this file. On the [release
 
 ## Unreleased
 
+- docs: Add example `github-alerts` that demonstrates how [GitHub-style Markdown alerts] are supported with the help of a small Lua filter.
 - feat: replace deprecated option `--listings` with `--syntax-highlighting idiomatic` in examples and documentation
 - feat: replace deprecated option `--highlight-style` with `--syntax-highlighting` in examples and documentation
 - fix: remove unused and outdated `docs` folder
@@ -268,3 +269,5 @@ the [documentation on docker hub](https://hub.docker.com/r/pandoc/extra).
 [1.2.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/1.1.0...v1.2.0
 [1.1.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v1.0.0...1.1.0
 [1.0.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/releases/tag/v1.0.0
+
+[GitHub-style Markdown alerts]: https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts
