@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 
-echo "XDG_CONFIG_HOME $XDG_CONFIG_HOME"
-BASE_DIR="${XDG_CONFIG_HOME:-$HOME/.local/share}"
+echo "XDG_DATA_HOME XDG_DATA_HOME"
+BASE_DIR="${XDG_DATA_HOME:-$HOME/.local/share}"
 echo "BASE_DIR $BASE_DIR"
 PANDOC_DATA_DIR="$BASE_DIR/pandoc/filters"
 echo "PANDOC_DATA_DIR $PANDOC_DATA_DIR"
