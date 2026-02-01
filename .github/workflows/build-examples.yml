@@ -1,6 +1,10 @@
 name: Build Example PDF files
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
 
 jobs:
   build:
@@ -39,6 +43,9 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install pandoc-latex-environment
+
+    - name: install Lua filters
+      run: bash .github/scripts/install-lua-filters.sh
 
     - name: generate a temporary release with single file template versions
       run: bash ./tools/release.sh 0.0.0
