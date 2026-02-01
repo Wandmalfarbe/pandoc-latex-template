@@ -6,6 +6,10 @@ subject: "Markdown"
 keywords: [Markdown, Example, Diagram, Filter, Mermaid]
 lang: "en"
 colorlinks: true
+diagram:
+  engine:
+    mermaid:
+      execpath: ['mmdc', '-p', 'puppeteer-config.json']
 ...
 
 # Mermaid Diagrams
