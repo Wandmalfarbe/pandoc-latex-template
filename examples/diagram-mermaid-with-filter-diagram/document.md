@@ -1,7 +1,7 @@
 ---
 title: "Mermaid Diagrams"
 author: [Pascal Wagler]
-date: "2025-12-13"
+date: "2026-02-01"
 subject: "Markdown"
 keywords: [Markdown, Example, Diagram, Filter, Mermaid]
 lang: "en"
