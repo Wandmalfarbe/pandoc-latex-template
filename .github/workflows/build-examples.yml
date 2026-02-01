@@ -19,6 +19,7 @@ jobs:
         PANDOC_VERSION: "3.8.3"
       run: |
         wget -qO- https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-linux-amd64.tar.gz | sudo tar xzf - --strip-components 1 -C /usr/local/
+        pandoc --version
 
     - name: install TeX Live and install packages
       run: bash .github/scripts/install-texlive.sh
