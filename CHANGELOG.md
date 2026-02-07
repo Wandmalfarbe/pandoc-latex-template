@@ -4,6 +4,8 @@ All notable changes to this project are documented in this file. On the [release
 
 ## Unreleased
 
+- ci: use [pandoc 3.9](https://github.com/jgm/pandoc/releases/tag/3.9) for CI build
+- feat: merge changes from the pandoc default LaTeX template from version 3.9 ([e5102b4](https://github.com/jgm/pandoc-templates/commit/e5102b482957a8900dccb2771b0f911a8399edbb)).
 - docs: Add example `github-alerts` that demonstrates how [GitHub-style Markdown alerts] are supported with the help of a small Lua filter.
 - feat: replace deprecated option `--listings` with `--syntax-highlighting idiomatic` in examples and documentation
 - feat: replace deprecated option `--highlight-style` with `--syntax-highlighting` in examples and documentation
