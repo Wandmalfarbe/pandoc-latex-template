@@ -1,6 +1,10 @@
 name: Build Example PDF files
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
 
 jobs:
   build:
@@ -11,7 +15,7 @@ jobs:
         fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
     - name: install pandoc
       env:
-        PANDOC_VERSION: "3.8.3"
+        PANDOC_VERSION: "3.9"
       run: |
         wget -qO- https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-linux-amd64.tar.gz | sudo tar xzf - --strip-components 1 -C /usr/local/
     - name: install TeX Live and install packages

@@ -1,6 +1,6 @@
 %%
-% Copyright (c) 2017 - 2025, Pascal Wagler;
-% Copyright (c) 2014 - 2025, John MacFarlane
+% Copyright (c) 2017 - 2026, Pascal Wagler;
+% Copyright (c) 2014 - 2026, John MacFarlane
 %
 % All rights reserved.
 %
@@ -39,6 +39,7 @@
 % For usage information and examples visit the official GitHub page:
 % https://github.com/Wandmalfarbe/pandoc-latex-template
 %%
+$document-metadata.latex()$
 $passoptions.latex()$
 \documentclass[
 $for(babel-otherlangs)$
