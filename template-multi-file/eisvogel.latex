@@ -39,6 +39,7 @@
 % For usage information and examples visit the official GitHub page:
 % https://github.com/Wandmalfarbe/pandoc-latex-template
 %%
+$document-metadata.latex()$
 $passoptions.latex()$
 \documentclass[
 $for(babel-otherlangs)$
