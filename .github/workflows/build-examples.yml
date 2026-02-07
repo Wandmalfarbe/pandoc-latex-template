@@ -1,10 +1,6 @@
 name: Build Example PDF files
 
-on:
-  push:
-    branches:
-      - master
-  pull_request:
+on: [push, pull_request]
 
 jobs:
   build:
@@ -13,50 +9,29 @@ jobs:
     - uses: actions/checkout@v4
       with:
         fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
-
     - name: install pandoc
       env:
         PANDOC_VERSION: "3.8.3"
       run: |
         wget -qO- https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-linux-amd64.tar.gz | sudo tar xzf - --strip-components 1 -C /usr/local/
-        pandoc --version
-
     - name: install TeX Live and install packages
       run: bash .github/scripts/install-texlive.sh
-
     - name: install PDF conversion tool poppler
       run: sudo apt-get update -qq && sudo apt-get install poppler-utils -y
-
     - name: install fonts
       run: bash .github/scripts/install-fonts.sh
-
-    - name: install Node.js
-      uses: actions/setup-node@v6
-      with:
-        node-version: 'lts/*'
-
-    - name: install Node.js dependencies
-      run: bash .github/scripts/install-nodejs-dependencies.sh
-
     - name: install Python
       uses: actions/setup-python@v5
       with:
         python-version: '3.13'
-
-    - name: install Python filters
+    - name: install python filters
       run: |
         python -m pip install --upgrade pip
         pip install pandoc-latex-environment
-
-    - name: install Lua filters
-      run: bash .github/scripts/install-lua-filters.sh
-
     - name: generate a temporary release with single file template versions
       run: bash ./tools/release.sh 0.0.0
-
     - name: build examples
       run: cd examples && bash build-examples.sh && cd ..
-
     - name: add generated example files
       uses: actions/upload-artifact@v4
       with:
@@ -64,13 +39,11 @@ jobs:
         path: |
           examples/*/document.pdf
           examples/*/preview.png
-
     - name: commit files
       run: |
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
         git commit -m "Add generated example files" -a
-
     - name: push changes
       uses: ad-m/github-push-action@master
       if: github.event_name == 'push' && github.ref == 'refs/heads/master'
