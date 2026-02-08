@@ -2,16 +2,15 @@
 
 All notable changes to this project are documented in this file. On the [releases page](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/) you can see all released versions of the Eisvogel template and download the [latest version](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/latest).
 
-## Unreleased
+## [3.4.0] - 2026-02-08
 
-- ci: use [pandoc 3.9](https://github.com/jgm/pandoc/releases/tag/3.9) for CI build
 - feat: merge changes from the pandoc default LaTeX template from version 3.9 ([e5102b4](https://github.com/jgm/pandoc-templates/commit/e5102b482957a8900dccb2771b0f911a8399edbb)).
+- ci: use [pandoc 3.9](https://github.com/jgm/pandoc/releases/tag/3.9) for CI build
 - docs: Add example `github-alerts` that demonstrates how [GitHub-style Markdown alerts] are supported with the help of a small Lua filter.
 - feat: replace deprecated option `--listings` with `--syntax-highlighting idiomatic` in examples and documentation
 - feat: replace deprecated option `--highlight-style` with `--syntax-highlighting` in examples and documentation
 - fix: remove unused and outdated `docs` folder
 - fix: remove unused `tests` folder
-- ci: use [pandoc 3.8.3](https://github.com/jgm/pandoc/releases/tag/3.8.3) for CI build
 
 ## [3.3.0] - 2025-11-22
 
