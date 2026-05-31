@@ -43,3 +43,5 @@ tlmgr install tcolorbox pgf etoolbox environ trimspaces
 tlmgr install draftwatermark
 # for the example `landscape-pdflscape`
 tlmgr install pdflscape
+# for the example `beamer-theme-moloch`
+tlmgr install moloch
