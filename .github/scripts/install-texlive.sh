@@ -44,4 +44,4 @@ tlmgr install draftwatermark
 # for the example `landscape-pdflscape`
 tlmgr install pdflscape
 # for the example `beamer-theme-moloch`
-tlmgr install moloch
+tlmgr install moloch tikz pgfopts etoolbox calc
