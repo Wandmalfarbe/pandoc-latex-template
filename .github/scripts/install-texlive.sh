@@ -30,11 +30,11 @@ tlmgr init-usertree
 
 # install LaTeX packages that are not included via the texlive.profile but are needed for some examples
 
-tlmgr install adjustbox background bidi csquotes footmisc footnotebackref fvextra mdframed pagecolor sourcecodepro sourcesanspro titling upquote xurl hardwrap catchfile
+tlmgr install adjustbox background bidi csquotes footmisc footnotebackref fvextra mdframed pagecolor sourcecodepro sourcesans titling upquote xurl hardwrap catchfile
 # trial and error
 tlmgr install letltxmacro zref everypage framed collectbox
 # packages needed for the template
-tlmgr install xecjk filehook unicode-math ucharcat pagecolor babel-german ly1 mweights sourcecodepro sourcesanspro mdframed needspace fvextra footmisc footnotebackref background
+tlmgr install xecjk filehook unicode-math ucharcat pagecolor babel-german ly1 mweights sourcecodepro sourcesans mdframed needspace fvextra footmisc footnotebackref background
 # packages only needed for some examples (that include packages via header-includes)
 tlmgr install awesomebox fontawesome5
 # packages only needed for some examples (example boxes-with-pandoc-latex-environment-and-tcolorbox)
