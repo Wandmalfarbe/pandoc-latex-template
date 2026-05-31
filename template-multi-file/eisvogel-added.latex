@@ -46,27 +46,23 @@ $endif$
 \item\relax\color{blockquote-text}\ignorespaces}{\unskip\unskip\endlist\end{customblockquote}}
 
 %
-% Source Sans Pro as the default font family
+% Source Sans as the default font family
 % Source Code Pro for monospace text
 %
 % 'default' option sets the default
-% font family to Source Sans Pro, not \sfdefault.
+% font family to Source Sans, not \sfdefault.
 %
-% Note that the font has been officially renamed to `Source Sans 3`, and
-% the version provided by the `sourcesanspro` package is slightly outdated.
-% You can install the newer version locally and use it, for example, with
-% `mainfont: "Source Sans 3"` in the YAML metadata (requires XeTeX or LuaTeX).
 %
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   $if(fontfamily)$
   $else$
-  \usepackage[default]{sourcesanspro}
+  \usepackage[default]{sourcesans}
   \usepackage{sourcecodepro}
   $endif$
 \else % if not pdftex
   $if(mainfont)$
   $else$
-  \usepackage[default]{sourcesanspro}
+  \usepackage[default]{sourcesans}
   \usepackage{sourcecodepro}
 
   % XeLaTeX specific adjustments for straight quotes: https://tex.stackexchange.com/a/354887
