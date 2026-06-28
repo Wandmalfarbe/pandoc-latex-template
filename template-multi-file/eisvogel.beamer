@@ -50,6 +50,8 @@ $if(handout)$
 $endif$
 $if(aspectratio)$
   aspectratio=$aspectratio$,
+$else$
+  aspectratio=169,
 $endif$
 $if(babel-lang)$
   $babel-lang$,
@@ -124,6 +126,68 @@ $fonts.latex()$
 $-- Set Beamer theme before user font settings so they can override theme
 $if(theme)$
 \usetheme[$for(themeoptions)$$themeoptions$$sep$,$endfor$]{$theme$}
+$else$
+
+$if(fontfamily)$
+$else$
+\usepackage[default]{sourcesans}
+\usepackage{sourcecodepro}
+$endif$
+
+\usetheme{moloch}
+
+% Customize colors for both variants
+\definecolor{main}{HTML}{05386e}
+\definecolor{main2}{HTML}{23529C}
+\definecolor{main3}{HTML}{E0EBFF}
+\definecolor{main4}{HTML}{042f5d}
+\definecolor{main5}{HTML}{e6f2fd}
+\definecolor{subtle}{HTML}{ececec}
+\definecolor{alert}{HTML}{FF6E00}
+\definecolor{heading}{HTML}{282828}
+\definecolor{textm}{HTML}{3C3C3C}
+\definecolor{bg}{HTML}{FAFCFC}
+\definecolor{listing-background}{HTML}{F7F7F7}
+\definecolor{listing-rule}{HTML}{B3B2B3}
+\definecolor{listing-numbers}{HTML}{B3B2B3}
+\definecolor{listing-text-color}{HTML}{000000}
+\definecolor{listing-keyword}{HTML}{435489}
+\definecolor{listing-keyword-2}{HTML}{1284CA} % additional keywords
+\definecolor{listing-keyword-3}{HTML}{9137CB} % additional keywords
+\definecolor{listing-identifier}{HTML}{435489}
+\definecolor{listing-string}{HTML}{00999A}
+\definecolor{listing-comment}{HTML}{8E8E8E}
+\molochcolors{
+  variant=light,
+  light/alerted text=alert,
+  dark/alerted text=alert,
+  light/example text=listing-string,
+  dark/example text=listing-string,
+  light/normal text fg=textm,
+  dark/normal text fg=white,
+  light/normal text bg=bg,
+  dark/normal text bg=main,
+  light/frametitle fg=main,
+  dark/frametitle fg=white,
+  light/frametitle bg=subtle,
+  dark/frametitle bg=main4,
+  light/progressbar fg=listing-keyword-3,
+  dark/progressbar fg=listing-keyword-3,
+  light/progressbar bg=listing-rule,
+  dark/progressbar bg=listing-rule,
+  light/title separator=listing-keyword-3,
+  dark/title separator=listing-keyword-3,
+  light/standout fg=white,
+  dark/standout fg=main2,
+  light/standout bg=main2
+  dark/standout bg=white
+}
+
+\molochset{
+  block=fill,
+  %progressbar linewidth=4pt,
+  %titleseparator linewidth=4pt
+}
 $endif$
 $if(colortheme)$
 \usecolortheme[$for(colorthemeoptions)$$colorthemeoptions$$sep$,$endfor$]{$colortheme$}
