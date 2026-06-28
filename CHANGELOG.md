@@ -2,6 +2,16 @@
 
 All notable changes to this project are documented in this file. On the [releases page](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/) you can see all released versions of the Eisvogel template and download the [latest version](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/latest).
 
+## [3.5.0] - 2026-06-28
+
+- fix: change `SEDOPTION` in `release.sh` to index (#409, #457, SandyJackson)
+- feat: add example `beamer-theme-moloch`
+  - add an example for the LaTeX Beamer theme Moloch (https://github.com/jolars/moloch, https://moloch.ink/)
+- chore: migrate from `sourcesanspro` to `sourcesans`
+  - remove XeLaTeX workaround for straight quotes (#454, #79)
+  - remove if else construct for XeLaTeX workaround
+- feat: allow users to customize paragraph indentation (#453, Jack77793)
+
 ## [3.4.0] - 2026-02-08
 
 - feat: merge changes from the pandoc default LaTeX template from version 3.9 ([e5102b4](https://github.com/jgm/pandoc-templates/commit/e5102b482957a8900dccb2771b0f911a8399edbb)).
@@ -244,6 +254,7 @@ the [documentation on docker hub](https://hub.docker.com/r/pandoc/extra).
 
 - First release of the template as a ZIP file with the examples.
 
+[3.5.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v3.4.0...v3.5.0
 [3.4.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v3.3.0...v3.4.0
 [3.3.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v3.2.1...v3.3.0
 [3.2.1]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v3.2.0...v3.2.1
